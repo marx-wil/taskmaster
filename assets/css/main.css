@@ -169,6 +169,7 @@ body
 {
     height: 100vh;
     background-color: var(--white) !important;
+    box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
 }
 .sn-header
 {
@@ -220,4 +221,18 @@ body
 .sn-username:hover
 {
     opacity: .9;
+}
+@media (max-width: 1200px) {
+    #sidenav {
+        background-color: var(--white) !important;
+        position: fixed;
+        margin-left: -300px !important;
+        z-index: 99;
+        box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
+        height: 100vh
+    }
+
+    .nav-container {
+        grid-template-columns: 1fr 2fr;
+    }
 }
