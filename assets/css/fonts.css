@@ -1,62 +1,73 @@
+.dm-sans {
+    font-family: "DM Sans", sans-serif;
+}
 
 .dm-sans-100 {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100 !important;
+    font-style: normal;
 }
+
 .dm-sans-200 {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 200;
-  font-style: normal;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200 !important;
+    font-style: normal;
 }
 
 .dm-sans-300 {
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 300 !important;
     font-style: normal;
-  }
-  
+}
+
 .dm-sans-400 {
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 400 !important;
     font-style: normal;
-  }
-  
+}
+
 .dm-sans-500 {
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 500;
+    font-weight: 500 !important;
     font-style: normal;
-  }
-  
+}
+
 .dm-sans-600 {
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 600;
+    font-weight: 600 !important;
     font-style: normal;
-  }
-  .dm-sans-700 {
+}
+
+.dm-sans-700 {
     font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 700;
+    font-weight: 700 !important;
     font-style: normal;
-  }
-  
-  .dm-sans-800 {
-      font-family: "DM Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 800;
-      font-style: normal;
-    }
-    
-  .dm-sans-900 {
-      font-family: "DM Sans", sans-serif;
-      font-optical-sizing: auto;
-      font-weight: 900;
-      font-style: normal;
-    }
-    
+}
+
+.dm-sans-800 {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800 !important;
+    font-style: normal;
+}
+
+.dm-sans-900 {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900 !important;
+    font-style: normal;
+}
+
+.dm-sans-bolder {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bolder !important;
+    font-style: normal;
+}

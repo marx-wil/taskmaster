@@ -16,33 +16,49 @@
         <link
             href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
             rel="stylesheet">
-            <link rel="stylesheet" href="assets/css/fonts.css">
+        <link rel="stylesheet" href="assets/css/fonts.css">
     </head>
     <body>
         <main class="d-flex flex-nowrap">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary"
-                id="sidenav" style="width: 280px;">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary  overflow-y-scroll overflow-x-hidden"
+                id="sidenav" style="width: 300px;">
                 <div class="container w-100 px-2 py-3 text-center">
-                    <span class="fs-3 dm-sans-600">
+                    <span class="fs-2 dm-sans-700 sn-header color-brand-700">
                         <i class="fa-solid fa-bars-progress"></i>
-                        Task<span class="dm-sans-800 color-navy-700">Master</span>
+                        Task<span class="color-brand-700">Master</span>
                     </span>
                 </div>
                 <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active" aria-current="page">
-                            <svg class="bi pe-none me-2" width="16"
-                                height="16"><use xlink:href="#home"></use></svg>
-                            NAV 1
+                <ul class="nav nav-pills flex-column mb-auto dm-sans-500">
+                    <li class="nav-item py-1">
+                        <a href="#" class="nav-link active py-3"
+                            aria-current="page">
+                            <i class="fa-solid fa-chart-area p-2 sn-icon"></i>
+                            <span>&nbsp;Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link link-body-emphasis">
-                            <svg class="bi pe-none me-2" width="16"
-                                height="16"><use
-                                    xlink:href="#people-circle"></use></svg>
-                            NAV 2
+                    <li class="nav-item py-1">
+                        <a href="#" class="nav-link link-body-emphasis py-3">
+                            <i class="fa-solid fa-list p-2 sn-icon"></i>
+                                <span>&nbsp;Tasks</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a href="#" class="nav-link link-body-emphasis py-3">
+                            <i class="fa-solid fa-clock-rotate-left p-2 sn-icon"></i>
+                                <span>&nbsp;History</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a href="#" class="nav-link link-body-emphasis py-3">
+                            <i class="fa-solid fa-gear p-2 sn-icon"></i>
+                                <span>&nbsp;Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item py-1">
+                        <a href="#" class="nav-link link-body-emphasis py-3">
+                            <i class="fa-solid fa-circle-question p-2 sn-icon"></i>
+                                <span>&nbsp;Help Center</span>
                         </a>
                     </li>
                 </ul>
@@ -51,9 +67,11 @@
                     <a href="#"
                         class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="https://avatars.githubusercontent.com/u/50767502?s=400&u=3491d369367395bcd7ea719e6593d5387dc80764&v=4" alt width="32"
+                        <img
+                            src="https://avatars.githubusercontent.com/u/50767502?s=400&u=3491d369367395bcd7ea719e6593d5387dc80764&v=4"
+                            alt width="32"
                             height="32" class="rounded-circle me-2">
-                        <strong>WM</strong>
+                        <strong class="sn-username dm-sans fw-bold">Wilmarx</strong>
                     </a>
                     <ul class="dropdown-menu text-small shadow">
                         <li><a class="dropdown-item" href="#">New
