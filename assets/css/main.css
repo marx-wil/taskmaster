@@ -1,32 +1,21 @@
 :root
 {
-    --brand-100:#E9E3FF;
-    --brand-200:#422AFB;
-    --brand-300:#422AFB;
-    --brand-400:#7551FF;
-    --brand-500:#422AFB;
-    --brand-600:#3311DB;
-    --brand-700:#02044A;
-    --brand-800:#190793;
-    --brand-900:#11047A;
-    --navy-50:#d0dcfb;
-    --navy-100:#aac0fe;
-    --navy-200:#a3b9f8;
-    --navy-300:#728fea;
-    --navy-400:#3652ba;
-    --navy-500:#1b3bbb;
-    --navy-600:#24388a;
-    --navy-700:#1B254B;
-    --navy-800:#111c44;
-    --navy-900:#0b1437;
-    --navy:#1b3bbb;
-    --white:#fff;
-    --black:#000;
+    --color-active:#4880FF;
+    --white:#ffffff;
+    --black:#202224;
 }
 html,
 body
 {
     background-color: var(--white) !important;
+}
+.color-primary
+{
+    color:var(--color-active) !important;
+}
+.color-dark
+{
+    color:var(--black) !important;
 }
 #sidenav::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -49,122 +38,6 @@ body
     opacity: .6;
 }
 
-.color-brand-100
-{
-    color:var(--brand-100) !important;
-}
-.color-brand-200
-{
-    color:var(--brand-200) !important;
-}
-.color-brand-300
-{
-    color:var(--brand-300) !important;
-}
-.color-brand-400
-{
-    color:var(--brand-400) !important;
-}
-.color-brand-500
-{
-    color:var(--brand-500) !important;
-}
-.color-brand-600
-{
-    color:var(--brand-600) !important;
-}
-.color-brand-700
-{
-    color:var(--brand-700) !important;
-}
-.color-brand-800
-{
-    color:var(--brand-800) !important;
-}
-.color-brand-900
-{
-    color:var(--brand-900) !important;
-}
-.color-navy-50
-{
-    color:var(--navy-50) !important;
-}
-.color-navy-100
-{
-    color:var(--navy-100) !important;
-}
-.color-navy-200
-{
-    color:var(--navy-200) !important;
-}
-.color-navy-300
-{
-    color:var(--navy-300) !important;
-}
-.color-navy-400
-{
-    color:var(--navy-400) !important;
-}
-.color-navy-500
-{
-    color:var(--navy-500) !important;
-}
-.color-navy-600
-{
-    color:var(--navy-600) !important;
-}
-.color-navy-700
-{
-    color:var(--navy-700) !important;
-}
-.color-navy-800
-{
-    color:var(--navy-800) !important;
-}
-.color-navy-900
-{
-    color:var(--navy-900) !important;
-}
-.opaq-100
-{
-    opacity: .1 !important;
-}
-.opaq-200
-{
-    opacity: .2 !important;
-}
-.opaq-300
-{
-    opacity: .3 !important;
-}
-.opaq-400
-{
-    opacity: .4 !important;
-}
-.opaq-500
-{
-    opacity: .5 !important;
-}
-.opaq-600
-{
-    opacity: .6 !important;
-}
-.opaq-700
-{
-    opacity: .7 !important;
-}
-.opaq-800
-{
-    opacity: .8 !important;
-}
-.opaq-900
-{
-    opacity: .9 !important;
-}
-.opaq
-{
-    opacity: 1 !important;
-}
 #sidenav
 {
     height: 100vh;
@@ -178,36 +51,37 @@ body
 }
 .nav-item a.nav-link span
 {
-    letter-spacing: -0.5px;
-    opacity: .7;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.3px;
     color:var(--black);
-    font-weight: 700;
     line-height: 1.5;
 }
 .nav-item a.nav-link.active span
 {
-    opacity: 1;
     color:var(--white)
 }
 .nav-item a.nav-link.active
 {
-    background-color: var(--brand-800);
+    background-color: var(--color-active);
+}
+.nav-item a.nav-link:hover span,.nav-item a.nav-link:hover
+{
+    color: var(--color-active) !important;
 }
 .nav-item a.nav-link i
 {
     border-radius: 8px;
-    background-color: var(--brand-800);
-    color:var(--white)
+    /* background-color: var(--color-active); */
+    /* color:var(--white) */
 }
 .nav-item a.nav-link.active i
 {
-    opacity: 1;
     background-color: var(--white);
-    color:var(--brand-800)
+    color:var(--color-active);
+    box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
 }
 .nav-item a.nav-link:hover span
 {
-    opacity: .9;
     transition: all .2s ease;
 }
 .sn-username
