@@ -1,0 +1,67 @@
+:root
+{
+    --brand-100:#E9E3FF;
+    --brand-200:#422AFB;
+    --brand-300:#422AFB;
+    --brand-400:#7551FF;
+    --brand-500:#422AFB;
+    --brand-600:#3311DB;
+    --brand-700:#02044A;
+    --brand-800:#190793;
+    --brand-900:#11047A;
+    --navy-50:#d0dcfb;
+    --navy-100:#aac0fe;
+    --navy-200:#a3b9f8;
+    --navy-300:#728fea;
+    --navy-400:#3652ba;
+    --navy-500:#1b3bbb;
+    --navy-600:#24388a;
+    --navy-700:#1B254B;
+    --navy-800:#111c44;
+    --navy-900:#0b1437;
+
+}
+.color-navy-50
+{
+    color:var(--navy-50) !important;
+}
+.color-navy-100
+{
+    color:var(--navy-100) !important;
+}
+.color-navy-200
+{
+    color:var(--navy-200) !important;
+}
+.color-navy-300
+{
+    color:var(--navy-300) !important;
+}
+.color-navy-400
+{
+    color:var(--navy-400) !important;
+}
+.color-navy-500
+{
+    color:var(--navy-500) !important;
+}
+.color-navy-600
+{
+    color:var(--navy-600) !important;
+}
+.color-navy-700
+{
+    color:var(--navy-700) !important;
+}
+.color-navy-800
+{
+    color:var(--navy-800) !important;
+}
+.color-navy-900
+{
+    color:var(--navy-900) !important;
+}
+#sidenav
+{
+    height: 100vh;
+}
