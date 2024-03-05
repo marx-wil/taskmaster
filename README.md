@@ -12,20 +12,19 @@ Just download the files then open index.html
 
 Todo List Dashboard
 
-Homepage
 
-Overview of todo lists
-Quick access to create a new list
-Todo Lists
-
-List of all todo lists
-Each list may have:
-Title
-Number of tasks
-Last updated timestamp
-Actions (edit, delete, etc.)
-Option to create a new list
-Todo List Detail
+* Home page
+    * Overview of todo lists
+    * Quick access to create a new list
+    * Todo Lists
+    * List of all todo lists
+        * Each list may have:
+        * Title
+        * Number of tasks
+        * Last updated timestamp
+        * Actions (edit, delete, etc.)
+    * Option to create a new list
+    * Todo List Detail
 
 View of a specific todo list
 Title
