@@ -89,18 +89,18 @@ Just download the files then open index.html
 <details>
     <summary>SIDEBAR</summary>
     <br>
-    <p>DASHBOARD</p>
-    <p>TODO</p>
-    <p>HISTORY</p>
-    <p>SETTINGS</p>
-    <p>HELP CENTER</p>
-    <p>ACCOUNT</p>
+    <small>DASHBOARD</p>
+    <small>TODO</p>
+    <small>HISTORY</p>
+    <small>SETTINGS</p>
+    <small>HELP CENTER</p>
+    <small>ACCOUNT</p>
 </details>
 <details>
     <summary>NAVBAR</summary>
     <br>
-    <p>SEARCH</p>
-    <p>NOTIFICATIONS</p>
-    <p>BURGER</p>
+    <small>SEARCH</p>
+    <small>NOTIFICATIONS</p>
+    <small>BURGER</p>
 </details>
 
