@@ -69,7 +69,7 @@ body {
     color: var(--color-active) !important;
 }
 
-.snav .snav .nav-item a.nav-link i {
+.snav .nav-item a.nav-link i {
     border-radius: 8px;
     /* background-color: var(--color-active); */
     /* color:var(--white) */
