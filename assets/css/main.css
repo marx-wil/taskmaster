@@ -1,22 +1,22 @@
-:root
-{
-    --color-active:#4880FF;
-    --white:#ffffff;
-    --black:#202224;
+:root {
+    --color-active: #4880FF;
+    --white: #ffffff;
+    --black: #202224;
 }
+
 html,
-body
-{
+body {
     background-color: var(--white) !important;
 }
-.color-primary
-{
-    color:var(--color-active) !important;
+
+.color-primary {
+    color: var(--color-active) !important;
 }
-.color-dark
-{
-    color:var(--black) !important;
+
+.color-dark {
+    color: var(--black) !important;
 }
+
 #sidenav::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
@@ -38,61 +38,62 @@ body
     opacity: .6;
 }
 
-#sidenav
-{
+#sidenav {
     height: 100vh;
     background-color: var(--white) !important;
     box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
 }
-.sn-header
-{
+
+.sn-header {
     letter-spacing: -0.5px;
     line-height: 1.5;
 }
-.nav-item a.nav-link span
-{
+
+.snav .nav-item a.nav-link span {
     font-family: "Inter", sans-serif;
     letter-spacing: 0.3px;
-    color:var(--black);
+    color: var(--black);
     line-height: 1.5;
 }
-.nav-item a.nav-link.active span
-{
-    color:var(--white)
+
+.snav .nav-item a.nav-link.active span {
+    color: var(--white)
 }
-.nav-item a.nav-link.active
-{
+
+.snav .snav .nav-item a.nav-link.active {
     background-color: var(--color-active);
 }
-.nav-item a.nav-link:hover span,.nav-item a.nav-link:hover
-{
+
+.snav .nav-item a.nav-link:hover span,
+.snav .nav-item a.nav-link:hover {
     color: var(--color-active) !important;
 }
-.nav-item a.nav-link i
-{
+
+.snav .snav .nav-item a.nav-link i {
     border-radius: 8px;
     /* background-color: var(--color-active); */
     /* color:var(--white) */
 }
-.nav-item a.nav-link.active i
-{
+
+.snav .nav-item a.nav-link.active i {
     background-color: var(--white);
-    color:var(--color-active);
+    color: var(--color-active);
     box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
 }
-.nav-item a.nav-link:hover span,
-.nav-item a.nav-link:hover i
-{
+
+.snav .nav-item a.nav-link:hover span,
+.snav .nav-item a.nav-link:hover i {
     transition: all .3s ease;
 }
-.sn-username
-{
+
+.snav .sn-username {
     line-height: 1.5;
     letter-spacing: -0.5px;
     color: var(--black);
     transition: all .2s ease;
 }
-@media (max-width: 1200px) {
+
+@media (max-width: 990px) {
     #sidenav {
         background-color: var(--white) !important;
         position: fixed;
@@ -101,8 +102,11 @@ body
         box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
         height: 100vh
     }
-
-    .nav-container {
-        grid-template-columns: 1fr 2fr;
+    .navbar-nav {
     }
+}
+
+
+.navbar-nav .nav-item a {
+    background-color: transparent !important;
 }
