@@ -28,7 +28,14 @@ Just download the files then open index.html
 * Settings
     * User settings for the Todo List Dashboard
     * Profile settings
-    * Account management
+        * View and manage user information and preferences
+        * Profile picture
+        * Username
+        * Email address
+        * Change password
+        * Notification settings
+        * Language preferences
+        * Timezone preferences
 * Task History
     * View of completed tasks and their details
     * Date completed
@@ -77,3 +84,15 @@ Just download the files then open index.html
     * Description
     * Due date
     * Status
+
+#### LINKS ####
+<details>
+    <summary>Title 1</summary>
+    <p>DASHBOARD</p>
+    <p>TODO</p>
+    <p>HISTORY</p>
+    <p>SETTINGS</p>
+    <p>HELP CENTER</p>
+    <p>ACCOUNT</p>
+</details>
+
