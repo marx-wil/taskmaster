@@ -88,6 +88,7 @@ Just download the files then open index.html
 #### LINKS ####
 <details>
     <summary>SIDEBAR</summary>
+    <br>
     <p>DASHBOARD</p>
     <p>TODO</p>
     <p>HISTORY</p>
@@ -97,6 +98,7 @@ Just download the files then open index.html
 </details>
 <details>
     <summary>NAVBAR</summary>
+    <br>
     <p>SEARCH</p>
     <p>NOTIFICATIONS</p>
     <p>BURGER</p>
