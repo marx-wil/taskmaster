@@ -104,3 +104,5 @@ Just download the files then open index.html
     <small>BURGER</p>
 </details>
 
+### VIEWING ###
+visit the [live site](http://www.google.fr/) 
