@@ -66,7 +66,7 @@ Just download the files then open index.html
 
 * Create Todo List
     * Title
-    * Description (optional)
+    * Description
     * Option to add initial tasks
     * Edit Todo List
 * Form to edit the details of an existing todo list
@@ -76,8 +76,8 @@ Just download the files then open index.html
     * Create Task
 * Form to create a new task within a todo list
     * Task name
-    * Description (optional)
-    * Due date (optional)
+    * Description 
+    * Due date 
     * Edit Task
 * Form to edit the details of an existing task
     * Task name
