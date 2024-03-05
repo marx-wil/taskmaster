@@ -103,6 +103,7 @@ body {
         height: 100vh
     }
     .navbar-nav {
+        width: 100vw;
     }
 }
 
