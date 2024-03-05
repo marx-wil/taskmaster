@@ -87,12 +87,18 @@ Just download the files then open index.html
 
 #### LINKS ####
 <details>
-    <summary>Title 1</summary>
+    <summary>SIDEBAR</summary>
     <p>DASHBOARD</p>
     <p>TODO</p>
     <p>HISTORY</p>
     <p>SETTINGS</p>
     <p>HELP CENTER</p>
     <p>ACCOUNT</p>
+</details>
+<details>
+    <summary>NAVBAR</summary>
+    <p>SEARCH</p>
+    <p>NOTIFICATIONS</p>
+    <p>BURGER</p>
 </details>
 
