@@ -106,3 +106,11 @@ Just download the files then open index.html
 
 ### VIEWING ###
 visit the [live site](http://www.google.fr/) 
+
+
+### CONNECT WITH ME ###
+<p align="left">
+<a href="https://codepen.io/wilmarx-john" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="wilmarx-john" height="30" width="40"></a>
+<a href="https://fb.com/wilmarx john cayabyab" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="wilmarx john cayabyab" height="30" width="40"></a>
+<a href="https://instagram.com/marx.wil" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="marx.wil" height="30" width="40"></a>
+</p>
