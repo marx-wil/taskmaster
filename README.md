@@ -105,7 +105,7 @@ Just download the files then open index.html
 </details>
 
 ### VIEWING ###
-visit the [live site](http://www.google.fr/) 
+visit the [live site](https://zhackdtech.github.io/taskmaster/) 
 
 
 ### CONNECT WITH ME ###
