@@ -1,6 +1,5 @@
 $(window).ready(function(){
     console.log("document is ready!")
-    $('.forceClose').dropdown("toggle");
 })
 $("#burger").on("click", function(e){
     $("#sidenav").toggleClass("mobile");

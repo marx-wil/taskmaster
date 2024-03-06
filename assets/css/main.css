@@ -2,29 +2,39 @@
     --color-active: #0d419e;
     --white: #ffffff;
     --black: #000304;
-    --light:#eedbdd;
-    --secondary:#2b6bf9;
-    --info:#ff4e8a;
-    --success:#00a35d;
-    --warning:#e2cb00;
-    --danger:#f11800;
+    --light: #eedbdd;
+    --secondary: #2b6bf9;
+    --info: #ff4e8a;
+    --success: #00a35d;
+    --warning: #e2cb00;
+    --danger: #f11800;
 }
-.tmbg-primary
+.tmbg-danger
 {
+    background: var(--danger) !important;
+}
+.tmbg-success
+{
+    background: var(--success) !important;
+}
+.tmbg-primary {
     background: var(--color-active) !important;
 }
-.tmtext-white
-{
+
+.tmtext-white {
     color: var(--white) !important;
 }
-.tmtext-dark
-{
-    color:var(--black) !important;
+
+.tmtext-dark {
+    color: var(--black) !important;
 }
-.tmtext-primary
-{
-    color:var(--color-active) !important;
+.tmtext-danger{
+    color: var(--danger) !important;
 }
+.tmtext-primary {
+    color: var(--color-active) !important;
+}
+
 html,
 body {
     background-color: var(--white) !important;
@@ -117,26 +127,26 @@ body {
         height: 100vh;
         transition: .2s all ease;
     }
+
     .navbar-nav {
         width: 100vw;
     }
 }
 
-#sidenav.mobile
-{
-    margin-left:0px !important;
+#sidenav.mobile {
+    margin-left: 0px !important;
 }
 
 .navbar-nav .nav-item a {
     background-color: transparent !important;
 }
-#burger.active
-{
-    color:#000;
+
+#burger.active {
+    color: #000;
     opacity: 1;
 }
-.nav-link.dropdown-toggle::after
-{
+
+.nav-link.dropdown-toggle::after {
     content: none;
 }
 
@@ -222,53 +232,120 @@ body {
         max-width: 13.375rem
     }
 }
-.navbar-icons
-{
+
+.navbar-icons {
     height: 36px;
     width: 36px;
     text-align: center;
 }
+
 @media (min-width: 200px) {
     .animate {
-      animation-duration: 0.3s;
-      -webkit-animation-duration: 0.3s;
-      animation-fill-mode: both;
-      -webkit-animation-fill-mode: both;
+        animation-duration: 0.3s;
+        -webkit-animation-duration: 0.3s;
+        animation-fill-mode: both;
+        -webkit-animation-fill-mode: both;
     }
-  }
-  
-  @keyframes slideIn {
+}
+
+@keyframes slideIn {
     0% {
-      transform: translateY(1rem);
-      opacity: 0;
+        transform: translateY(1rem);
+        opacity: 0;
     }
+
     100% {
-      transform: translateY(0rem);
-      opacity: 1;
+        transform: translateY(0rem);
+        opacity: 1;
     }
+
     0% {
-      transform: translateY(1rem);
-      opacity: 0;
+        transform: translateY(1rem);
+        opacity: 0;
     }
-  }
-  
-  @-webkit-keyframes slideIn {
+}
+
+@-webkit-keyframes slideIn {
     0% {
-      -webkit-transform: transform;
-      -webkit-opacity: 0;
+        -webkit-transform: transform;
+        -webkit-opacity: 0;
     }
+
     100% {
-      -webkit-transform: translateY(0);
-      -webkit-opacity: 1;
+        -webkit-transform: translateY(0);
+        -webkit-opacity: 1;
     }
+
     0% {
-      -webkit-transform: translateY(1rem);
-      -webkit-opacity: 0;
+        -webkit-transform: translateY(1rem);
+        -webkit-opacity: 0;
     }
-  }
-  
-  .slideIn {
+}
+
+.slideIn {
     -webkit-animation-name: slideIn;
     animation-name: slideIn;
+}
+.tmbtn { 
+    color: #ffffff; 
+    background-color: #0D419E; 
+    border-color: #2B6BF9; 
+  } 
+   
+  .tmbtn:hover, 
+  .tmbtn:focus, 
+  .tmbtn:active, 
+  .tmbtn.active, 
+  .open .dropdown-toggle.tmbtn { 
+    color: #ffffff; 
+    background-color: #2B6BF9; 
+    border-color: #2B6BF9; 
+  } 
+   
+  .tmbtn:active, 
+  .tmbtn.active, 
+  .open .dropdown-toggle.tmbtn { 
+    background-image: none; 
+  } 
+   
+  .tmbtn.disabled, 
+  .tmbtn[disabled], 
+  fieldset[disabled] .tmbtn, 
+  .tmbtn.disabled:hover, 
+  .tmbtn[disabled]:hover, 
+  fieldset[disabled] .tmbtn:hover, 
+  .tmbtn.disabled:focus, 
+  .tmbtn[disabled]:focus, 
+  fieldset[disabled] .tmbtn:focus, 
+  .tmbtn.disabled:active, 
+  .tmbtn[disabled]:active, 
+  fieldset[disabled] .tmbtn:active, 
+  .tmbtn.disabled.active, 
+  .tmbtn[disabled].active, 
+  fieldset[disabled] .tmbtn.active { 
+    background-color: #0D419E; 
+    border-color: #2B6BF9; 
+  } 
+   
+  .tmbtn .badge { 
+    color: #0D419E; 
+    background-color: #ffffff; 
   }
-  
+.navdrop-title
+{
+    font-weight: 400;
+    color: var(--black);
+    opacity: .7;
+    letter-spacing: 0.5px;
+}
+.navdrop-content
+{
+    font-weight: 500;
+    color: var(--black);
+    opacity: .7;
+    opacity: .9;
+}
+.close {
+    color: #fff !important; 
+    opacity: 1;
+}
