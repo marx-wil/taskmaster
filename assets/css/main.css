@@ -28,6 +28,7 @@
 html,
 body {
     background-color: var(--white) !important;
+    font-family: "DM Sans", sans-serif;
 }
 
 #sidenav::-webkit-scrollbar-track {
