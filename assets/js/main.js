@@ -1,11 +1,6 @@
-$(document).ready(function(){
+$(window).ready(function(){
     console.log("document is ready!")
-    $("#burger").on("click", function(e){
-        $("#sidenav").toggleClass("mobile");
-        $("#burger").toggleClass("active");
-        console.log("navbar expand");
-        e.stopPropagation();
-    })
+    $('.forceClose').dropdown("toggle");
 })
 $('body,html').click(function(e){
     // console.log("body clicked")
@@ -20,3 +15,9 @@ $('body,html').click(function(e){
         // works on mobile and windows chrome
     }
 }
+$("#burger").on("click", function(e){
+    $("#sidenav").toggleClass("mobile");
+    $("#burger").toggleClass("active");
+    console.log("navbar expand");
+    e.stopPropagation();
+})
