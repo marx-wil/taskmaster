@@ -24,7 +24,10 @@
 .tmtext-white {
     color: var(--white) !important;
 }
-
+.tmtext-success
+{
+    color: var(--success) !important;
+}
 .tmtext-dark {
     color: var(--black) !important;
 }
@@ -345,7 +348,11 @@ body {
     opacity: .7;
     opacity: .9;
 }
-.close {
-    color: #fff !important; 
-    opacity: 1;
+.dash_header
+{
+    letter-spacing: .5px;
+}
+.dash_sub
+{
+    letter-spacing: -0.5px;
 }
