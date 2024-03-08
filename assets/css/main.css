@@ -21,6 +21,10 @@
     background: var(--color-active) !important;
 }
 
+.tmbg-warning {
+    background: var(--warning) !important;
+}
+
 .tmtext-white {
     color: var(--white) !important;
 }
@@ -350,7 +354,7 @@ body {
 }
 .dash_header
 {
-    letter-spacing: .5px;
+    letter-spacing: .1rem;
 }
 .dash_sub
 {
