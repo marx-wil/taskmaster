@@ -489,7 +489,7 @@
                     </div>
                     <div class="col-12 col-lg-4 mx-0 px-4 mt-3 mt-lg-0">
                         <div class="row rounded-5 shadow-lg px-4 bg-white h-100 mh-100">
-                            
+                            <div id="calendar" class="dm-sans"></div>
                         </div>
                     </div>
                 </div>
@@ -579,5 +579,34 @@
         <script type="text/javascript"
             src="https://livejs.com/live.js"></script>
         <script src="assets/js/main.js"></script>
+        <script>
+            var sameDaylastWeek = new Date().setDate(new Date().getDate() - 7);
+            var someDaynextMonth = new Date().setDate(new Date().getDate() + 31);
+    
+            // All dates should be provided in timestamps
+                var sampleEvents = [
+                {
+                    title: "Tadaa",
+                    date: sameDaylastWeek, // Same day as today, last week
+                    link: "https://github.com/zhackdtech/taskmaster"
+                },
+                {
+                    title: "Yes yes show",
+                    date: new Date().getTime(), // Today
+                    link: "https://github.com/zhackdtech/taskmaster"
+                },
+                {
+                    title: "Some day next month",
+                    date: someDaynextMonth, // Some day as today, next month
+                    link: "https://github.com/zhackdtech/taskmaster"
+                }
+                ];
+    
+            $(document).ready(function(){
+                $("#calendar").MEC({
+                    events: sampleEvents
+                });
+            });
+        </script>
     </body>
 </html>
