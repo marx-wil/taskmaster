@@ -135,7 +135,7 @@
                 <!-- sidenav end -->
             </div>
             <!-- container start -->
-            <div class="container px-2 px-xl-3" data-aos="zoom-out-down"> 
+            <div class="container px-2 px-xl-3" data-aos="zoom-out-down">
                 <!-- container content start -->
                 <div class="d-flex flex-row justify-content-between py-2">
                     <!-- header start -->
@@ -334,10 +334,18 @@
                         &nbsp;New todo
                     </button>
                 </div>
+                <div class="row py-3">
+                    <div class="col-12 col-md-6 col-lg-3 pt-3">
+                        <div class="card border-0 shadow-lg rounded-4 bg-white py-3 px-3">
+                            stats here
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- container end -->
         </main>
         <!-- main end -->
+
         <!-- modals start -->
         <!-- new todo modal start -->
         <div
@@ -353,32 +361,30 @@
                 <div class="modal-content">
                     <div class="modal-header tmbg-primary text-white">
                         <h1 class="modal-title fs-5" id="staticBackdropLabel">New ToDo List</h1>
-                        <a
-                            type="button"
-                            class="btn-close close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                        ></a>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="mb-3">
                                 <label for="todoTitle" class="form-label">Task list title</label>
                                 <div class="input-group">
-                                  <span class="input-group-text tmbg-primary text-white" id="todoTitle">
-                                    <i class="fa-solid fa-rectangle-list"></i>
-                                  </span>
-                                  <input type="text" class="form-control" id="todoTitle" aria-describedby="todoTitle">
+                                    <span class="input-group-text tmbg-primary text-white" id="todoTitle">
+                                        <i class="fa-solid fa-rectangle-list"></i>
+                                    </span>
+                                    <input
+                                        type="text"
+                                        class="form-control"
+                                        id="todoTitle"
+                                        aria-describedby="todoTitle"
+                                    >
                                 </div>
-                                <div class="form-text" id="todoTitle">
-                                </div>
-                              </div>
+                                <div class="form-text" id="todoTitle"></div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-floating">
                                 <textarea class="form-control" placeholder="Awesome description here" id="description"></textarea>
                                 <label for="description">Description</label>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
