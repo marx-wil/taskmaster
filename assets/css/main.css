@@ -2,12 +2,26 @@
     --color-active: #0d419e;
     --white: #ffffff;
     --black: #000304;
-    --light: #eedbdd;
+    --light: #f8f9fa;
     --secondary: #2b6bf9;
     --info: #ff4e8a;
     --success: #00a35d;
     --warning: #e2cb00;
     --danger: #f11800;
+    --tirtiary:#2f448b;
+    --quaternary:#144582;
+}
+.tmbg-quaternary
+{
+    background: var(--quaternary);
+}
+.tmbg-tertiary
+{
+    background: var(--tirtiary);
+}
+.tmbg-secondary
+{
+    background: var(--secondary);
 }
 .tmbg-danger
 {
@@ -41,7 +55,9 @@
 .tmtext-primary {
     color: var(--color-active) !important;
 }
-
+.tmtext-light{
+    color:var(--light) !important;
+}
 html,
 body {
     background-color: var(--white) !important;
@@ -521,7 +537,7 @@ body {
 #calTFooter #eventTitle {
     margin: 0;
     margin-right: .1em;
-    font-weight: 400;
+    font-weight: 600;
     font-size: .95em;
     white-space: nowrap;
     overflow: hidden;
