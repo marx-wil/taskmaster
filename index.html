@@ -145,7 +145,7 @@
                 <!-- sidenav end -->
             </div>
             <!-- container start -->
-            <div class="container" data-aos="zoom-out-down">
+            <div class="container main-container" data-aos="zoom-out-down">
                 <!-- container content start -->
                 <div class="d-flex flex-row justify-content-between py-2"
                     data-aos="fade-up">
@@ -391,8 +391,12 @@
                         &nbsp;New todo
                     </button>
                 </div>
+                <!-- 1st row of dashboard -->
+                <!-- header, stats, nearing schedule column -->
                 <div class="row pt-3" data-aos="fade-up">
-                    <div class="col-12 col-lg-8 mx-0 px-4">
+                    <!-- header and stats column -->
+                    <div class="col-12 col-lg-12 col-xl-8 mx-0 px-4">
+                        <!-- header row -->
                         <div class="row rounded-4 shadow-lg py-5 px-3"
                             data-aos="fade-up">
                             <div class="col-12 col-lg-8">
@@ -418,8 +422,10 @@
                                     alt="Checklist" class="img-fluid float-end">
                             </div>
                         </div>
+                        <!-- stats row -->
                         <div class="row bg-white rounded-4 shadow-lg mt-3 p-3"
                             data-aos="fade-up">
+                            <!-- generate report button -->
                             <div
                                 class="d-flex justify-content-between align-items-center py-3 px-2"
                                 data-aos="fade-up">
@@ -429,7 +435,8 @@
                                     &nbsp;Generate report
                                 </button>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4 px-2">
+                            <!-- stats column -->
+                            <div class="col-12 col-md-12 col-lg-6 px-2 col-xxl-4">
                                 <div
                                     class="card card-stats mb-4 mb-xl-0 border-0 rounded-1 shadow-lg tmbg-quaternary"
                                     data-aos="fade-up">
@@ -462,7 +469,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4 px-2">
+                            <!-- stats column -->
+                            <div class="col-12 col-md-12 col-lg-6 px-2 col-xxl-4">
                                 <div
                                     class="card card-stats mb-4 mb-xl-0 border-0 rounded-1 shadow-lg tmbg-tertiary"
                                     data-aos="fade-up">
@@ -494,7 +502,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-6 col-lg-4 px-2">
+                            <!-- stats columns -->
+                            <div class="col-12 col-md-12 col-lg-6 col-xxl-4 px-2 pt-0 pt-sm-0 pt-md-0 pt-lg-3 pt-xl-0 pt-xxl-0">
                                 <div
                                     class="card card-stats mb-xl-0 border-0 rounded-1 shadow-lg tmbg-secondary"
                                     data-aos="fade-up">
@@ -530,24 +539,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 mx-0 px-4 mt-3 mt-lg-0"
+                    <!-- nearing to schedule column -->
+                    <div class="col-12 col-lg-12 col-xl-4 mx-0 px-4 mt-3 mt-lg-0"
                         data-aos="fade-up">
                         <div
                             class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
-                            <div id="calendar" class="dm-sans"></div>
+                            near end here
                         </div>
                     </div>
                 </div>
                 <div class="row" data-aos="fade-up">
-                    <div class="col-12 col-lg-8 px-4 pt-3" data-aos="fade-up">
+                    <div class="col-12 col-lg-12 col-xl-8 px-4 pt-3" data-aos="fade-up">
                         <div class="row rounded-4 shadow-lg px-4 bg-white">
                             charts here
                         </div>
                     </div>
-                    <div class="col-12 col-lg-4 px-4 pt-3" data-aos="fade-up">
+                    <div class="col-12 col-lg-12 col-xl-4 px-4 pt-3" data-aos="fade-up">
                         <div
                             class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
-                            near deadline here
+                            <div id="calendar" class="dm-sans"></div>
                         </div>
                     </div>
                 </div>
@@ -634,12 +644,7 @@
             // All dates should be provided in timestamps
                 var sampleEvents = [
                 {
-                    title: "Tadaa",
-                    date: sameDaylastWeek, // Same day as today, last week
-                    link: "https://github.com/zhackdtech/taskmaster"
-                },
-                {
-                    title: "Yes yes show",
+                    title: "Finish TaskMaster",
                     date: new Date().getTime(), // Today
                     link: "https://github.com/zhackdtech/taskmaster"
                 },

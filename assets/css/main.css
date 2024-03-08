@@ -85,8 +85,15 @@ body {
     opacity: .6;
 }
 
+@media (min-width: 990px)
+{
+.main-container {
+    margin-left: 300px;
+}
+}
 #sidenav {
     height: 100vh;
+    position: fixed;
     background-color: var(--white) !important;
     box-shadow: 0px 3.5px 5.5px 0px rgba(0, 0, 0, 0.02);
 }
@@ -159,9 +166,17 @@ body {
 #sidenav.mobile {
     margin-left: 0px !important;
 }
-
+.navbar-nav
+{
+    position: relative;
+    z-index: 1000;
+}
 .navbar-nav .nav-item a {
     background-color: transparent !important;
+}
+.nav-item
+{
+    z-index: 1000;
 }
 
 #burger.active {
@@ -174,18 +189,19 @@ body {
 }
 
 .dropdown {
-    position: static
+    position: static;
 }
 
 .dropdown .dropdown-menu {
     width: calc(100% - 1.5rem);
     right: .75rem;
+    z-index: 1;
 }
 
 .dropdown .dropdown-list {
     padding: 0;
     border: none;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .dropdown .dropdown-list .dropdown-header {
