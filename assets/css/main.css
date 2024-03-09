@@ -219,7 +219,7 @@ body {
     border-left: 1px solid #e3e6f0;
     border-right: 1px solid #e3e6f0;
     border-bottom: 1px solid #e3e6f0;
-    line-height: 1.3rem
+    line-height: 1.3rem;
 }
 
 .dropdown .dropdown-list .dropdown-item .dropdown-list-image {
@@ -564,4 +564,8 @@ body {
 {
     background-color: transparent !important;
     color: var(--color-active) !important;
+}
+.topnav
+{
+    position: relative; z-index: 1000
 }
