@@ -165,3 +165,22 @@
   };
 })(jQuery);
 
+$(window).ready(function () {
+  console.log("document is ready!");
+});
+$("#burger").on("click", function (e) {
+  $("#sidenav").toggleClass("mobile");
+  $("#burger").toggleClass("active");
+  console.log("navbar expand");
+  e.stopPropagation();
+});
+$("body,html").click(function (e) {
+  $("#sidenav").removeClass("mobile");
+});
+document.onclick = (function (a) {
+  let menu_icon_box = document.querySelector("#burger");
+  let box = document.querySelector("#sidenav");
+  if (!menu_icon_box.contains(a.target) && !box.contains(a.target)) {
+    $("#sidebar").removeClass("mobile");
+  }
+})
