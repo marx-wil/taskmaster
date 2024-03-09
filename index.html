@@ -1,665 +1,710 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- head start -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Task Master</title>
-        <link rel="shortcut icon" href="assets/img/favicon.ico"
-            type="image/x-icon">
-        <!-- jQuery CDN -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
-        <!-- Bootstrap CSS CDN -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-            crossorigin="anonymous">
-        <!-- AOS CSS CDN -->
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-        <!-- Main CSS -->
-        <link rel="stylesheet" href="assets/css/main.css">
-        <!-- Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-            rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&display=swap"
-            rel="stylesheet">
-        <!-- Custom Fonts CSS -->
-        <link rel="stylesheet" href="assets/css/fonts.css">
-        <!-- Twitter meta tags -->
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:title" content="TASKMASTER">
-        <meta name="twitter:site"
-            content="@https://zhackdtech.github.io/taskmaster/">
-        <meta name="twitter:description"
-            content="TaskMaster is a user-friendly dashboard template designed to streamline your task management experience. ">
-        <!-- Open Graph meta tags -->
-        <meta property="og:type" content="business.business">
-        <meta property="og:title" content="TaskMaster">
-        <meta property="og:url"
-            content="https://zhackdtech.github.io/taskmaster/">
-        <meta property="og:image" content>
-        <meta property="og:description"
-            content="TaskMaster is a user-friendly dashboard template designed to streamline your task management experience. ">
-        <meta property="business:contact_data:street_address" content>
-        <meta property="business:contact_data:locality" content>
-        <meta property="business:contact_data:region" content>
-        <meta property="business:contact_data:country_name"
-            content="Philippines">
-        <!-- head end -->
-    </head>
-    <body class>
-        <!-- main start -->
-        <main class="d-flex flex-nowrap">
-            <div
-                class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary overflow-y-scroll overflow-x-hidden"
-                data-aos="fade-right"
-                id="sidenav"
-                style="width: 300px;">
-                <!-- sidenav start -->
-                <div class="container w-100 px-2 py-3 text-center">
-                    <span class="fs-2 inter-bolder sn-header tmtext-primary">
-                        <!-- <i class="fa-solid fa-bars-progress"></i> -->
-                        Task
-                        <span class="tmtext-dark">Master</span>
-                    </span>
-                </div>
-                <hr>
-                <ul class="snav nav nav-pills flex-column mb-auto dm-sans-500">
-                    <li class="nav-item py-1">
-                        <a href="#" class="nav-link active py-3"
-                            aria-current="page">
-                            <i class="fa-solid fa-chart-area p-2 sn-icon"></i>
-                            <span>&nbsp;Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a href="#" class="nav-link link-body-emphasis py-3">
-                            <i class="fa-solid fa-list p-2 sn-icon"></i>
-                            <span>&nbsp;Lists</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a href="#" class="nav-link link-body-emphasis py-3">
-                            <i
-                                class="fa-solid fa-clock-rotate-left p-2 sn-icon"></i>
-                            <span>&nbsp;History</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a href="#" class="nav-link link-body-emphasis py-3">
-                            <i class="fa-solid fa-gear p-2 sn-icon"></i>
-                            <span>&nbsp;Settings</span>
-                        </a>
-                    </li>
-                    <li class="nav-item py-1">
-                        <a href="#" class="nav-link link-body-emphasis py-3">
-                            <i
-                                class="fa-solid fa-circle-question p-2 sn-icon"></i>
-                            <span>&nbsp;Help Center</span>
-                        </a>
-                    </li>
-                </ul>
-                <hr>
-                <div class="dropdown">
-                    <a
-                        href="#"
-                        class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <img
-                            src="https://avatars.githubusercontent.com/u/50767502?s=400&u=3491d369367395bcd7ea719e6593d5387dc80764&v=4"
-                            alt
-                            width="32"
-                            height="32"
-                            class="rounded-circle me-2">
-                        <strong
-                            class="sn-username dm-sans fw-bold">Wilmarx</strong>
-                    </a>
-                    <ul
-                        class="dropdown-menu text-small shadow dm-sans-600 animate slideIn">
-                        <li>
-                            <a class="dropdown-item" href="#">Settings</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Profile</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="#">Sign out</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- sidenav end -->
-            </div>
-            <!-- container start -->
-            <div class="container main-container" data-aos="zoom-out-down">
-                <!-- container content start -->
-                <div class="d-flex flex-row justify-content-between py-2 topnav"
-                    data-aos="fade-up">
-                    <!-- header start -->
-                    <div class="d-none d-lg-flex align-items-center">
-                        <span class="fs-2 inter-bolder sn-header color-primary">
-                            <!-- <i class="fa-solid fa-bars-progress"></i> -->
-                            <span class="color-dark">DASHBOARD</span>
-                        </span>
-                    </div>
-                    <!-- navbar start -->
-                    <nav class="navbar navbar-expand w-100">
-                        <div
-                            class="collapse navbar-collapse w-100 d-flex flex-row-reverse"
-                            id="navbarNav">
-                            <!-- navbar links start -->
-                            <ul
-                                class="navbar-nav shadow-lg py-4 px-2 px-lg-5 rounded-5 dm-sans fw-bold d-flex justify-content-end d-xl-flex">
-                                <li class="nav-item d-none d-lg-block py1">
-                                    <!-- search input start -->
-                                    <div class="input-group">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Search here..."
-                                            aria-label="Search here..."
-                                            aria-describedby="navbar-search">
-                                        <span
-                                            class="input-group-text tmbg-primary tmtext-white"
-                                            id="navbar-search">
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"></i>
-                                        </span>
-                                    </div>
-                                    <!-- search input end -->
-                                </li>
-                                <!-- search button (collapsed) start -->
-                                <li class="nav-item d-block d-lg-none py1">
-                                    <div class="nav-item dropdown no-arrow">
-                                        <a
-                                            class="dropdown-toggle nav-link"
-                                            aria-expanded="false"
-                                            data-bs-toggle="dropdown"
-                                            href="#">
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"></i>
-                                        </a>
-                                        <!-- search dropdown menu start -->
-                                        <div
-                                            class="dropdown-menu dropdown-menu-end dropdown-list shadow-lg animate slideIn">
-                                            <h6 class="dropdown-header">
-                                                Search
-                                            </h6>
-                                            <a
-                                                class="dropdown-item d-flex align-items-center"
-                                                href="#">
-                                                <div class="input-group">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        placeholder="Search here..."
-                                                        aria-label="Search here..."
-                                                        aria-describedby="navbar-search">
-                                                    <span
-                                                        class="input-group-text tmbg-primary tmtext-white"
-                                                        id="navbar-search">
-                                                        <i
-                                                            class="fa-solid fa-magnifying-glass"></i>
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <!-- search dropdown menu end -->
-                                    </div>
-                                </li>
-                                <!-- search button (collapsed) end -->
-                                <!-- notification bell start -->
-                                <li class="nav-item py1">
-                                    <div class="nav-item dropdown no-arrow">
-                                        <a
-                                            class="dropdown-toggle nav-link"
-                                            aria-expanded="false"
-                                            data-bs-toggle="dropdown"
-                                            href="#">
-                                            <i class="fa-solid fa-bell"></i>
-                                            <span
-                                                class="position-absolute top-40 start-90 translate-middle p-1 bg-danger border border-light rounded-circle">
-                                                <span class="visually-hidden">
-                                                    New alerts
-                                                </span>
-                                            </span>
-                                        </a>
-                                        <!-- notification dropdown menu start -->
-                                        <div
-                                            class="dropdown-menu dropdown-menu-end dropdown-list shadow-lg animate slideIn">
-                                            <h6 class="dropdown-header">
-                                                Notifications
-                                            </h6>
-                                            <a
-                                                class="dropdown-item d-flex align-items-center"
-                                                href="#">
-                                                <div class="me-3">
-                                                    <div
-                                                        class="navbar-icons tmbg-primary p-2 rounded-4">
-                                                        <i
-                                                            class="fas fa-file-alt text-white"></i>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <span
-                                                        class="small navdrop-title">
-                                                        March 06, 2023
-                                                        <span
-                                                            class="tmtext-danger fw-bold">*</span>
-                                                    </span>
-                                                    <p class="navdrop-content">
-                                                        Sales
-                                                        report is ready to
-                                                        download.
-                                                    </p>
-                                                </div>
-                                            </a>
-                                            <a
-                                                class="dropdown-item text-center small"
-                                                href="#">Show All</a>
-                                        </div>
-                                        <!-- notification dropdown menu end -->
-                                    </div>
-                                </li>
-                                <!-- notification bell end -->
-                                <!-- message envelope start -->
-                                <li class="nav-item py1">
-                                    <div class="nav-item dropdown no-arrow">
-                                        <a
-                                            class="dropdown-toggle nav-link"
-                                            aria-expanded="false"
-                                            data-bs-toggle="dropdown"
-                                            href="#">
-                                            <i class="fa-solid fa-envelope"></i>
-                                            <span
-                                                class="position-absolute top-40 start-90 translate-middle p-1 bg-danger border border-light rounded-circle">
-                                                <span class="visually-hidden">
-                                                    New message
-                                                </span>
-                                            </span>
-                                        </a>
-                                        <!-- message dropdown menu start -->
-                                        <div
-                                            class="dropdown-menu dropdown-menu-end dropdown-list shadow-lg animate slideIn">
-                                            <h6
-                                                class="dropdown-header">Messages</h6>
-                                            <a
-                                                class="dropdown-item d-flex align-items-center"
-                                                href="#">
-                                                <div class="me-3">
-                                                    <div
-                                                        class="navbar-icons tmbg-primary p-2 rounded-4">
-                                                        <i
-                                                            class="fas fa-circle-user text-white"></i>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <span
-                                                        class="small navdrop-title">
-                                                        John Doe
-                                                        <span
-                                                            class="tmtext-danger fw-bold">*</span>
-                                                    </span>
-                                                    <p class="navdrop-content">
-                                                        Lorem
-                                                        ipsum dolor sit amet
-                                                        consectetur adipisicing
-                                                        elit.
-                                                    </p>
-                                                </div>
-                                            </a>
-                                            <a
-                                                class="dropdown-item text-center small"
-                                                href="#">Show all</a>
-                                        </div>
-                                        <!-- message dropdown menu end -->
-                                    </div>
-                                </li>
-                                <!-- message envelope end -->
-                                <!-- user dropdown start -->
-                                <li class="nav-item py1">
-                                    <div class="dropdown">
-                                        <a
-                                            role="button"
-                                            class="nav-link dropdown-toggle"
-                                            data-bs-toggle="dropdown"
-                                            data-bs-display="static"
-                                            aria-expanded="false">
-                                            <i
-                                                class="fa-solid fa-circle-user"></i>
-                                        </a>
-                                        <!-- user dropdown menu start -->
-                                        <ul
-                                            class="dropdown-menu dropdown-menu-lg-end animate slideIn">
-                                            <li>
-                                                <button class="dropdown-item"
-                                                    type="button">Settings</button>
-                                            </li>
-                                            <li>
-                                                <button class="dropdown-item"
-                                                    type="button">Profile</button>
-                                            </li>
-                                            <li>
-                                                <hr class="dropdown-divider">
-                                            </li>
-                                            <li>
-                                                <button class="dropdown-item"
-                                                    type="button">
-                                                    Sign
-                                                    out
-                                                </button>
-                                            </li>
-                                        </ul>
-                                        <!-- user dropdown menu end -->
-                                    </div>
-                                </li>
-                                <!-- user dropdown end -->
-                                <!-- burger menu (mobile) start -->
-                                <li class="nav-item d-block d-lg-none">
-                                    <a class="nav-link" href="#" id="burger">
-                                        <i class="fa-solid fa-bars"></i>
-                                    </a>
-                                </li>
-                                <!-- burger menu (mobile) end -->
-                            </ul>
-                            <!-- navbar links end -->
-                        </div>
-                    </nav>
-                    <!-- navbar end -->
-                    <!-- header end -->
-                </div>
-                <!-- container content end -->
-                <!-- add new todo list start -->
-                <div class="d-flex flex-row-reverse" data-aos="fade-up">
-                    <button class="btn tmbg-primary text-white "
-                        data-bs-toggle="modal" data-bs-target="#newTodo">
-                        <i class="fa-solid fa-folder-plus"></i>
-                        &nbsp;New todo
-                    </button>
-                </div>
-                <!-- 1st row of dashboard -->
-                <!-- header, stats, calendar column -->
-                <div class="row pt-3" data-aos="fade-up">
-                    <!-- header and stats column -->
-                    <div class="col-12 col-lg-12 col-xl-8 mx-0 px-4">
-                        <!-- header row -->
-                        <div class="row rounded-4 shadow-lg py-5 px-3"
-                            data-aos="fade-up">
-                            <div class="col-12 col-lg-8">
-                                <h1 class="dm-sans-900 dash_header">
-                                    Today's&nbsp;
-                                    <span class="tmtext-success">Task</span>
-                                </h1>
-                                <small class="dm-sans-500 dash_sub">
-                                    &nbsp;Check
-                                    your daily tasks and
-                                    schedule.
-                                </small>
-                                <div class="d-block pt-3">
-                                    <button
-                                        class="btn tmbg-primary text-white btn-lg dm-sans">
-                                        <i class="fa-solid fa-list"></i>
-                                        &nbsp;Today's&nbsp;tasks
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="col-4 d-none d-lg-block">
-                                <img src="assets/img/checklist.png"
-                                    alt="Checklist" class="img-fluid float-end">
-                            </div>
-                        </div>
-                        <!-- stats row -->
-                        <div class="row bg-white rounded-4 shadow-lg mt-3 p-3"
-                            data-aos="fade-up">
-                            <!-- generate report button -->
-                            <div
-                                class="d-flex justify-content-between align-items-center py-3 px-2"
-                                data-aos="fade-up">
-                                <h3 class="dm-sans-900">Reporting</h3>
-                                <button class="btn tmbg-primary text-white">
-                                    <i class="fa-solid fa-file-export"></i>
-                                    &nbsp;Generate report
-                                </button>
-                            </div>
-                            <!-- stats column -->
-                            <div class="col-12 col-md-12 col-lg-6 px-2 col-xxl-4">
-                                <div
-                                    class="card card-stats mb-4 mb-xl-0 border-0 rounded-1 shadow-lg tmbg-quaternary"
-                                    data-aos="fade-up">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h6
-                                                    class="card-title text-uppercase text-muted mb-0 fw-bold tmtext-light dm-sans">New
-                                                    tasks</h6>
-                                                <span
-                                                    class="h2 font-weight-bold mb-0 fw-bolder tmtext-white">123</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="bg-white rounded-4">
-                                                    <i
-                                                        class="fa-solid fa-plus p-3 tmtext-primary"
-                                                        aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-3 mb-0 text-muted text-sm">
-                                            <span class="tmtext-success mr-2">
-                                                <i class="fas fa-arrow-up"></i>
-                                                1.23%
-                                            </span>
-                                            <span
-                                                class="text-nowrap tmtext-white">Since
-                                                last week</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- stats column -->
-                            <div class="col-12 col-md-12 col-lg-6 px-2 col-xxl-4">
-                                <div
-                                    class="card card-stats mb-4 mb-xl-0 border-0 rounded-1 shadow-lg tmbg-tertiary"
-                                    data-aos="fade-up">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h6
-                                                    class="card-title text-uppercase text-muted mb-0 fw-bold tmtext-light dm-sans">Completed</h6>
-                                                <span
-                                                    class="h2 font-weight-bold mb-0 fw-bolder tmtext-white">456</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="bg-white rounded-4">
-                                                    <i
-                                                        class="fa-solid fa-list-check p-3 tmtext-primary"
-                                                        aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-3 mb-0 text-muted text-sm">
-                                            <span class="tmtext-success mr-2">
-                                                <i class="fas fa-arrow-up"></i>
-                                                4.56%
-                                            </span>
-                                            <span
-                                                class="text-nowrap tmtext-white">Since
-                                                last week</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- stats columns -->
-                            <div class="col-12 col-md-12 col-lg-6 col-xxl-4 px-2 pt-0 pt-sm-0 pt-md-0 pt-lg-0 pt-xl-3 pt-xxl-0">
-                                <div
-                                    class="card card-stats mb-xl-0 border-0 rounded-1 shadow-lg tmbg-secondary"
-                                    data-aos="fade-up">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h6
-                                                    class="card-title text-uppercase text-muted mb-0 fw-bold tmtext-light dm-sans">Weekly
-                                                    total</h6>
-                                                <span
-                                                    class="h2 font-weight-bold mb-0 fw-bolder tmtext-white">789</span>
-                                            </div>
-                                            <div class="col-auto">
-                                                <div class="bg-white rounded-4">
-                                                    <i
-                                                        class="fa-solid fa-list p-3 tmtext-primary"
-                                                        aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p class="mt-3 mb-0 text-muted text-sm">
-                                            <span class="tmtext-danger mr-2">
-                                                <i
-                                                    class="fas fa-arrow-down"></i>
-                                                7.89%
-                                            </span>
-                                            <span
-                                                class="text-nowrap tmtext-white">Since
-                                                last week</span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- calendar column -->
-                    <div class="col-12 col-lg-12 col-xl-4 mx-0 px-4 pt-3 pt-xl-0 mt-lg-0"
-                        data-aos="fade-up">
-                        <div
-                            class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
-                            <div id="calendar" class="dm-sans"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" data-aos="fade-up">
-                    <div class="col-12 col-lg-12 col-xl-8 px-4 pt-3" data-aos="fade-up">
-                        <div class="row rounded-4 shadow-lg px-4 bg-white">
-                            charts here
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-12 col-xl-4 px-4 pt-3" data-aos="fade-up">
-                        <div
-                            class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
-                            nearing end of schedule here
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- container end -->
-        </main>
-        <!-- main end -->
-        <!-- modals start -->
-        <!-- new todo modal start -->
-        <div
-            class="modal fade"
-            id="newTodo"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabindex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header tmbg-primary text-white">
-                        <h1 class="modal-title fs-5"
-                            id="staticBackdropLabel">New ToDo List</h1>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="mb-3">
-                                <label for="todoTitle" class="form-label">
-                                    Task
-                                    list title
-                                </label>
-                                <div class="input-group">
-                                    <span
-                                        class="input-group-text tmbg-primary text-white"
-                                        id="todoTitle">
-                                        <i
-                                            class="fa-solid fa-rectangle-list"></i>
-                                    </span>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="todoTitle"
-                                        aria-describedby="todoTitle">
-                                </div>
-                                <div class="form-text" id="todoTitle"></div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-floating">
-                                <textarea class="form-control"
-                                    placeholder="Awesome description here"
-                                    id="description"></textarea>
-                                <label for="description">Description</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn tmbg-danger text-white"
-                            data-bs-dismiss="modal">Close</button>
-                        <button type="button"
-                            class="btn tmbg-success text-white">Save</button>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <!-- head start -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Master</title>
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- jQuery CDN -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- AOS CSS CDN -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom Fonts CSS -->
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="TASKMASTER" />
+    <meta
+      name="twitter:site"
+      content="@https://zhackdtech.github.io/taskmaster/"
+    />
+    <meta
+      name="twitter:description"
+      content="TaskMaster is a user-friendly dashboard template designed to streamline your task management experience. "
+    />
+    <!-- Open Graph meta tags -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:title" content="TaskMaster" />
+    <meta
+      property="og:url"
+      content="https://zhackdtech.github.io/taskmaster/"
+    />
+    <meta property="og:image" content />
+    <meta
+      property="og:description"
+      content="TaskMaster is a user-friendly dashboard template designed to streamline your task management experience. "
+    />
+    <meta property="business:contact_data:street_address" content />
+    <meta property="business:contact_data:locality" content />
+    <meta property="business:contact_data:region" content />
+    <meta property="business:contact_data:country_name" content="Philippines" />
+    <!-- head end -->
+  </head>
+  <body class>
+    <!-- main start -->
+    <main class="d-flex flex-nowrap">
+      <div
+        class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary overflow-y-scroll overflow-x-hidden"
+        data-aos="fade-right"
+        id="sidenav"
+        style="width: 300px"
+      >
+        <!-- sidenav start -->
+        <div class="container w-100 px-2 py-3 text-center">
+          <span class="fs-2 inter-bolder sn-header tmtext-primary">
+            <!-- <i class="fa-solid fa-bars-progress"></i> -->
+            Task
+            <span class="tmtext-dark">Master</span>
+          </span>
         </div>
-        <!-- new to do modal end -->
-        <!-- modals end -->
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
-            AOS.init();
-        </script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/1cf0552cf6.js"
-            crossorigin="anonymous"></script>
-        <script type="text/javascript"
-            src="https://livejs.com/live.js"></script>
-        <script src="assets/js/main.js"></script>
-        <script>
-            var sameDaylastWeek = new Date().setDate(new Date().getDate() - 7);
-            var someDaynextMonth = new Date().setDate(new Date().getDate() + 31);
-    
-            // All dates should be provided in timestamps
-                var sampleEvents = [
-                {
-                    title: "Finish TaskMaster",
-                    date: new Date().getTime(), // Today
-                    link: "https://github.com/zhackdtech/taskmaster"
-                },
-                {
-                    title: "Some day next month",
-                    date: someDaynextMonth, // Some day as today, next month
-                    link: "https://github.com/zhackdtech/taskmaster"
-                }
-                ];
-    
-            $(document).ready(function(){
-                $("#calendar").MEC({
-                    events: sampleEvents
-                });
-            });
-        </script>
-    </body>
+        <hr />
+        <ul class="snav nav nav-pills flex-column mb-auto dm-sans-500">
+          <li class="nav-item py-1">
+            <a href="#" class="nav-link active py-3" aria-current="page">
+              <i class="fa-solid fa-chart-area p-2 sn-icon"></i>
+              <span>&nbsp;Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item py-1">
+            <a href="#" class="nav-link link-body-emphasis py-3">
+              <i class="fa-solid fa-list p-2 sn-icon"></i>
+              <span>&nbsp;Lists</span>
+            </a>
+          </li>
+          <li class="nav-item py-1">
+            <a href="#" class="nav-link link-body-emphasis py-3">
+              <i class="fa-solid fa-clock-rotate-left p-2 sn-icon"></i>
+              <span>&nbsp;History</span>
+            </a>
+          </li>
+          <li class="nav-item py-1">
+            <a href="#" class="nav-link link-body-emphasis py-3">
+              <i class="fa-solid fa-gear p-2 sn-icon"></i>
+              <span>&nbsp;Settings</span>
+            </a>
+          </li>
+          <li class="nav-item py-1">
+            <a href="#" class="nav-link link-body-emphasis py-3">
+              <i class="fa-solid fa-circle-question p-2 sn-icon"></i>
+              <span>&nbsp;Help Center</span>
+            </a>
+          </li>
+        </ul>
+        <hr />
+        <div class="dropdown">
+          <a
+            href="#"
+            class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="https://avatars.githubusercontent.com/u/50767502?s=400&u=3491d369367395bcd7ea719e6593d5387dc80764&v=4"
+              alt
+              width="32"
+              height="32"
+              class="rounded-circle me-2"
+            />
+            <strong class="sn-username dm-sans fw-bold">Wilmarx</strong>
+          </a>
+          <ul
+            class="dropdown-menu text-small shadow dm-sans-600 animate slideIn"
+          >
+            <li>
+              <a class="dropdown-item" href="#">Settings</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Profile</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">Sign out</a>
+            </li>
+          </ul>
+        </div>
+        <!-- sidenav end -->
+      </div>
+      <!-- container start -->
+      <div class="container main-container" data-aos="zoom-out-down">
+        <!-- container content start -->
+        <div
+          class="d-flex flex-row justify-content-between py-2 topnav"
+          data-aos="fade-up"
+        >
+          <!-- header start -->
+          <div class="d-none d-lg-flex align-items-center">
+            <span class="fs-2 inter-bolder sn-header color-primary">
+              <!-- <i class="fa-solid fa-bars-progress"></i> -->
+              <span class="color-dark">DASHBOARD</span>
+            </span>
+          </div>
+          <!-- navbar start -->
+          <nav class="navbar navbar-expand w-100">
+            <div
+              class="collapse navbar-collapse w-100 d-flex flex-row-reverse"
+              id="navbarNav"
+            >
+              <!-- navbar links start -->
+              <ul
+                class="navbar-nav shadow-lg py-4 px-2 px-lg-5 rounded-5 dm-sans fw-bold d-flex justify-content-end d-xl-flex"
+              >
+                <li class="nav-item d-none d-lg-block py1">
+                  <!-- search input start -->
+                  <div class="input-group">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Search here..."
+                      aria-label="Search here..."
+                      aria-describedby="navbar-search"
+                    />
+                    <span
+                      class="input-group-text tmbg-primary tmtext-white"
+                      id="navbar-search"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                  </div>
+                  <!-- search input end -->
+                </li>
+                <!-- search button (collapsed) start -->
+                <li class="nav-item d-block d-lg-none py1">
+                  <div class="nav-item dropdown no-arrow">
+                    <a
+                      class="dropdown-toggle nav-link"
+                      aria-expanded="false"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                    >
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <!-- search dropdown menu start -->
+                    <div
+                      class="dropdown-menu dropdown-menu-end dropdown-list shadow-lg animate slideIn"
+                    >
+                      <h6 class="dropdown-header">Search</h6>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#"
+                      >
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Search here..."
+                            aria-label="Search here..."
+                            aria-describedby="navbar-search"
+                          />
+                          <span
+                            class="input-group-text tmbg-primary tmtext-white"
+                            id="navbar-search"
+                          >
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <!-- search dropdown menu end -->
+                  </div>
+                </li>
+                <!-- search button (collapsed) end -->
+                <!-- notification bell start -->
+                <li class="nav-item py1">
+                  <div class="nav-item dropdown no-arrow">
+                    <a
+                      class="dropdown-toggle nav-link"
+                      aria-expanded="false"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                    >
+                      <i class="fa-solid fa-bell"></i>
+                      <span
+                        class="position-absolute top-40 start-90 translate-middle p-1 bg-danger border border-light rounded-circle"
+                      >
+                        <span class="visually-hidden"> New alerts </span>
+                      </span>
+                    </a>
+                    <!-- notification dropdown menu start -->
+                    <div
+                      class="dropdown-menu dropdown-menu-end dropdown-list shadow-lg animate slideIn"
+                    >
+                      <h6 class="dropdown-header">Notifications</h6>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#"
+                      >
+                        <div class="me-3">
+                          <div class="navbar-icons tmbg-primary p-2 rounded-4">
+                            <i class="fas fa-file-alt text-white"></i>
+                          </div>
+                        </div>
+                        <div>
+                          <span class="small navdrop-title">
+                            March 06, 2023
+                            <span class="tmtext-danger fw-bold">*</span>
+                          </span>
+                          <p class="navdrop-content">
+                            Sales report is ready to download.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="dropdown-item text-center small" href="#"
+                        >Show All</a
+                      >
+                    </div>
+                    <!-- notification dropdown menu end -->
+                  </div>
+                </li>
+                <!-- notification bell end -->
+                <!-- message envelope start -->
+                <li class="nav-item py1">
+                  <div class="nav-item dropdown no-arrow">
+                    <a
+                      class="dropdown-toggle nav-link"
+                      aria-expanded="false"
+                      data-bs-toggle="dropdown"
+                      href="#"
+                    >
+                      <i class="fa-solid fa-envelope"></i>
+                      <span
+                        class="position-absolute top-40 start-90 translate-middle p-1 bg-danger border border-light rounded-circle"
+                      >
+                        <span class="visually-hidden"> New message </span>
+                      </span>
+                    </a>
+                    <!-- message dropdown menu start -->
+                    <div
+                      class="dropdown-menu dropdown-menu-end dropdown-list shadow-lg animate slideIn"
+                    >
+                      <h6 class="dropdown-header">Messages</h6>
+                      <a
+                        class="dropdown-item d-flex align-items-center"
+                        href="#"
+                      >
+                        <div class="me-3">
+                          <div class="navbar-icons tmbg-primary p-2 rounded-4">
+                            <i class="fas fa-circle-user text-white"></i>
+                          </div>
+                        </div>
+                        <div>
+                          <span class="small navdrop-title">
+                            John Doe
+                            <span class="tmtext-danger fw-bold">*</span>
+                          </span>
+                          <p class="navdrop-content">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit.
+                          </p>
+                        </div>
+                      </a>
+                      <a class="dropdown-item text-center small" href="#"
+                        >Show all</a
+                      >
+                    </div>
+                    <!-- message dropdown menu end -->
+                  </div>
+                </li>
+                <!-- message envelope end -->
+                <!-- user dropdown start -->
+                <li class="nav-item py1">
+                  <div class="dropdown">
+                    <a
+                      role="button"
+                      class="nav-link dropdown-toggle"
+                      data-bs-toggle="dropdown"
+                      data-bs-display="static"
+                      aria-expanded="false"
+                    >
+                      <i class="fa-solid fa-circle-user"></i>
+                    </a>
+                    <!-- user dropdown menu start -->
+                    <ul
+                      class="dropdown-menu dropdown-menu-lg-end animate slideIn"
+                    >
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Settings
+                        </button>
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Profile
+                        </button>
+                      </li>
+                      <li>
+                        <hr class="dropdown-divider" />
+                      </li>
+                      <li>
+                        <button class="dropdown-item" type="button">
+                          Sign out
+                        </button>
+                      </li>
+                    </ul>
+                    <!-- user dropdown menu end -->
+                  </div>
+                </li>
+                <!-- user dropdown end -->
+                <!-- burger menu (mobile) start -->
+                <li class="nav-item d-block d-lg-none">
+                  <a class="nav-link" href="#" id="burger">
+                    <i class="fa-solid fa-bars"></i>
+                  </a>
+                </li>
+                <!-- burger menu (mobile) end -->
+              </ul>
+              <!-- navbar links end -->
+            </div>
+          </nav>
+          <!-- navbar end -->
+          <!-- header end -->
+        </div>
+        <!-- container content end -->
+        <!-- add new todo list start -->
+        <div class="d-flex flex-row-reverse" data-aos="fade-up">
+          <button
+            class="btn tmbg-primary text-white"
+            data-bs-toggle="modal"
+            data-bs-target="#newTodo"
+          >
+            <i class="fa-solid fa-folder-plus"></i>
+            &nbsp;New todo
+          </button>
+        </div>
+        <!-- 1st row of dashboard -->
+        <!-- header, stats, calendar column -->
+        <div class="row pt-3" data-aos="fade-up">
+          <!-- header and stats column -->
+          <div class="col-12 col-lg-12 col-xl-8 mx-0 px-4">
+            <!-- header row -->
+            <div class="row rounded-4 shadow-lg py-5 px-3" data-aos="fade-up">
+              <div class="col-12 col-lg-8">
+                <h1 class="dm-sans-900 dash_header">
+                  Today's&nbsp;
+                  <span class="tmtext-success">Task</span>
+                </h1>
+                <small class="dm-sans-500 dash_sub">
+                  &nbsp;Check your daily tasks and schedule.
+                </small>
+                <div class="d-block pt-3">
+                  <button class="btn tmbg-primary text-white btn-lg dm-sans">
+                    <i class="fa-solid fa-list"></i>
+                    &nbsp;Today's&nbsp;tasks
+                  </button>
+                </div>
+              </div>
+              <div class="col-4 d-none d-lg-block">
+                <img
+                  src="assets/img/checklist.png"
+                  alt="Checklist"
+                  class="img-fluid float-end"
+                />
+              </div>
+            </div>
+            <!-- stats row -->
+            <div
+              class="row bg-white rounded-4 shadow-lg mt-3 p-3"
+              data-aos="fade-up"
+            >
+              <!-- generate report button -->
+              <div
+                class="d-flex justify-content-between align-items-center py-3 px-2"
+                data-aos="fade-up"
+              >
+                <h3 class="dm-sans-900">Reporting</h3>
+                <button class="btn tmbg-primary text-white">
+                  <i class="fa-solid fa-file-export"></i>
+                  &nbsp;Generate report
+                </button>
+              </div>
+              <!-- stats column -->
+              <div class="col-12 col-md-12 col-lg-6 px-2 col-xxl-4">
+                <div
+                  class="card card-stats mb-4 mb-xl-0 border-0 rounded-1 shadow-lg tmbg-quaternary"
+                  data-aos="fade-up"
+                >
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h6
+                          class="card-title text-uppercase text-muted mb-0 fw-bold tmtext-light dm-sans"
+                        >
+                          New tasks
+                        </h6>
+                        <span
+                          class="h2 font-weight-bold mb-0 fw-bolder tmtext-white"
+                          >123</span
+                        >
+                      </div>
+                      <div class="col-auto">
+                        <div class="bg-white rounded-4">
+                          <i
+                            class="fa-solid fa-plus p-3 tmtext-primary"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-muted text-sm">
+                      <span class="tmtext-success mr-2">
+                        <i class="fas fa-arrow-up"></i>
+                        1.23%
+                      </span>
+                      <span class="text-nowrap tmtext-white"
+                        >Since last week</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- stats column -->
+              <div class="col-12 col-md-12 col-lg-6 px-2 col-xxl-4">
+                <div
+                  class="card card-stats mb-4 mb-xl-0 border-0 rounded-1 shadow-lg tmbg-tertiary"
+                  data-aos="fade-up"
+                >
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h6
+                          class="card-title text-uppercase text-muted mb-0 fw-bold tmtext-light dm-sans"
+                        >
+                          Completed
+                        </h6>
+                        <span
+                          class="h2 font-weight-bold mb-0 fw-bolder tmtext-white"
+                          >456</span
+                        >
+                      </div>
+                      <div class="col-auto">
+                        <div class="bg-white rounded-4">
+                          <i
+                            class="fa-solid fa-list-check p-3 tmtext-primary"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-muted text-sm">
+                      <span class="tmtext-success mr-2">
+                        <i class="fas fa-arrow-up"></i>
+                        4.56%
+                      </span>
+                      <span class="text-nowrap tmtext-white"
+                        >Since last week</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- stats columns -->
+              <div
+                class="col-12 col-md-12 col-lg-6 col-xxl-4 px-2 pt-0 pt-sm-0 pt-md-0 pt-lg-0 pt-xl-3 pt-xxl-0"
+              >
+                <div
+                  class="card card-stats mb-xl-0 border-0 rounded-1 shadow-lg tmbg-secondary"
+                  data-aos="fade-up"
+                >
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col">
+                        <h6
+                          class="card-title text-uppercase text-muted mb-0 fw-bold tmtext-light dm-sans"
+                        >
+                          Weekly total
+                        </h6>
+                        <span
+                          class="h2 font-weight-bold mb-0 fw-bolder tmtext-white"
+                          >789</span
+                        >
+                      </div>
+                      <div class="col-auto">
+                        <div class="bg-white rounded-4">
+                          <i
+                            class="fa-solid fa-list p-3 tmtext-primary"
+                            aria-hidden="true"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mt-3 mb-0 text-muted text-sm">
+                      <span class="tmtext-danger mr-2">
+                        <i class="fas fa-arrow-down"></i>
+                        7.89%
+                      </span>
+                      <span class="text-nowrap tmtext-white"
+                        >Since last week</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- calendar column -->
+          <div
+            class="col-12 col-lg-12 col-xl-4 mx-0 px-4 pt-3 pt-xl-0 mt-lg-0"
+            data-aos="fade-up"
+          >
+            <div class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
+              <div id="calendar" class="dm-sans"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row" data-aos="fade-up">
+          <div class="col-12 col-lg-12 col-xl-8 px-4 pt-3" data-aos="fade-up">
+            <div class="row rounded-4 shadow-lg px-4 bg-white">charts here</div>
+          </div>
+          <div class="col-12 col-lg-12 col-xl-4 px-4 pt-3" data-aos="fade-up">
+            <div class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
+              nearing end of schedule here
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- container end -->
+    </main>
+    <!-- main end -->
+    <!-- modals start -->
+    <!-- new todo modal start -->
+    <div
+      class="modal fade"
+      id="newTodo"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header tmbg-primary text-white">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              New ToDo List
+            </h1>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="mb-3">
+                <label for="todoTitle" class="form-label">
+                  Task list title
+                </label>
+                <div class="input-group">
+                  <span
+                    class="input-group-text tmbg-primary text-white"
+                    id="todoTitle"
+                  >
+                    <i class="fa-solid fa-rectangle-list"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="todoTitle"
+                    aria-describedby="todoTitle"
+                  />
+                </div>
+                <div class="form-text" id="todoTitle"></div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Awesome description here"
+                  id="description"
+                ></textarea>
+                <label for="description">Description</label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn tmbg-danger text-white"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn tmbg-success text-white">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- new to do modal end -->
+    <!-- modals end -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/1cf0552cf6.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      var sameDaylastWeek = new Date().setDate(new Date().getDate() - 7);
+      var someDaynextMonth = new Date().setDate(new Date().getDate() + 31);
+
+      // All dates should be provided in timestamps
+      var sampleEvents = [
+        {
+          title: "Finish TaskMaster",
+          date: new Date().getTime(), // Today
+          link: "https://github.com/zhackdtech/taskmaster",
+        },
+        {
+          title: "Some day next month",
+          date: someDaynextMonth, // Some day as today, next month
+          link: "https://github.com/zhackdtech/taskmaster",
+        },
+      ];
+
+      $(document).ready(function () {
+        $("#calendar").MEC({
+          events: sampleEvents,
+        });
+      });
+    </script>
+  </body>
 </html>
