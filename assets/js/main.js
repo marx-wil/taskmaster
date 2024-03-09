@@ -164,38 +164,4 @@
     );
   };
 })(jQuery);
-$(window).ready(function () {
-  console.log("document is ready!");
-});
-$("#burger").on("click", function (e) {
-  $("#sidenav").toggleClass("mobile");
-  $("#burger").toggleClass("active");
-  console.log("navbar expand");
-  e.stopPropagation();
-});
-$("body,html").click(function (e) {
-  $("#sidenav").removeClass("mobile");
-});
-document.onclick = (function (a) {
-  let menu_icon_box = document.querySelector("#burger");
-  let box = document.querySelector("#sidenav");
-  if (!menu_icon_box.contains(a.target) && !box.contains(a.target)) {
-    $("#sidebar").removeClass("mobile");
-  }
-})(function () {
-  var dropdownMenu;
-  $(window).on("show.bs.dropdown", function (e) {
-    dropdownMenu = $(e.target).find(".dropdown-menu");
-    $("body").append(dropdownMenu.detach());
-    var eOffset = $(e.target).offset();
-    dropdownMenu.css({
-      display: "block",
-      top: eOffset.top + $(e.target).outerHeight(),
-      left: eOffset.left,
-    });
-  });
-  $(window).on("hide.bs.dropdown", function (e) {
-    $(e.target).append(dropdownMenu.detach());
-    dropdownMenu.hide();
-  });
-})();
+

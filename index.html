@@ -444,7 +444,7 @@
                 class="d-flex justify-content-between align-items-center py-3 px-2"
                 data-aos="fade-up"
               >
-                <h3 class="dm-sans-900">Reporting</h3>
+                <h4 class="dm-sans-700">Reporting</h4>
                 <button class="btn tmbg-primary text-white">
                   <i class="fa-solid fa-file-export"></i>
                   &nbsp;Generate report
@@ -584,10 +584,35 @@
             </div>
           </div>
         </div>
+        <!-- charts and nearing end of schedule row -->
+        <!-- charts and nearing end of schedule columns -->
         <div class="row" data-aos="fade-up">
+          <!-- charts column -->
           <div class="col-12 col-lg-12 col-xl-8 px-4 pt-3" data-aos="fade-up">
-            <div class="row rounded-4 shadow-lg px-4 bg-white">charts here</div>
+            <div class="row rounded-4 shadow-lg bg-white pt-3">
+              <div class="row py-3" data-aos="fade-up">
+                <div class="col-6 col-lg-8">
+                  <h4 class="dm-sans-700">Charts</h4>
+                </div>
+                <div class="col-6 col-lg-4 px-0">
+                  <div class="input-group mb-3">
+                    <input
+                      type="date"
+                      class="form-control"
+                      placeholder="Choose a date"
+                      aria-label="Choose a date"
+                      aria-describedby="dash-date"
+                    />
+                    <span class="input-group-text" id="dash-date">
+                      <i class="fa-solid fa-calendar"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <canvas id="myChart"></canvas>
+            </div>
           </div>
+          <!-- nearing schedule column -->
           <div class="col-12 col-lg-12 col-xl-4 px-4 pt-3" data-aos="fade-up">
             <div class="row rounded-4 shadow-lg px-4 bg-white h-100 mh-100">
               nearing end of schedule here
@@ -671,6 +696,80 @@
     <script>
       AOS.init();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      const ctx = document.getElementById("myChart");
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          tension: 0.1,
+          labels: [
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+          ],
+          datasets: [
+            {
+              label: "UNFINISHED TASKS",
+              data: [
+                "5",
+                "10",
+                "20",
+                "15",
+                "20",
+                "25",
+                "35",
+                "25",
+                "15",
+                "20",
+                "15",
+                "5",
+              ],
+              borderColor: "#f11800",
+              backgroundColor: "transparent",
+              tension: 0.3,
+            },
+            {
+              label: "FINISHED TASKS",
+              data: ["8", "15", "22", "25", "30", "18", "20", "19", "12", "16", "5", "10"],
+              borderColor: "#00a35d",
+              backgroundColor: "transparent",
+              tension: 0.3,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              suggestedMin: 5,
+              suggestedMax: 100,
+            },
+          },
+          responsive: true,
+          display: false,
+          plugins: {
+            legend: {
+              display: false,
+              position: "top",
+            },
+            title: {
+              display: false,
+              text: "Chart.js Line Chart",
+            },
+          },
+        },
+      });
+    </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
