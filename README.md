@@ -1,119 +1,68 @@
-# TaskMaster: Streamlined Todo List Management Dashboard
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**TaskMaster** is a user-friendly dashboard template designed to streamline your task management experience. With TaskMaster, users can effortlessly organize their to-do lists, add new tasks, mark tasks as complete, and delete tasks with ease. The dashboard also offers convenient filtering options, allowing users to quickly view tasks based on their status, whether completed or pending. Say goodbye to cluttered to-do lists and hello to efficient task management with TaskMaster.
+## Available Scripts
 
-### Quick Start
+In the project directory, you can run:
 
-Just download the files then open index.html
+### `npm start`
 
-## Dashboard contents
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Todo List Dashboard
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-#### SCREENS
+### `npm test`
 
-- Homepage
-  - Overview of todo lists
-  - Quick access to create a new list
-  - Links to settings, task history, and help center
-- Todo Lists
-  - List of all todo lists (Each list has to have:)
-    - Title
-    - Number of tasks
-    - Last updated timestamp
-    - Actions (edit, delete, etc.)
-    - Option to create a new list
-- Settings
-  - User settings for the Todo List Dashboard
-  - Profile settings
-    - View and manage user information and preferences
-    - Profile picture
-    - Username
-    - Email address
-    - Change password
-    - Notification settings
-    - Language preferences
-    - Timezone preferences
-- Task History
-  - View of completed tasks and their details
-  - Date completed
-  - Task name
-  - List name
-  - Option to filter and search task history
-- Help Center
-  - Resources and support for using the Todo List Dashboard
-  - FAQ section
-  - Contact support
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### FEATURES
+### `npm run build`
 
-- Todo List Detail
-  - View of a specific todo list
-  - Title
-  - List of tasks (Each task has to have:)
-    - Task name
-    - Description
-    - Due date
-    - Status (completed/incomplete)
-    - Actions (edit, delete, mark as completed/incomplete, etc.)
-    - Option to add a new task
-    - Option to edit list details
-    - Option to delete the list
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### FORMS
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-- Create Todo List
-  - Title
-  - Description
-  - Option to add initial tasks
-  - Edit Todo List
-- Form to edit the details of an existing todo list
-  - Title
-  - Description
-  - Option to add or remove tasks
-  - Create Task
-- Form to create a new task within a todo list
-  - Task name
-  - Description
-  - Due date
-  - Edit Task
-- Form to edit the details of an existing task
-  - Task name
-  - Description
-  - Due date
-  - Status
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### LINKS
+### `npm run eject`
 
-<details>
-    <summary>SIDEBAR</summary>
-    <br>
-    <small>DASHBOARD</p>
-    <small>TODO</p>
-    <small>HISTORY</p>
-    <small>SETTINGS</p>
-    <small>HELP CENTER</p>
-    <small>ACCOUNT</p>
-</details>
-<details>
-    <summary>NAVBAR</summary>
-    <br>
-    <small>SEARCH</p>
-    <small>NOTIFICATIONS</p>
-    <small>BURGER</p>
-</details>
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-### VIEWING
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-visit the [live site](https://zhackdtech.github.io/taskmaster/)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### CONNECT WITH ME
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-<p align="left">
-<a href="https://codepen.io/wilmarx-john" target="blank">
-<img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codepen.svg" alt="wilmarx-john" height="30" width="40"></a>
-<a href="https://fb.com/wilmarx john cayabyab" target="blank">
-<img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="wilmarx john cayabyab" height="30" width="40"></a>
-<a href="https://instagram.com/marx.wil" target="blank">
-<img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="marx.wil" height="30" width="40"></a>
-</p>
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
