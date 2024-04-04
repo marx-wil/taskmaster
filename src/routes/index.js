@@ -6,7 +6,7 @@ const routes = [
   },
   {
     name: 'Tables',
-    path: '/about',
+    path: '/tables',
   },
 ];
 

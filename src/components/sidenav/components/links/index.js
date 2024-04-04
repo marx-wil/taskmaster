@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 
 import lists from '../../../../routes/';
 
+// import Toggle from '../toggle';
+
 const Sidenav = () => {
   return (
     <div className="sidebar">

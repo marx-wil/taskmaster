@@ -24,7 +24,7 @@ const DefaultView = Layout(Default);
 const TableView = Layout(Tables);
 const router = createBrowserRouter([
   { path: '/', element: <DefaultView /> },
-  { path: '/about', element: <TableView /> },
+  { path: '/tables', element: <TableView /> },
 ]);
 root.render(
   <StrictMode>
