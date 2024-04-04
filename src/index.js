@@ -1,16 +1,35 @@
-import { ColorModeScript } from '@chakra-ui/react';
+import './styles/main.scss';
+
 import React, { StrictMode } from 'react';
+
 import * as ReactDOM from 'react-dom/client';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
+
+import { ColorModeScript } from '@chakra-ui/react';
+
 import App from './App';
+import Layout from './layouts/default';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
+import Default from './views/default';
+import Tables from './views/tables';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
+const DefaultView = Layout(Default);
+const TableView = Layout(Tables);
+const router = createBrowserRouter([
+  { path: '/', element: <DefaultView /> },
+  { path: '/about', element: <TableView /> },
+]);
 root.render(
   <StrictMode>
     <ColorModeScript />
+    <RouterProvider router={router} />
     <App />
   </StrictMode>
 );
