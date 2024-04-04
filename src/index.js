@@ -10,7 +10,6 @@ import {
 
 import { ColorModeScript } from '@chakra-ui/react';
 
-import App from './App';
 import Layout from './layouts/default';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
@@ -30,7 +29,6 @@ root.render(
   <StrictMode>
     <ColorModeScript />
     <RouterProvider router={router} />
-    <App />
   </StrictMode>
 );
 
