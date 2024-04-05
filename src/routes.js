@@ -1,5 +1,8 @@
 import {
+  FaCalendar,
   FaChartArea,
+  FaCircleNotch,
+  FaPager,
   FaTable,
 } from 'react-icons/fa';
 
@@ -17,17 +20,17 @@ const routes = [
   {
     name: 'Calendar',
     path: '/calendar',
-    icon: <FaTable />,
+    icon: <FaCalendar   />,
   },
   {
     name: 'Progress',
     path: '/progress',
-    icon: <FaTable />,
+    icon: <FaCircleNotch   />,
   },
   {
     name: 'Forms',
     path: '/forms',
-    icon: <FaTable />,
+    icon: <FaPager  />,
   },
 ];
 
