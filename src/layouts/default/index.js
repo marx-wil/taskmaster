@@ -22,6 +22,7 @@ const Layout = Component => {
         width: isLgScreen ? 'calc(100vw - 300px)' : '100vw',
         marginLeft: isLgScreen ? '300px' : '0',
         transition: 'all .3s ease-in-out',
+        minHeight:'100vh'
       },
     };
     return (
