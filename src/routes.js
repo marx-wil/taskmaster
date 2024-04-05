@@ -14,6 +14,21 @@ const routes = [
     path: '/tables',
     icon: <FaTable />,
   },
+  {
+    name: 'Calendar',
+    path: '/calendar',
+    icon: <FaTable />,
+  },
+  {
+    name: 'Progress',
+    path: '/progress',
+    icon: <FaTable />,
+  },
+  {
+    name: 'Forms',
+    path: '/forms',
+    icon: <FaTable />,
+  },
 ];
 
 export default routes;

@@ -18,7 +18,7 @@ const style = {
 };
 const Layout = Component => {
   const DefaultFunction = ({ ...props }) => {
-    let mainBg = useColorModeValue('gray.50', 'gray.900');
+    let mainBg = useColorModeValue('#F4F7FE', '#111C44');
     return (
       <Flex>
         <Sidenav />

@@ -14,7 +14,10 @@ import {
 import Layout from './layouts/default';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
+import Calendar from './views/calendar';
 import Dashboard from './views/dashboard';
+import Forms from './views/forms';
+import Progress from './views/progress';
 import Tables from './views/tables';
 
 const container = document.getElementById('root');
@@ -22,10 +25,15 @@ const root = ReactDOM.createRoot(container);
 
 const MainComponent = Layout(Dashboard);
 const TableComponent = Layout(Tables);
-
+const CalendarComponent = Layout(Calendar);
+const ProgressComponent = Layout(Progress);
+const FormsComponent = Layout(Forms);
 const router = createBrowserRouter([
   { path: '/', element: <MainComponent /> },
   { path: '/tables', element: <TableComponent /> },
+  { path: '/calendar', element: <CalendarComponent /> },
+  { path: '/progress', element: <ProgressComponent /> },
+  { path: '/forms', element: <FormsComponent /> },
 ]);
 root.render(
   <ChakraProvider>
