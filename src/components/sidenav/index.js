@@ -1,9 +1,4 @@
 import {
-  useEffect,
-  useState,
-} from 'react';
-
-import {
   Box,
   Divider,
   useBreakpointValue,
@@ -15,11 +10,6 @@ import Links from './components/links';
 import ProfileCard from './components/ProfileCard';
 
 const Sidenav = props => {
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(false); // Set the component mounted flag to true when the component mounts
-  }, []);
   const isLgScreen = useBreakpointValue({ base: false, lg: true });
   let sidenavBg = useColorModeValue('#fff', '#111C44');
   const style = {
@@ -31,7 +21,6 @@ const Sidenav = props => {
       borderRight: `1px solid rgba(255, 255, 255, 0.16)`,
       position: 'fixed',
       marginLeft: isLgScreen ? '0px' : '-300px',
-      transition: isMounted ? 'all 0.3s ease-in-out' : 'none',
     },
     navlink: {
       width: '260px',
