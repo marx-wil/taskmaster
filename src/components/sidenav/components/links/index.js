@@ -37,20 +37,17 @@ const Sidenav = props => {
                 style={{
                   width: '260px',
                   background: isActiveRoute(list.path.toLowerCase())
-                    ? 'red'
-                    : null,
+                    ? "#3361FF"
+                    : 'transparent',
                     fontFamily:"Manrope"
                 }}
               >
                 <NavLink
                   to={list.path}
-                  className={({ isActive }) =>
-                    isActive ? 'nav-link active' : 'nav-link'
-                  }
                   style={
                     isActiveRoute(list.path.toLowerCase())
                       ? {
-                          color: 'blue', //active
+                          color: 'white', //active
                         }
                       : {
                           color: 'red', //inactive
