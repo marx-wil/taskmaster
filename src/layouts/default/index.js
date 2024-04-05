@@ -1,3 +1,5 @@
+import '../../styles/main.scss';
+
 import React from 'react';
 
 import {
@@ -19,14 +21,16 @@ const Layout = Component => {
       main: {
         width: isLgScreen ? 'calc(100vw - 300px)' : '100vw',
         marginLeft: isLgScreen ? '300px' : '0',
-        transition:'all .3s ease-in-out'
+        transition: 'all .3s ease-in-out',
       },
     };
     return (
       <Flex>
         {/* Conditionally render Sidenav only on screens larger than lg */}
-        {/* {isLgScreen && } */}
-        <Sidenav />
+        {/* {isLgScreen && <Sidenav />}  */}
+        <Box style={style.sidenav} className="sidenav">
+          <Sidenav />
+        </Box>
         <Box bg={mainBg} style={style.main}>
           <Topnav />
           <Component {...props} />

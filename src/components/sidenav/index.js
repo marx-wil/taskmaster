@@ -1,7 +1,6 @@
 import {
   Box,
   Divider,
-  useBreakpointValue,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
@@ -10,7 +9,6 @@ import Links from './components/links';
 import ProfileCard from './components/ProfileCard';
 
 const Sidenav = props => {
-  const isLgScreen = useBreakpointValue({ base: false, lg: true });
   let sidenavBg = useColorModeValue('#fff', '#111C44');
   const style = {
     Sidenav: {
@@ -19,8 +17,6 @@ const Sidenav = props => {
       boxShadow: '0px 2px 8px rgba(0,0,0,0.16)',
       height: '100vh',
       borderRight: `1px solid rgba(255, 255, 255, 0.16)`,
-      position: 'fixed',
-      marginLeft: isLgScreen ? '0px' : '-300px',
     },
     navlink: {
       width: '260px',
@@ -28,7 +24,7 @@ const Sidenav = props => {
   };
   return (
     <>
-      <Box style={style.Sidenav} py="1rem" bg={sidenavBg} className="sidenav">
+      <Box style={style.Sidenav} px=".75rem" py="1rem" bg={sidenavBg}>
         <VStack>
           <ProfileCard />
           <Divider orientation="horizontal" />
