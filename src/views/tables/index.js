@@ -1,5 +1,10 @@
+import { Box } from '@chakra-ui/react';
+
 const Tables = props => {
-    return <>This is the tables navigation</>;
-  };
-  export default Tables;
-  
+  return (
+    <>
+      <Box>This is the dashboard</Box>
+    </>
+  );
+};
+export default Tables;

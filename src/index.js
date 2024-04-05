@@ -29,11 +29,11 @@ const router = createBrowserRouter([
 ]);
 root.render(
   <ChakraProvider>
-  <RouterProvider router={router}>
-    <StrictMode>
-      <ColorModeScript />
-    </StrictMode>
-  </RouterProvider>
+    <RouterProvider router={router}>
+      <StrictMode>
+        <ColorModeScript />
+      </StrictMode>
+    </RouterProvider>
   </ChakraProvider>
 );
 

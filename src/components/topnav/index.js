@@ -1,4 +1,9 @@
+import { Box } from '@chakra-ui/react';
+
 const Topnav = props => {
-  return <>This is top navigation</>;
+  return <>
+  <Box>
+  This is top navigation
+    </Box></>;
 };
 export default Topnav;

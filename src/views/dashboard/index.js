@@ -1,5 +1,10 @@
+import { Box } from '@chakra-ui/react';
+
 const Dashboard = props => {
-    return <>This is the dashboard navigation</>;
-  };
-  export default Dashboard;
-  
+  return (
+    <>
+      <Box>This is the dashboard</Box>
+    </>
+  );
+};
+export default Dashboard;

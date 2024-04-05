@@ -1,37 +1,27 @@
-import { NavLink } from 'react-router-dom';
-
-import { MoonIcon } from '@chakra-ui/icons';
 import {
   Box,
-  IconButton,
-  useColorMode,
+  VStack,
 } from '@chakra-ui/react';
 
-import lists from '../../routes.js';
+import Links from './components/links';
+import ProfileCard from './components/ProfileCard';
 
+const style = {
+  Sidenav: {
+    width: '300px',
+    boxSizing: 'border-box',
+    boxShadow: '0px 2px 8px rgba(0,0,0,0.16)',
+    height:"100vh"
+  },
+};
 const Sidenav = props => {
-    const {colorMode,toggleColorMode} = useColorMode();
   return (
     <>
-      <Box>
-        {lists.map(list => {
-          return (
-            <NavLink 
-              to={list.path}
-              className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
-              }
-            >
-              {list.name}
-            </NavLink>
-          );
-        })}
-        <IconButton
-          colorScheme="blue"
-          aria-label="Toggle Color Theme"
-          icon={<MoonIcon/>}
-          onClick={toggleColorMode}
-        />
+      <Box style={style.Sidenav} py="1rem">
+        <VStack>
+          <ProfileCard/>
+          <Links />
+        </VStack>
       </Box>
     </>
   );
