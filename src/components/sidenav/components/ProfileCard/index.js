@@ -68,7 +68,7 @@ function Email() {
 const ProfileCard = (props) => {
   return (
     <>
-      <Flex flexDirection="row" style={style.ProfileCard} borderRadius="xl">
+      <Flex flexDirection="row" style={style.ProfileCard} borderRadius="xl" mb="1rem">
         <Stack direction="row" spacing="0px">
           <UserImage boxShadow="lg"/>
           <UserDetails />

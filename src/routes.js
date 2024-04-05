@@ -1,6 +1,19 @@
+import {
+  FaChartArea,
+  FaTable,
+} from 'react-icons/fa';
+
 const routes = [
-  { name: 'Dashboard', path: '/' },
-  { name: 'Tables', path: '/tables' },
+  {
+    name: 'Dashboard',
+    path: '/',
+    icon: <FaChartArea />,
+  },
+  {
+    name: 'Tables',
+    path: '/tables',
+    icon: <FaTable />,
+  },
 ];
 
 export default routes;

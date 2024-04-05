@@ -1,5 +1,6 @@
 import {
   Box,
+  Divider,
   VStack,
 } from '@chakra-ui/react';
 
@@ -13,6 +14,10 @@ const style = {
     boxShadow: '0px 2px 8px rgba(0,0,0,0.16)',
     height:"100vh"
   },
+  navlink:
+  {
+    width:"260px",
+  }
 };
 const Sidenav = props => {
   return (
@@ -20,6 +25,7 @@ const Sidenav = props => {
       <Box style={style.Sidenav} py="1rem">
         <VStack>
           <ProfileCard/>
+          <Divider orientation='horizontal' />
           <Links />
         </VStack>
       </Box>
