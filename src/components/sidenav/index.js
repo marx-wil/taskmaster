@@ -1,7 +1,6 @@
 import {
   Box,
   Divider,
-  useColorMode,
   useColorModeValue,
   VStack,
 } from '@chakra-ui/react';
@@ -11,7 +10,6 @@ import ProfileCard from './components/ProfileCard';
 
 const Sidenav = props => {
   let sidenavBg = useColorModeValue('#fff', '#111C44');
-  const colorMode = useColorMode();
   const style = {
     Sidenav: {
       width: '300px',
@@ -26,7 +24,7 @@ const Sidenav = props => {
   };
   return (
     <>
-      <Box style={style.Sidenav} py="1rem" bg={sidenavBg}>
+      <Box style={style.Sidenav} py="1rem" bg={sidenavBg} className="sidenav">
         <VStack>
           <ProfileCard />
           <Divider orientation="horizontal" />
