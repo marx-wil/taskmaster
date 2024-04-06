@@ -8,3 +8,16 @@
     margin-left: -300px !important;
   }
 }
+$transition-duration: .3s;
+
+.main {
+  width: 100vw;
+  margin-left: 0;
+  min-height: 100vh;
+  transition: all $transition-duration ease-in-out;
+
+  @media (min-width: 992px) { 
+    width: calc(100vw - 300px);
+    margin-left: 300px;
+  }
+}

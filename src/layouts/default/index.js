@@ -5,7 +5,6 @@ import React from 'react';
 import {
   Box,
   Flex,
-  useBreakpointValue,
   useColorModeValue,
 } from '@chakra-ui/react';
 
@@ -15,14 +14,11 @@ import Topnav from '../../components/topnav';
 const Layout = Component => {
   const DefaultFunction = ({ ...props }) => {
     // Check if the screen size is lg or above
-    const isLgScreen = useBreakpointValue({ base: false, lg: true });
+    // const isLgScreen = useBreakpointValue({ base: false, lg: true });
     let mainBg = useColorModeValue('#F4F7FE', '#111C44');
     const style = {
-      main: {
-        width: isLgScreen ? 'calc(100vw - 300px)' : '100vw',
-        marginLeft: isLgScreen ? '300px' : '0',
+      comp: {
         transition: 'all .3s ease-in-out',
-        minHeight:'100vh'
       },
     };
     return (
@@ -32,9 +28,9 @@ const Layout = Component => {
         <Box style={style.sidenav} className="sidenav">
           <Sidenav />
         </Box>
-        <Box bg={mainBg} style={style.main}>
+        <Box bg={mainBg} className="main" py="6" px="4">
           <Topnav />
-          <Component {...props} />
+          <Component style={style.comp} {...props} />
         </Box>
       </Flex>
     );
