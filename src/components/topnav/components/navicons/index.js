@@ -29,11 +29,10 @@ const NavIcons = props => {
         w="27.5rem"
         h="100%"
         align="center"
-        justify="end"
+        justify="space-around"
         gap={1}
         py="4"
-        paddingRight="4"
-        paddingLeft="0"
+        px="4"
         borderRadius="full"
         boxShadow="xl"
         bg={mainBg}
@@ -74,6 +73,7 @@ const NavIcons = props => {
             color={iconColors}
           />
           <IconButton
+            hideFrom="lg"
             aria-label="Menu button"
             icon={<FaBars />}
             bg="transparent"
