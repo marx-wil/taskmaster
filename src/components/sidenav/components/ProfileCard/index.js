@@ -3,6 +3,7 @@ import {
   Center,
   Flex,
   Stack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 
 const defProps = {
@@ -66,9 +67,10 @@ function Email() {
   return <div style={style.EmailText}>{defProps.email}</div>;
 }
 const ProfileCard = (props) => {
+  let profileCardBg = useColorModeValue("#ffffff","#0B1437")
   return (
     <>
-      <Flex flexDirection="row" style={style.ProfileCard} borderRadius="xl" mb="1rem">
+      <Flex flexDirection="row" style={style.ProfileCard} borderRadius="xl" mb="1rem" bg={profileCardBg}>
         <Stack direction="row" spacing="0px">
           <UserImage boxShadow="lg"/>
           <UserDetails />
