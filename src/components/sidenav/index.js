@@ -24,7 +24,7 @@ const Sidenav = props => {
   };
   return (
     <>
-      <Box style={style.Sidenav} px=".75rem" py="1rem" bg={sidenavBg}>
+      <Box style={style.Sidenav} px=".75rem" py="6" bg={sidenavBg}>
         <VStack>
           <ProfileCard />
           <Divider orientation="horizontal" />
