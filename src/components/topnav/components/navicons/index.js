@@ -9,7 +9,6 @@ import {
 import { SearchIcon } from '@chakra-ui/icons';
 import {
   Avatar,
-  Box,
   Flex,
   IconButton,
   Input,
@@ -29,7 +28,7 @@ const NavIcons = props => {
   return (
     <>
       <Flex
-        w="27.5rem"
+        w={{ base: '100%', lg: '27.5rem' }}
         h="100%"
         align="center"
         justify="space-around"
@@ -40,7 +39,12 @@ const NavIcons = props => {
         boxShadow="xl"
         bg={mainBg}
       >
-        <InputGroup maxW="50%" borderRadius="3xl" bg={searcBoxBg}>
+        <InputGroup
+          maxW="50%"
+          borderRadius="3xl"
+          bg={searcBoxBg}
+          display={{ base: 'none', sm: 'flex' }}
+        >
           <InputLeftElement pointerEvents="none">
             <SearchIcon color="gray.300" />
           </InputLeftElement>
@@ -53,46 +57,54 @@ const NavIcons = props => {
             _active={{ backgroundColor: 'transparent' }}
           />
         </InputGroup>
-        <Box>
-          <IconButton
-            onClick={toggleColorMode}
-            aria-label="Toggle color mode"
-            icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
-            bg="transparent"
-            size="md"
-            _hover={{ backgroundColor: 'transparent' }}
-            _active={{ backgroundColor: 'transparent' }}
-            color={iconColors}
-          />
-          <IconButton
-            aria-label="Notifications"
-            icon={<FaBell />}
-            bg="transparent"
-            size="md"
-            _hover={{ backgroundColor: 'transparent' }}
-            _active={{ backgroundColor: 'transparent' }}
-            color={iconColors}
-          />
-          <IconButton
-            aria-label="Messages"
-            icon={<FaInbox />}
-            bg="transparent"
-            size="md"
-            _hover={{ backgroundColor: 'transparent' }}
-            _active={{ backgroundColor: 'transparent' }}
-            color={iconColors}
-          />
-          <IconButton
-            hideFrom="lg"
-            aria-label="Menu button"
-            icon={<FaBars />}
-            bg="transparent"
-            size="md"
-            _hover={{ backgroundColor: 'transparent' }}
-            _active={{ backgroundColor: 'transparent' }}
-            color={iconColors}
-          />
-        </Box>
+        <IconButton
+          aria-label="Open search"
+          icon={<SearchIcon />}
+          bg="transparent"
+          size="sm"
+          _hover={{ backgroundColor: 'transparent' }}
+          _active={{ backgroundColor: 'transparent' }}
+          color={iconColors}
+        />
+
+        <IconButton
+          onClick={toggleColorMode}
+          aria-label="Toggle color mode"
+          icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
+          bg="transparent"
+          size="sm"
+          _hover={{ backgroundColor: 'transparent' }}
+          _active={{ backgroundColor: 'transparent' }}
+          color={iconColors}
+        />
+        <IconButton
+          aria-label="Notifications"
+          icon={<FaBell />}
+          bg="transparent"
+          size="sm"
+          _hover={{ backgroundColor: 'transparent' }}
+          _active={{ backgroundColor: 'transparent' }}
+          color={iconColors}
+        />
+        <IconButton
+          aria-label="Messages"
+          icon={<FaInbox />}
+          bg="transparent"
+          size="sm"
+          _hover={{ backgroundColor: 'transparent' }}
+          _active={{ backgroundColor: 'transparent' }}
+          color={iconColors}
+        />
+        <IconButton
+          hideFrom="lg"
+          aria-label="Menu button"
+          icon={<FaBars />}
+          bg="transparent"
+          size="sm"
+          _hover={{ backgroundColor: 'transparent' }}
+          _active={{ backgroundColor: 'transparent' }}
+          color={iconColors}
+        />
         <Avatar
           aria-label="User"
           size="sm"

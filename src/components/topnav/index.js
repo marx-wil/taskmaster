@@ -19,21 +19,40 @@ const Topnav = props => {
     },
   };
   return (
-    <Flex
-      style={style.glass}
-      w="100%"
-      py={4}
-      mb="4"
-      borderRadius="2xl"
-      align="center"
-    >
-      <VStack align="left" spacing="0">
-        <DBreadcrumb />
-        <NavHead />
+    <>
+      <Flex
+        display={{ base: 'none', md: 'flex' }}
+        style={style.glass}
+        w="100%"
+        py={4}
+        mb="4"
+        borderRadius="2xl"
+        align="center"
+      >
+        <VStack align="left" spacing="0">
+          <DBreadcrumb />
+          <NavHead />
+        </VStack>
+        <Spacer />
+        <NavIcons />
+      </Flex>
+      <VStack
+        display={{ base: 'flex', md: 'none' }}
+        style={style.glass}
+        w="100%"
+        py={4}
+        mb="4"
+        borderRadius="2xl"
+        align="left"
+      >
+        <VStack align="left" spacing="0">
+          <DBreadcrumb />
+          <NavHead />
+        </VStack>
+        <Spacer />
+        <NavIcons />
       </VStack>
-      <Spacer />
-      <NavIcons />
-    </Flex>
+    </>
   );
 };
 
