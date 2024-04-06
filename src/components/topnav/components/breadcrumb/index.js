@@ -30,14 +30,21 @@ const DBreadcrumb = () => {
     <>
       <Breadcrumb style={style.link} color={dBreadCrumbColor}>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">SysGo</BreadcrumbLink> {/* First breadcrumb item */}
+          <BreadcrumbLink href="https://github.com/SYSGO-SOLUTIONS/">
+            SysGo
+          </BreadcrumbLink>{' '}
+          {/* First breadcrumb item */}
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <BreadcrumbLink href="#">TaskMaster</BreadcrumbLink> {/* Second breadcrumb item */}
+          <BreadcrumbLink href="https://github.com/zhackdtech/taskmaster">
+            TaskMaster
+          </BreadcrumbLink>{' '}
+          {/* Second breadcrumb item */}
         </BreadcrumbItem>
         <BreadcrumbItem isCurrentPage>
           <BreadcrumbLink href="#">
-            {activeRouteInfo ? activeRouteInfo.name : 'Default'} {/* Render active route name or default */}
+            {activeRouteInfo ? activeRouteInfo.name : 'Default'}{' '}
+            {/* Render active route name or default */}
           </BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
