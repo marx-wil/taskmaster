@@ -26,7 +26,7 @@ const NavIcons = props => {
   return (
     <>
       <Flex
-        w="37%"
+        w="27.5rem"
         h="100%"
         align="center"
         justify="end"
