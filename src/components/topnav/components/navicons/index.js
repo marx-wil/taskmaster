@@ -58,6 +58,7 @@ const NavIcons = props => {
           />
         </InputGroup>
         <IconButton
+        display={{ base: 'flex', sm: 'none' }}
           aria-label="Open search"
           icon={<SearchIcon />}
           bg="transparent"
