@@ -4,10 +4,6 @@ import {
 } from 'react-router-dom';
 
 import {
-  MoonIcon,
-  SunIcon,
-} from '@chakra-ui/icons';
-import {
   Box,
   Flex,
   IconButton,
@@ -19,7 +15,6 @@ import {
 import lists from '../../../../routes.js';
 
 const Sidenav = props => {
-  const { colorMode, toggleColorMode } = useColorMode();
   const location = useLocation();
   const isActiveRoute = route => {
     return location.pathname === route; // Compare the current location with the provided route
@@ -84,12 +79,6 @@ const Sidenav = props => {
               </Box>
             );
           })}
-          <IconButton
-            colorScheme="blue"
-            aria-label="Toggle Color Theme"
-            icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-            onClick={toggleColorMode}
-          />
         </VStack>
       </Box>
     </>
