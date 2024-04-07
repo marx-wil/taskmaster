@@ -38,7 +38,7 @@ const NavIcons = props => {
   return (
     <>
       <Flex
-        w={{ base: '100%', lg: '27.5rem' }}
+        w={{ base: '100%', md: '27.5rem' }}
         h="100%"
         align="center"
         justify="space-around"
