@@ -26,6 +26,7 @@ const Charts = props => {
       const toolTipBg = useColorModeValue('#ffffff', '#0B1437');
       const headerColor = useColorModeValue('#0B1437', '#ffffff');
       const textColor = useColorModeValue('#0B1437', '#ffffff');
+      const toolTipBorder = useColorModeValue("#0B1437","#ffffff")
     
       // Determine whether to rotate Y-axis labels based on breakpoint
       const rotateYAxisLabels = useBreakpointValue({ base: true, md: false });
@@ -49,7 +50,7 @@ const Charts = props => {
     
             <CardBody>
               <Stack divider={<StackDivider />} spacing="4">
-                <ResponsiveContainer width="100%" height={320}>
+                <ResponsiveContainer width="100%" height={300}>
                   <LineChart data={data}>
                     <XAxis
                       dataKey="name"
@@ -78,7 +79,8 @@ const Charts = props => {
                               borderRadius: '8px',
                               boxShadow:
                                 '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-                              border: '1px solid #fff',
+                              border: '1px solid',
+                              borderColor:toolTipBorder,
                               textAlign: centerTooltip ? 'center' : 'left', // Center tooltip content when in mobile mode
                             }}
                           >
