@@ -1,7 +1,6 @@
 import {
   useEffect,
   useRef,
-  useState,
 } from 'react';
 
 import {
@@ -48,16 +47,13 @@ const NavIcons = props => {
     '2xl': '2xl',
   });
 
-  // State to manage drawer open state
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
   // Close drawer when screen size is lg and up
   useEffect(() => {
     if (screenSize === 'lg' || screenSize === 'xl' || screenSize === '2xl') {
       onClose();
-      setIsDrawerOpen(false);
     }
   }, [screenSize, onClose]);
+
   return (
     <>
       <Flex
