@@ -3,7 +3,8 @@ import {
   Grid,
 } from '@chakra-ui/react';
 
-import Charts from './components/charts';
+import LineChart from './components/linechart';
+import PieChart from './components/piechart';
 import Stats from './components/stats';
 
 const Dashboard = props => {
@@ -20,7 +21,7 @@ const Dashboard = props => {
         gap={4}
         mb="4"
       >
-        <Charts />
+        <LineChart />
         <Grid
           templateColumns={{
             base: '1fr',
@@ -31,7 +32,7 @@ const Dashboard = props => {
           gap={4}
           mb="4"
         >
-          <Box>Hi</Box>
+          <PieChart/>
           <Box>Hi</Box>
         </Grid>
       </Grid>
