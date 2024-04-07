@@ -27,7 +27,7 @@ const Charts = () => {
   const [activeIndex, setActiveIndex] = useState(null); // Manage active index state
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
-  const COLORS = ['#0088FE', '#00C49F'];
+  const COLORS = ['#7551FF', '#00C49F'];
 
   useEffect(() => {
     // Find the index of "Category A" in the data array and set it as activeIndex

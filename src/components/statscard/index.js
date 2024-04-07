@@ -37,7 +37,7 @@ const StatsCard = props => {
             </StatNumber>
             <Flex
               alignItems="center"
-              bg="#1B3BBB"
+              bg="#7551FF"
               color="white"
               p="4"
               borderRadius="lg"
