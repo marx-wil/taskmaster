@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+
 import {
   FaBars,
   FaBell,
@@ -9,6 +11,9 @@ import {
 import { SearchIcon } from '@chakra-ui/icons';
 import {
   Avatar,
+  Drawer,
+  DrawerContent,
+  DrawerOverlay,
   Flex,
   IconButton,
   Input,
@@ -16,7 +21,10 @@ import {
   InputLeftElement,
   useColorMode,
   useColorModeValue,
+  useDisclosure,
 } from '@chakra-ui/react';
+
+import Sidebar from '../../../../components/sidenav';
 
 const NavIcons = props => {
   let iconColors = useColorModeValue('#0B1437', '#ffffff');
@@ -25,6 +33,8 @@ const NavIcons = props => {
   let avatarColorFallBack = useColorModeValue('#ffffff', '#0B1437');
   let searcBoxBg = useColorModeValue('#F7F8FA', '#111C44');
   const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef();
   return (
     <>
       <Flex
@@ -58,7 +68,7 @@ const NavIcons = props => {
           />
         </InputGroup>
         <IconButton
-        display={{ base: 'flex', sm: 'none' }}
+          display={{ base: 'flex', sm: 'none' }}
           aria-label="Open search"
           icon={<SearchIcon />}
           bg="transparent"
@@ -105,6 +115,8 @@ const NavIcons = props => {
           _hover={{ backgroundColor: 'transparent' }}
           _active={{ backgroundColor: 'transparent' }}
           color={iconColors}
+          ref={btnRef}
+          onClick={onOpen}
         />
         <Avatar
           aria-label="User"
@@ -116,6 +128,18 @@ const NavIcons = props => {
           color={avatarColorFallBack}
         />
       </Flex>
+      <Drawer
+        size="xs"
+        isOpen={isOpen}
+        placement="left"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <Sidebar />
+        </DrawerContent>
+      </Drawer>
     </>
   );
 };

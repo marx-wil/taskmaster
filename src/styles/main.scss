@@ -25,3 +25,16 @@ $transition-duration: .3s;
     margin-left: 300px;
   }
 }
+@media screen and (min-width: 62em) {
+  /* Large screens (lg) */
+  .sidenav-cont {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 61.99em) {
+  /* Medium (md) and down */
+  .sidenav-cont {
+    width: 100%;
+  }
+}

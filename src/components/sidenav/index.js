@@ -12,7 +12,6 @@ const Sidenav = props => {
   let sidenavBg = useColorModeValue('#fff', '#111C44');
   const style = {
     Sidenav: {
-      width: '300px',
       boxSizing: 'border-box',
       boxShadow: '0px 2px 8px rgba(0,0,0,0.16)',
       height: '100vh',
@@ -24,7 +23,7 @@ const Sidenav = props => {
   };
   return (
     <>
-      <Box style={style.Sidenav} px=".75rem" py="6" bg={sidenavBg}>
+      <Box style={style.Sidenav} px=".75rem" py="6" bg={sidenavBg} className="sidenav-cont">
         <VStack>
           <ProfileCard />
           <Divider orientation="horizontal" />
