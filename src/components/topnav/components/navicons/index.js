@@ -1,4 +1,8 @@
-import { useRef } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
 import {
   FaBars,
@@ -19,6 +23,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  useBreakpointValue,
   useColorMode,
   useColorModeValue,
   useDisclosure,
@@ -34,7 +39,25 @@ const NavIcons = props => {
   let searcBoxBg = useColorModeValue('#F7F8FA', '#111C44');
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
+  const btnRef = useRef(); // Detect screen size
+  const screenSize = useBreakpointValue({
+    base: 'base',
+    md: 'md',
+    lg: 'lg',
+    xl: 'xl',
+    '2xl': '2xl',
+  });
+
+  // State to manage drawer open state
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  // Close drawer when screen size is lg and up
+  useEffect(() => {
+    if (screenSize === 'lg' || screenSize === 'xl' || screenSize === '2xl') {
+      onClose();
+      setIsDrawerOpen(false);
+    }
+  }, [screenSize, onClose]);
   return (
     <>
       <Flex
