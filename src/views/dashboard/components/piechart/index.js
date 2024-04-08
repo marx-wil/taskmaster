@@ -30,7 +30,7 @@ const Charts = () => {
   const COLORS = ['#7551FF', '#00C49F'];
 
   useEffect(() => {
-    // Find the index of "Category A" in the data array and set it as activeIndex
+    // Find the index of pie in the data array and set it as activeIndex
     const categoryAIndex = data.findIndex(entry => entry.name === 'Tasks');
     setActiveIndex(categoryAIndex);
   }, []); // Run only on component mount

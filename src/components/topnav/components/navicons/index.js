@@ -22,6 +22,12 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
   useBreakpointValue,
   useColorMode,
   useColorModeValue,
@@ -33,6 +39,7 @@ import Sidebar from '../../../../components/sidenav';
 const NavIcons = props => {
   let iconColors = useColorModeValue('#0B1437', '#ffffff');
   let mainBg = useColorModeValue('#ffffff', '#0B1437');
+  let profileMenuBg = useColorModeValue('#ffffff', '#0B1437');
   let avatarBgFallBack = useColorModeValue('#1B3BBB', '#F4F7FE');
   let avatarColorFallBack = useColorModeValue('#ffffff', '#0B1437');
   let searcBoxBg = useColorModeValue('#F7F8FA', '#111C44');
@@ -53,7 +60,13 @@ const NavIcons = props => {
       onClose();
     }
   }, [screenSize, onClose]);
-
+  const commonProps = {
+    bg: 'transparent',
+    size: 'sm',
+    _hover: { backgroundColor: 'transparent' },
+    _active: { backgroundColor: 'transparent' },
+    color: iconColors,
+  };
   return (
     <>
       <Flex
@@ -90,62 +103,59 @@ const NavIcons = props => {
           display={{ base: 'flex', sm: 'none' }}
           aria-label="Open search"
           icon={<SearchIcon />}
-          bg="transparent"
-          size="sm"
-          _hover={{ backgroundColor: 'transparent' }}
-          _active={{ backgroundColor: 'transparent' }}
-          color={iconColors}
+          {...commonProps}
         />
-
         <IconButton
           onClick={toggleColorMode}
           aria-label="Toggle color mode"
           icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
-          bg="transparent"
-          size="sm"
-          _hover={{ backgroundColor: 'transparent' }}
-          _active={{ backgroundColor: 'transparent' }}
-          color={iconColors}
+          {...commonProps}
         />
         <IconButton
           aria-label="Notifications"
           icon={<FaBell />}
-          bg="transparent"
-          size="sm"
-          _hover={{ backgroundColor: 'transparent' }}
-          _active={{ backgroundColor: 'transparent' }}
-          color={iconColors}
+          {...commonProps}
         />
-        <IconButton
-          aria-label="Messages"
-          icon={<FaInbox />}
-          bg="transparent"
-          size="sm"
-          _hover={{ backgroundColor: 'transparent' }}
-          _active={{ backgroundColor: 'transparent' }}
-          color={iconColors}
-        />
+        <IconButton aria-label="Messages" icon={<FaInbox />} {...commonProps} />
         <IconButton
           hideFrom="lg"
           aria-label="Menu button"
           icon={<FaBars />}
-          bg="transparent"
-          size="sm"
-          _hover={{ backgroundColor: 'transparent' }}
-          _active={{ backgroundColor: 'transparent' }}
-          color={iconColors}
           ref={btnRef}
           onClick={onOpen}
+          {...commonProps}
         />
-        <Avatar
-          aria-label="User"
-          size="sm"
-          name="Zhack D'Tech"
-          src="https://avatars.githubusercontent.com/u/50767502?v=4"
-          bg={avatarBgFallBack}
-          borderRadius="full"
-          color={avatarColorFallBack}
-        />
+        <Menu>
+          <MenuButton>
+            <Avatar
+              aria-label="User"
+              size="sm"
+              name="Zhack D'Tech"
+              src="https://avatars.githubusercontent.com/u/50767502?v=4"
+              bg={avatarBgFallBack}
+              borderRadius="full"
+              color={avatarColorFallBack}
+            />
+          </MenuButton>
+          <MenuList bg={profileMenuBg} px="0">
+            <MenuGroup
+              title="Profile"
+              style={{
+                fontWeight: '700',
+                fontSize: '1rem',
+              }}
+              m="3"
+            >
+              {['My Account', 'Settings'].map((item, index) => (
+                <MenuItem key={index} bg={profileMenuBg}>
+                  {item}
+                </MenuItem>
+              ))}
+            </MenuGroup>
+            <MenuDivider />
+            <MenuItem bg={profileMenuBg}>Logout</MenuItem>
+          </MenuList>
+        </Menu>
       </Flex>
       <Drawer
         size="xs"
