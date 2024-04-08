@@ -40,6 +40,7 @@ const NavIcons = props => {
   let iconColors = useColorModeValue('#0B1437', '#ffffff');
   let mainBg = useColorModeValue('#ffffff', '#0B1437');
   let profileMenuBg = useColorModeValue('#ffffff', '#0B1437');
+  let profileMenuHoverBg = useColorModeValue('#5941CC', '#5941CC');
   let avatarBgFallBack = useColorModeValue('#1B3BBB', '#F4F7FE');
   let avatarColorFallBack = useColorModeValue('#ffffff', '#0B1437');
   let searcBoxBg = useColorModeValue('#F7F8FA', '#111C44');
@@ -99,24 +100,82 @@ const NavIcons = props => {
             _active={{ backgroundColor: 'transparent' }}
           />
         </InputGroup>
-        <IconButton
-          display={{ base: 'flex', sm: 'none' }}
-          aria-label="Open search"
-          icon={<SearchIcon />}
-          {...commonProps}
-        />
+        <Menu>
+          <MenuButton>
+            <IconButton
+              display={{ base: 'flex', sm: 'none' }}
+              aria-label="Open search"
+              icon={<SearchIcon />}
+              {...commonProps}
+            />
+          </MenuButton>
+          <MenuList
+            width={{ base: '90vw', sm: '25rem' }}
+            mx={{ base: '4', sm: 'auto' }}
+          >
+            <MenuGroup
+              title="Search"
+              style={{
+                fontWeight: '700',
+                fontSize: '1rem',
+              }}
+            >
+              <MenuItem>Test</MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
         <IconButton
           onClick={toggleColorMode}
           aria-label="Toggle color mode"
           icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
           {...commonProps}
         />
-        <IconButton
-          aria-label="Notifications"
-          icon={<FaBell />}
-          {...commonProps}
-        />
-        <IconButton aria-label="Messages" icon={<FaInbox />} {...commonProps} />
+        <Menu>
+          <MenuButton>
+            <IconButton
+              aria-label="Notifications"
+              icon={<FaBell />}
+              {...commonProps}
+            />
+          </MenuButton>
+          <MenuList
+            width={{ base: '90vw', sm: '25rem' }}
+            mx={{ base: '4', sm: 'auto' }}
+          >
+            <MenuGroup
+              title="Notifications"
+              style={{
+                fontWeight: '700',
+                fontSize: '1rem',
+              }}
+            >
+              <MenuItem>Test</MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
+        <Menu>
+          <MenuButton>
+            <IconButton
+              aria-label="Messages"
+              icon={<FaInbox />}
+              {...commonProps}
+            />
+          </MenuButton>
+          <MenuList
+            width={{ base: '90vw', sm: '25rem' }}
+            mx={{ base: '4', sm: 'auto' }}
+          >
+            <MenuGroup
+              title="Messages"
+              style={{
+                fontWeight: '700',
+                fontSize: '1rem',
+              }}
+            >
+              <MenuItem>Test</MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
         <IconButton
           hideFrom="lg"
           aria-label="Menu button"
@@ -137,7 +196,7 @@ const NavIcons = props => {
               color={avatarColorFallBack}
             />
           </MenuButton>
-          <MenuList bg={profileMenuBg} px="0">
+          <MenuList px="0" bg={profileMenuBg}>
             <MenuGroup
               title="Profile"
               style={{
@@ -147,13 +206,40 @@ const NavIcons = props => {
               m="3"
             >
               {['My Account', 'Settings'].map((item, index) => (
-                <MenuItem key={index} bg={profileMenuBg}>
+                <MenuItem
+                  key={index}
+                  style={{
+                    transition: 'background-color 0.3s',
+                    padding: '8px 16px',
+                  }}
+                  onMouseEnter={e =>
+                    (e.target.style.backgroundColor = profileMenuHoverBg)
+                  }
+                  onMouseLeave={e =>
+                    (e.target.style.backgroundColor = 'transparent')
+                  }
+                  _hover={{ color: '#fff' }}
+                >
                   {item}
                 </MenuItem>
               ))}
             </MenuGroup>
             <MenuDivider />
-            <MenuItem bg={profileMenuBg}>Logout</MenuItem>
+            <MenuItem
+              style={{
+                transition: 'background-color 0.3s',
+                padding: '8px 16px',
+              }}
+              onMouseEnter={e =>
+                (e.target.style.backgroundColor = profileMenuHoverBg)
+              }
+              onMouseLeave={e =>
+                (e.target.style.backgroundColor = 'transparent')
+              }
+              _hover={{ color: '#fff' }}
+            >
+              Logout
+            </MenuItem>
           </MenuList>
         </Menu>
       </Flex>

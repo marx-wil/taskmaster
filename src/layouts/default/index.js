@@ -28,7 +28,7 @@ const Layout = Component => {
         <Box style={style.sidenav} className="sidenav">
           <Sidenav />
         </Box>
-        <Box bg={mainBg} className="main" py="4" px="4">
+        <Box bg={mainBg} className="main" py="4" px="4"overflowX="hidden">
           <Topnav />
           <Component style={style.comp} {...props} />
         </Box>
