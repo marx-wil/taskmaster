@@ -30,7 +30,7 @@ const Layout = Component => {
         </Box>
         <Box bg={mainBg} className="main" py="4" px="4"overflowX="hidden">
           <Topnav />
-          <Component style={style.comp} {...props} />
+          <Component style={style.comp} {...props}/>
         </Box>
       </Flex>
     );

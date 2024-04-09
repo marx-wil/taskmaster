@@ -6,7 +6,6 @@ import {
 import {
   FaBars,
   FaBell,
-  FaInbox,
   FaMoon,
   FaSun,
 } from 'react-icons/fa';
@@ -35,6 +34,7 @@ import {
 } from '@chakra-ui/react';
 
 import Sidebar from '../../../../components/sidenav';
+import Inbox from './inbox';
 
 const NavIcons = props => {
   let iconColors = useColorModeValue('#0B1437', '#ffffff');
@@ -153,29 +153,7 @@ const NavIcons = props => {
             </MenuGroup>
           </MenuList>
         </Menu>
-        <Menu>
-          <MenuButton>
-            <IconButton
-              aria-label="Messages"
-              icon={<FaInbox />}
-              {...commonProps}
-            />
-          </MenuButton>
-          <MenuList
-            width={{ base: '90vw', sm: '25rem' }}
-            mx={{ base: '4', sm: 'auto' }}
-          >
-            <MenuGroup
-              title="Messages"
-              style={{
-                fontWeight: '700',
-                fontSize: '1rem',
-              }}
-            >
-              <MenuItem>Test</MenuItem>
-            </MenuGroup>
-          </MenuList>
-        </Menu>
+        <Inbox/>
         <IconButton
           hideFrom="lg"
           aria-label="Menu button"

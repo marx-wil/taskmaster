@@ -25,7 +25,7 @@ const Topnav = props => {
         style={style.glass}
         w="100%"
         py={4}
-        mb="4"
+        mb="8"
         borderRadius="2xl"
         align="center"
       >
