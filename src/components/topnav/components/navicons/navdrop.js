@@ -71,7 +71,7 @@ const Inbox = ({ contents, icon, title }) => {
                 >
                   <Flex
                     py="4"
-                    mH="100%"
+                    mh="100%"
                     alignItems="center"
                     justifyContent="center"
                   >

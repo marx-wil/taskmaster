@@ -33,9 +33,10 @@ const Sidenav = props => {
     <>
       <Box>
         <VStack spacing="1.2rem" py="1rem">
-          {lists.map(list => {
+          {lists.map((list, index) => { // Added index parameter
             return (
               <Box
+                key={index} // Assign unique key to each Box element
                 w="100%"
                 px=".76rem"
                 py=".9rem"
