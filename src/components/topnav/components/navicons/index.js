@@ -6,6 +6,8 @@ import {
 import {
   FaBars,
   FaBell,
+  FaEnvelope,
+  FaInbox,
   FaMoon,
   FaSun,
 } from 'react-icons/fa';
@@ -34,7 +36,7 @@ import {
 } from '@chakra-ui/react';
 
 import Sidebar from '../../../../components/sidenav';
-import Inbox from './inbox';
+import Navdrop from './navdrop';
 
 const NavIcons = props => {
   let iconColors = useColorModeValue('#0B1437', '#ffffff');
@@ -68,6 +70,31 @@ const NavIcons = props => {
     _active: { backgroundColor: 'transparent' },
     color: iconColors,
   };
+  const NotificationsContent = [
+    {
+      header: 'Apr 11, 2024 5:32am',
+      content: 'A new version of the SysGo DEMS is ready for download.',
+      icon: <FaBell />,
+    },
+    {
+      header: 'Apr 10, 2024 1:32am',
+      content: 'A new version of SysGo TaskMaster is ready for to download.',
+      icon: <FaBell />,
+    },
+  ];
+  
+  const MessagesContent = [
+    {
+      header: 'New message from: John Doe',
+      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+      icon: <FaEnvelope  />,
+    },
+    {
+      header: 'New message from: Jane Doe',
+      content: 'Duis aute irure dolor in reprehenderit in voluptate',
+      icon: <FaEnvelope  />,
+    },
+  ];
   return (
     <>
       <Flex
@@ -130,30 +157,16 @@ const NavIcons = props => {
           icon={colorMode === 'light' ? <FaMoon /> : <FaSun />}
           {...commonProps}
         />
-        <Menu>
-          <MenuButton>
-            <IconButton
-              aria-label="Notifications"
-              icon={<FaBell />}
-              {...commonProps}
-            />
-          </MenuButton>
-          <MenuList
-            width={{ base: '90vw', sm: '25rem' }}
-            mx={{ base: '4', sm: 'auto' }}
-          >
-            <MenuGroup
-              title="Notifications"
-              style={{
-                fontWeight: '700',
-                fontSize: '1rem',
-              }}
-            >
-              <MenuItem>Test</MenuItem>
-            </MenuGroup>
-          </MenuList>
-        </Menu>
-        <Inbox/>
+        <Navdrop
+          icon={<FaBell />}
+          title="Notifications"
+          contents={NotificationsContent}
+        />
+        <Navdrop
+          icon={<FaInbox />}
+          title="Inbox"
+          contents={MessagesContent}
+        />
         <IconButton
           hideFrom="lg"
           aria-label="Menu button"
