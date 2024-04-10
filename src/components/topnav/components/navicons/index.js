@@ -82,17 +82,17 @@ const NavIcons = props => {
       icon: <FaBell />,
     },
   ];
-  
+
   const MessagesContent = [
     {
       header: 'New message from: John Doe',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-      icon: <FaEnvelope  />,
+      icon: <FaEnvelope />,
     },
     {
       header: 'New message from: Jane Doe',
       content: 'Duis aute irure dolor in reprehenderit in voluptate',
-      icon: <FaEnvelope  />,
+      icon: <FaEnvelope />,
     },
   ];
   return (
@@ -113,7 +113,7 @@ const NavIcons = props => {
           maxW="50%"
           borderRadius="3xl"
           bg={searcBoxBg}
-          display={{ base: 'none', sm: 'flex' }}
+          // display={{ base: 'none', sm: 'flex' }}
         >
           <InputLeftElement pointerEvents="none">
             <SearchIcon color="gray.300" />
@@ -127,30 +127,6 @@ const NavIcons = props => {
             _active={{ backgroundColor: 'transparent' }}
           />
         </InputGroup>
-        <Menu>
-          <MenuButton>
-            <IconButton
-              display={{ base: 'flex', sm: 'none' }}
-              aria-label="Open search"
-              icon={<SearchIcon />}
-              {...commonProps}
-            />
-          </MenuButton>
-          <MenuList
-            width={{ base: '90vw', sm: '25rem' }}
-            mx={{ base: '4', sm: 'auto' }}
-          >
-            <MenuGroup
-              title="Search"
-              style={{
-                fontWeight: '700',
-                fontSize: '1rem',
-              }}
-            >
-              <MenuItem>Test</MenuItem>
-            </MenuGroup>
-          </MenuList>
-        </Menu>
         <IconButton
           onClick={toggleColorMode}
           aria-label="Toggle color mode"
@@ -162,11 +138,7 @@ const NavIcons = props => {
           title="Notifications"
           contents={NotificationsContent}
         />
-        <Navdrop
-          icon={<FaInbox />}
-          title="Inbox"
-          contents={MessagesContent}
-        />
+        <Navdrop icon={<FaInbox />} title="Inbox" contents={MessagesContent} />
         <IconButton
           hideFrom="lg"
           aria-label="Menu button"
