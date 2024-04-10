@@ -78,7 +78,7 @@ const NavIcons = props => {
     },
     {
       header: 'Apr 10, 2024 1:32am',
-      content: 'A new version of SysGo TaskMaster is ready for to download.',
+      content: 'A new version of SysGo TaskMaster is ready for download.',
       icon: <FaBell />,
     },
   ];

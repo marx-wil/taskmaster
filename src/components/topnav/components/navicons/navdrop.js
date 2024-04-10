@@ -76,7 +76,7 @@ const Inbox = ({ contents, icon, title }) => {
                     justifyContent="center"
                   >
                     <Flex
-                      bg="#087CA7"
+                      bg="#1B3BBB"
                       h="4rem"
                       w="4rem"
                       alignItems="center"
