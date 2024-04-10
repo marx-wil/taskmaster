@@ -3,8 +3,8 @@ import {
   Grid,
 } from '@chakra-ui/react';
 
-import LineChart from './components/linechart';
-import PieChart from './components/piechart';
+import LineChart from '../../components/charts/linechart';
+import PieChart from '../../components/charts/piechart';
 import Stats from './components/stats';
 
 const Dashboard = props => {
