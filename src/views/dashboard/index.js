@@ -6,6 +6,7 @@ import {
 import LineChart from '../../components/charts/linechart';
 import PieChart from '../../components/charts/piechart';
 import Stats from './components/stats';
+import Taskslist from './components/taskslist';
 
 const Dashboard = props => {
   return (
@@ -34,7 +35,7 @@ const Dashboard = props => {
             mb="4"
           >
             <PieChart />
-            <Box>Hi</Box>
+            <Taskslist />
           </Grid>
         </Grid>
       </Box>
