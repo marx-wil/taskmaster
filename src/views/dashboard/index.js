@@ -5,6 +5,7 @@ import PieChart from '../../components/charts/piechart';
 import Stats from './components/stats';
 import Taskslist from './components/taskslist';
 import DashBasicTable from './components/tables';
+
 const Dashboard = props => {
   return (
     <>
@@ -25,7 +26,7 @@ const Dashboard = props => {
             templateColumns={{
               base: '1fr',
               md: 'repeat(1, 1fr)',
-              lg: 'repeat(1, 1fr)',
+              lg: 'repeat(2, 1fr)',
               xl: 'repeat(2, 1fr)',
             }}
             gap={4}
@@ -35,20 +36,10 @@ const Dashboard = props => {
             <Taskslist />
           </Grid>
         </Grid>
-        <Grid
-          templateColumns={{
-            base: '1fr',
-            md: 'repeat(1, 1fr)',
-            lg: 'repeat(1, 1fr)',
-            xl: '2fr 1fr',
-          }}
-          gap={4}
-          mb="4"
-        >
-          <DashBasicTable/>
-        </Grid>
+        <DashBasicTable />
       </Box>
     </>
   );
 };
+
 export default Dashboard;

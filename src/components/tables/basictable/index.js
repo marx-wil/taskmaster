@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Td,
@@ -11,14 +12,18 @@ import {
   Card,
   CardHeader,
   Heading,
+  Badge,
   CardBody,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 
-const BasicTable = ({ header, data }) => {
+const BasicTable = ({ header, data, theaderdata }) => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
+  const textColor = useColorModeValue('#1B2559', '#ffffff'); const overflowX = useBreakpointValue({ base: 'auto', sm: 'hidden' });
+
   return (
-    <Box>
+    <Box overflowX="auto">
       <Card bg={cardBg}>
         <CardHeader>
           <Heading
@@ -32,26 +37,44 @@ const BasicTable = ({ header, data }) => {
         </CardHeader>
         <CardBody>
           <TableContainer>
-            <Table variant="unstyled">
+            <Table variant="unstyled" mw="100%">
               <Thead
-                borderBottom="0.01rem solid"
-                borderColor="rgba(128,128,128,.4)"
-                color="#A0AEC0"
+                borderBottom="0.01em solid"
+                borderColor="#E2E8F0"
                 letterSpacing="0.05em"
                 fontSize="sm"
+                color={textColor}
+                opacity="0.6"
               >
                 <Tr>
-                  <Th>Lorem</Th>
-                  <Th>Ipsum</Th>
-                  <Th>Dolor</Th>
+                  {theaderdata.map((header, index) => (
+                    <Th key={index}>{header}</Th>
+                  ))}
                 </Tr>
               </Thead>
-              <Tbody fontWeight="600" fontSize="sm">
+              <Tbody fontWeight="700" fontSize="sm" color={textColor}>
                 {data.map((item, index) => (
                   <Tr key={index}>
-                    <Td>{item.name}</Td>
-                    <Td>{item.text}</Td>
-                    <Td isNumeric>{item.numberrange}</Td>
+                    <Td p="6">{item.name}</Td>
+                    <Td p="6" textAlign="center">
+                      {item.status.toLowerCase() === 'finished' ? (
+                        <Badge colorScheme="green" p="2" borderRadius="md">
+                          Finished
+                        </Badge>
+                      ) : item.status.toLowerCase() === 'unfinished' ? (
+                        <Badge colorScheme="red" p="2" borderRadius="md">
+                          Unfinished
+                        </Badge>
+                      ) : (
+                        <Badge colorScheme="purple" p="2" borderRadius="md">
+                          Err
+                        </Badge>
+                      )}
+                    </Td>
+                    <Td p="6">
+                      {item.text.charAt(0).toUpperCase() + item.text.slice(1)}
+                    </Td>
+                    <Td p="6">{item.dateTime}</Td>
                   </Tr>
                 ))}
               </Tbody>
@@ -62,4 +85,5 @@ const BasicTable = ({ header, data }) => {
     </Box>
   );
 };
+
 export default BasicTable;

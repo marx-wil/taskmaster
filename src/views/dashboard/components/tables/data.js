@@ -1,30 +1,34 @@
 const data = [
   {
     name: 'Kyle Stuart',
+    status: 'Finished',
     text: 'mattis velit justo nec ante. Maecenas mi felis, adipiscing fringilla,',
-    numberrange: '9',
+    dateTime: '14 Apr, 2024',
   },
   {
     name: 'Boris Keller',
+    status: 'Undefined',
     text: 'purus gravida sagittis. Duis gravida. Praesent eu nulla at sem',
-    numberrange: '6',
+    dateTime: '13 Apr, 2024',
   },
   {
     name: 'Kim Morse',
+    status: 'Finished',
     text: 'mi tempor lorem, eget mollis lectus pede et risus. Quisque',
-    numberrange: '7',
+    dateTime: '12 Apr, 2024',
   },
   {
     name: 'Ulric Reeves',
+    status: 'Finished',
     text: 'Maecenas libero est, congue a, aliquet vel, vulputate eu, odio.',
-    numberrange: '5',
+    dateTime: '10 Apr, 2024',
   },
   {
     name: 'Merritt Bird',
+    status: 'Unfinished',
     text: 'convallis in, cursus et, eros. Proin ultrices. Duis volutpat nunc',
-    numberrange: '4',
+    dateTime: '18 Apr, 2024',
   },
 ];
-
 
 export default data;
