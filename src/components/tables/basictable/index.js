@@ -14,18 +14,16 @@ import {
   Heading,
   Badge,
   CardBody,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 
 const BasicTable = ({ header, data, theaderdata }) => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
-  const textColor = useColorModeValue('#1B2559', '#ffffff'); const overflowX = useBreakpointValue({ base: 'auto', sm: 'hidden' });
-
+  const textColor = useColorModeValue('#1B2559', '#ffffff');
   return (
-    <Box overflowX="auto">
-      <Card bg={cardBg}>
-        <CardHeader>
+    <Box overflow="auto">
+      <Card bg={cardBg} minH="100%">
+        <CardHeader pb="0">
           <Heading
             size="md"
             fontFamily="Manrope"
@@ -37,7 +35,7 @@ const BasicTable = ({ header, data, theaderdata }) => {
         </CardHeader>
         <CardBody>
           <TableContainer>
-            <Table variant="unstyled" mw="100%">
+            <Table variant="unstyled" >
               <Thead
                 borderBottom="0.01em solid"
                 borderColor="#E2E8F0"
@@ -55,8 +53,8 @@ const BasicTable = ({ header, data, theaderdata }) => {
               <Tbody fontWeight="700" fontSize="sm" color={textColor}>
                 {data.map((item, index) => (
                   <Tr key={index}>
-                    <Td p="6">{item.name}</Td>
-                    <Td p="6" textAlign="center">
+                    <Td>{item.name}</Td>
+                    <Td textAlign="center">
                       {item.status.toLowerCase() === 'finished' ? (
                         <Badge colorScheme="green" p="2" borderRadius="md">
                           Finished
@@ -71,10 +69,14 @@ const BasicTable = ({ header, data, theaderdata }) => {
                         </Badge>
                       )}
                     </Td>
-                    <Td p="6">
+                    <Td
+                      maxW="7.5em"
+                      style={{ whiteSpace: 'normal' }}
+                      fontSize="xs"
+                    >
                       {item.text.charAt(0).toUpperCase() + item.text.slice(1)}
                     </Td>
-                    <Td p="6">{item.dateTime}</Td>
+                    <Td>{item.dateTime}</Td>
                   </Tr>
                 ))}
               </Tbody>
