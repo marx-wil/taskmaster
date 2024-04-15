@@ -16,7 +16,7 @@ const MiniCalendar = props => {
   let dateBgHover = useColorModeValue('#7551FF', '#1B3BBB');
   let navButtonBg = useColorModeValue('#7551FF', '#1B3BBB');
   let navButtonHoverBg = useColorModeValue('#1B3BBB', '#7551FF');
-  const headerColor = useColorModeValue('#0B1437', '#ffffff');
+  const headerColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.900');
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
 
   // Get current date
@@ -83,6 +83,7 @@ const MiniCalendar = props => {
                 fontWeight="bold"
                 textAlign="center"
                 color={headerColor}
+                textTransform="uppercase"
               >
                 {day}
               </Heading>
