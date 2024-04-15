@@ -3,14 +3,14 @@ const Footer = props => {
   let textColor = useColorModeValue('#0B1437', '#fff');
   const common = {
     color: textColor,
-    style: { fontWeight: '700', opacity: 0.7 },
+    style: { fontWeight: '700', opacity: 0.7, textDecoration: 'none' },
   };
 
   return (
     <>
       <Flex pt="4">
         <Text {...common}>
-          &copy; SysGo 2024, by <Link to="#">Zhack</Link>
+          &copy; SysGo 2024, by <Link>Zhack</Link>
         </Text>
         <Spacer />
         <Flex gap="4">
