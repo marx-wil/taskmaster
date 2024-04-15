@@ -2,15 +2,11 @@ import '../../styles/main.scss';
 
 import React from 'react';
 
-import {
-  Box,
-  Flex,
-  useColorModeValue,
-} from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 
 import Sidenav from '../../components/sidenav';
 import Topnav from '../../components/topnav';
-
+import Footer from '../../components/footer';
 const Layout = Component => {
   const DefaultFunction = ({ ...props }) => {
     // Check if the screen size is lg or above
@@ -28,9 +24,10 @@ const Layout = Component => {
         <Box style={style.sidenav} className="sidenav">
           <Sidenav />
         </Box>
-        <Box bg={mainBg} className="main" py="4" px="4"overflowX="hidden">
+        <Box bg={mainBg} className="main" py="4" px="4" overflowX="hidden">
           <Topnav />
-          <Component style={style.comp} {...props}/>
+          <Component style={style.comp} {...props} />
+          <Footer />
         </Box>
       </Flex>
     );
