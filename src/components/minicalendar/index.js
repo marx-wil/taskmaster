@@ -13,6 +13,7 @@ import {
 import { useState } from 'react';
 
 const MiniCalendar = props => {
+  let dateBgHover = useColorModeValue('#7551FF', '#1B3BBB');
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const currentDateColor = useColorModeValue('#0B1437', 'blue.300');
@@ -77,21 +78,31 @@ const MiniCalendar = props => {
               <Box
                 key={day}
                 textAlign="center"
-                color={
-                  // Adjust the conditional highlighting based on the current month
+                bg={
                   currentMonth === currentDate.getMonth() && day === currentDay
-                    ? currentDateColor
+                    ? dateBgHover
+                    : 'inherit'
+                }
+                color={
+                  currentMonth === currentDate.getMonth() && day === currentDay
+                    ? 'white'
                     : 'inherit'
                 }
                 fontWeight={
-                  // Adjust the conditional highlighting based on the current month
                   currentMonth === currentDate.getMonth() && day === currentDay
-                    ? '700'
-                    : '400'
+                    ? '800'
+                    : '500'
                 }
                 borderRadius="lg"
                 py="2"
-                bg="tomato"
+                style={{
+                  transition: '.3s all ease',
+                }}
+                _hover={{
+                  bg: dateBgHover,
+                  color: '#fff',
+                  cursor: 'pointer',
+                }}
               >
                 {day}
               </Box>
