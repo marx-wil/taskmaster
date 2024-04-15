@@ -15,20 +15,22 @@ import { useState } from 'react';
 const MiniCalendar = props => {
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
-  const currentMonthColor = useColorModeValue('blue.500', 'blue.200');
-  const currentDateColor = useColorModeValue('blue.700', 'blue.300');
+  const currentDateColor = useColorModeValue('#0B1437', 'blue.300');
 
   // Get current date
   const currentDate = new Date();
   const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
   const [currentYear, setCurrentYear] = useState(currentDate.getFullYear());
 
-  // Dummy data for demonstration
+  // Generate an array of days in the month
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate(); // Get days in current month
   const currentDay = currentDate.getDate(); // Get current day
 
-  // Generate an array of days in the month
-  const daysArray = Array.from({ length: daysInMonth }, (_, index) => index + 1);
+  // Dummy data for demonstration
+  const daysArray = Array.from(
+    { length: daysInMonth },
+    (_, index) => index + 1
+  );
 
   const goToPreviousMonth = () => {
     setCurrentMonth(prevMonth => (prevMonth === 0 ? 11 : prevMonth - 1));
@@ -47,10 +49,13 @@ const MiniCalendar = props => {
           <Flex justify="space-between" pb="0" alignItems="center">
             <IconButton icon={<FaAngleLeft />} onClick={goToPreviousMonth} />
             <Heading size="md" fontWeight="bold" color={headerColor}>
-              {new Date(currentYear, currentMonth).toLocaleDateString('default', {
-                month: 'long',
-                year: 'numeric',
-              })}
+              {new Date(currentYear, currentMonth).toLocaleDateString(
+                'default',
+                {
+                  month: 'long',
+                  year: 'numeric',
+                }
+              )}
             </Heading>
             <IconButton icon={<FaAngleRight />} onClick={goToNextMonth} />
           </Flex>
@@ -72,8 +77,21 @@ const MiniCalendar = props => {
               <Box
                 key={day}
                 textAlign="center"
-                fontWeight="semibold"
-                color={day === currentDay ? currentDateColor : 'inherit'}
+                color={
+                  // Adjust the conditional highlighting based on the current month
+                  currentMonth === currentDate.getMonth() && day === currentDay
+                    ? currentDateColor
+                    : 'inherit'
+                }
+                fontWeight={
+                  // Adjust the conditional highlighting based on the current month
+                  currentMonth === currentDate.getMonth() && day === currentDay
+                    ? '700'
+                    : '400'
+                }
+                borderRadius="lg"
+                py="2"
+                bg="tomato"
               >
                 {day}
               </Box>
