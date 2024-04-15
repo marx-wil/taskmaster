@@ -1,5 +1,5 @@
 import { Flex, Spacer, Link, Text, useColorModeValue } from '@chakra-ui/react';
-const Footer = props => {
+const Footer = () => {
   let textColor = useColorModeValue('#0B1437', '#fff');
   const common = {
     color: textColor,
