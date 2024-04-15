@@ -20,7 +20,7 @@ import {
 // Import data from data.js
 import data from './data';
 
-const Charts = props => {
+const Charts = () => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const toolTipBg = useColorModeValue('#ffffff', '#0B1437');
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
