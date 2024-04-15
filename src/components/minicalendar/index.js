@@ -14,9 +14,10 @@ import { useState } from 'react';
 
 const MiniCalendar = props => {
   let dateBgHover = useColorModeValue('#7551FF', '#1B3BBB');
+  let navButtonBg = useColorModeValue('#7551FF', '#1B3BBB');
+  let navButtonHoverBg = useColorModeValue('#1B3BBB', '#7551FF');
   const headerColor = useColorModeValue('#0B1437', '#ffffff');
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
-  const currentDateColor = useColorModeValue('#0B1437', 'blue.300');
 
   // Get current date
   const currentDate = new Date();
@@ -27,7 +28,6 @@ const MiniCalendar = props => {
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate(); // Get days in current month
   const currentDay = currentDate.getDate(); // Get current day
 
-  // Dummy data for demonstration
   const daysArray = Array.from(
     { length: daysInMonth },
     (_, index) => index + 1
@@ -42,13 +42,22 @@ const MiniCalendar = props => {
     setCurrentMonth(prevMonth => (prevMonth === 11 ? 0 : prevMonth + 1));
     setCurrentYear(prevYear => (currentMonth === 11 ? prevYear + 1 : prevYear));
   };
+  const navProps = {
+    bg: navButtonBg,
+    color: '#fff',
+    _hover: navButtonHoverBg,
+  };
 
   return (
     <Box>
       <Card minH="100%" mb="0" pb="0" bg={cardBg}>
         <CardHeader>
           <Flex justify="space-between" pb="0" alignItems="center">
-            <IconButton icon={<FaAngleLeft />} onClick={goToPreviousMonth} />
+            <IconButton
+              icon={<FaAngleLeft />}
+              onClick={goToPreviousMonth}
+              {...navProps}
+            />
             <Heading size="md" fontWeight="bold" color={headerColor}>
               {new Date(currentYear, currentMonth).toLocaleDateString(
                 'default',
@@ -58,7 +67,11 @@ const MiniCalendar = props => {
                 }
               )}
             </Heading>
-            <IconButton icon={<FaAngleRight />} onClick={goToNextMonth} />
+            <IconButton
+              icon={<FaAngleRight />}
+              onClick={goToNextMonth}
+              {...navProps}
+            />
           </Flex>
         </CardHeader>
         <CardBody>
@@ -95,12 +108,10 @@ const MiniCalendar = props => {
                 }
                 borderRadius="lg"
                 py="2"
-                style={{
-                  transition: '.3s all ease',
-                }}
+                transition=".3s all ease"
                 _hover={{
                   bg: dateBgHover,
-                  color: '#fff',
+                  color: 'white',
                   cursor: 'pointer',
                 }}
               >
