@@ -4,6 +4,9 @@ import {
   FaCircleNotch,
   FaPager,
   FaTable,
+  FaProjectDiagram,
+  FaHistory,
+  FaCog,
 } from 'react-icons/fa';
 
 const routes = [
@@ -13,24 +16,39 @@ const routes = [
     icon: <FaChartArea />,
   },
   {
+    name: 'Projects',
+    path: '/projects',
+    icon: <FaProjectDiagram />,
+  },
+  {
+    name: 'Calendar',
+    path: '/calendar',
+    icon: <FaCalendar />,
+  },
+  {
+    name: 'Activity',
+    path: '/activity',
+    icon: <FaHistory />,
+  },
+  {
+    name: 'Settings',
+    path: '/settings',
+    icon: <FaCog />,
+  },
+  {
     name: 'Tables',
     path: '/tables',
     icon: <FaTable />,
   },
   {
-    name: 'Calendar',
-    path: '/calendar',
-    icon: <FaCalendar   />,
-  },
-  {
     name: 'Progress',
     path: '/progress',
-    icon: <FaCircleNotch   />,
+    icon: <FaCircleNotch />,
   },
   {
     name: 'Forms',
     path: '/forms',
-    icon: <FaPager  />,
+    icon: <FaPager />,
   },
 ];
 
