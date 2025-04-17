@@ -1,18 +1,9 @@
 import React from 'react';
 import {
-    Box,
-    Flex,
     Text,
-    Button,
-    Icon,
-    Grid,
-    VStack,
     useColorModeValue,
     Card,
-    CardHeader,
     CardBody,
-    Badge,
-    Avatar,
 } from '@chakra-ui/react';
 const WelcomeCard = ({ name }) => {
     const cardBg = useColorModeValue('#ffffff', '#0B1437');
