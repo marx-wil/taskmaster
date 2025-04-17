@@ -10,7 +10,7 @@ import {
   ChakraProvider,
   ColorModeScript,
 } from '@chakra-ui/react';
-
+import './styles/poppin.scss';
 import Layout from './layouts/default';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
@@ -19,6 +19,10 @@ import Dashboard from './views/dashboard';
 import Forms from './views/forms';
 import Progress from './views/progress';
 import Tables from './views/tables';
+import Projects from './views/projects';
+import Project from './views/project';
+import Activity from './views/activity';
+import Settings from './views/settings';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
@@ -28,10 +32,19 @@ const TableComponent = Layout(Tables);
 const CalendarComponent = Layout(Calendar);
 const ProgressComponent = Layout(Progress);
 const FormsComponent = Layout(Forms);
+const ProjectsComponent = Layout(Projects);
+const ProjectComponent = Layout(Project);
+const ActivityComponent = Layout(Activity);
+const SettingsComponent = Layout(Settings);
+
 const router = createBrowserRouter([
   { path: '/', element: <MainComponent /> },
-  { path: '/tables', element: <TableComponent /> },
+  { path: '/projects', element: <ProjectsComponent /> },
+  { path: '/project/:id', element: <ProjectComponent /> },
   { path: '/calendar', element: <CalendarComponent /> },
+  { path: '/activity', element: <ActivityComponent /> },
+  { path: '/settings', element: <SettingsComponent /> },
+  { path: '/tables', element: <TableComponent /> },
   { path: '/progress', element: <ProgressComponent /> },
   { path: '/forms', element: <FormsComponent /> },
 ]);
