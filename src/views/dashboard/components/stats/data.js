@@ -8,13 +8,13 @@ const statsData = [
     header: 'Total Tasks',
     main: '50',
     icon: FaClipboardList,
-    footer: 'All tasks currently in the system',
+    footer: 'Assigned task.',
   },
   {
-    header: 'Completed Tasks',
+    header: 'Upcoming Deadlines',
     main: '30',
     icon: FaClipboardCheck,
-    footer: 'Tasks marked as completed',
+    footer: 'Task due within 7 days.',
   },
   {
     header: 'Overdue Tasks',
