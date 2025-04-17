@@ -30,7 +30,7 @@ const Dashboard = () => {
         templateColumns={{
           base: '1fr',
           md: 'repeat(2, 1fr)',
-          lg: 'repeat(4, 1fr)',
+          xl: 'repeat(4, 1fr)',
         }}
         gap={6}
         mb={6}
