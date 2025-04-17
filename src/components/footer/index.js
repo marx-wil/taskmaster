@@ -10,7 +10,7 @@ const Footer = () => {
     <>
       <Flex pt="4">
         <Text {...common}>
-          &copy; SysGo 2024, by <Link>Zhack</Link>
+          &copy; SysGo {new Date().getFullYear()}, by <Link>Zhack</Link>
         </Text>
         <Spacer />
         <Flex gap="4">
