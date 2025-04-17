@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import {
   Box,
   Grid,
@@ -11,15 +11,6 @@ import {
   Flex,
   useColorModeValue,
   useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-  FormControl,
-  FormLabel,
-  VStack,
   Text,
 } from '@chakra-ui/react';
 import { FiSearch, FiPlus, FiFolder } from 'react-icons/fi';
@@ -36,7 +27,6 @@ const Projects = () => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const textColor = useColorModeValue('#0B1437', '#ffffff');
 
-  // Mock data - replace with actual data from your backend
   const projects = [
     {
       id: 1,
@@ -104,12 +94,23 @@ const Projects = () => {
     },
   ];
 
-  const handleSearch = useCallback(
-    debounce((value) => {
+  const debouncedSetSearchQuery = useMemo(
+    () => debounce((value) => {
       setSearchQuery(value);
     }, 300),
     []
   );
+
+  // Cleanup the debounced function on unmount
+  useEffect(() => {
+    return () => {
+      debouncedSetSearchQuery.cancel();
+    };
+  }, [debouncedSetSearchQuery]);
+
+  const handleSearch = useCallback((e) => {
+    debouncedSetSearchQuery(e.target.value);
+  }, [debouncedSetSearchQuery]);
 
   const filteredProjects = projects.filter(project => {
     const matchesSearch = project.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -163,7 +164,7 @@ const Projects = () => {
           </InputLeftElement>
           <Input
             placeholder="Search projects..."
-            onChange={(e) => handleSearch(e.target.value)}
+            onChange={handleSearch}
             bg={cardBg}
             borderColor="rgba(128,128,128,.4)"
             _focus={{ borderColor: '#7551FF' }}
