@@ -1,75 +1,66 @@
-import { Box, Grid } from '@chakra-ui/react';
-
-import LineChart from '../../components/charts/linechart';
-import PieChart from '../../components/charts/piechart';
-import Stats from './components/stats';
-import Taskslist from './components/taskslist';
-import DashBasicTable from './components/tables';
-import Cards from './components/taskcards';
+import React from 'react';
+import {
+  Box,
+  Flex,
+  Button,
+  Icon,
+  Grid,
+} from '@chakra-ui/react';
+import { FiPlus } from 'react-icons/fi';
 import MiniCalendar from '../../components/minicalendar';
-const Dashboard = props => {
-  
+import MyTask from './components/mytask';
+import WelcomeCard from './components/welcomecard';
+import UpcomingDeadline from './components/upcomingdeadline';
+import ProjectSummary from './components/projectsummary';
+import RecentActivity from './components/recentactivity';
+
+
+const Dashboard = () => {
+
+  // Mock data - replace with actual data from your backend
+  const userData = {
+    name: 'John Doe',
+  };
+
   return (
-    <>
-      <Box>
-        <Stats />
-        <Grid
-          templateColumns={{
-            base: '1fr',
-            md: 'repeat(1, 1fr)',
-            lg: 'repeat(1, 1fr)',
-            xl: 'repeat(2, 1fr)',
-          }}
-          gap={4}
-          mb="4"
+    <Box>
+      <WelcomeCard name={userData.name} />
+
+      <Grid
+        templateColumns={{
+          base: '1fr',
+          md: 'repeat(2, 1fr)',
+          lg: 'repeat(4, 1fr)',
+        }}
+        gap={6}
+        mb={6}
+      >
+        <MyTask />
+        <UpcomingDeadline />
+        <ProjectSummary />
+        <MiniCalendar />
+      </Grid>
+      <RecentActivity />
+
+      <Flex gap={4}>
+        <Button
+          leftIcon={<Icon as={FiPlus} />}
+          bg="#7551FF"
+          color="white"
+          _hover={{ bg: '#6a48e6' }}
         >
-          <LineChart />
-          <Grid
-            templateColumns={{
-              base: '1fr',
-              md: 'repeat(2, 1fr)',
-              lg: 'repeat(2, 1fr)',
-              xl: 'repeat(2, 1fr)',
-            }}
-            gap={4}
-            mb="4"
-          >
-            <PieChart />
-            <Taskslist />
-          </Grid>
-        </Grid>
-        <Grid
-          templateColumns={{
-            base: '1fr',
-            md: 'repeat(1, 1fr)',
-            lg: 'repeat(1, 1fr)',
-            xl: 'repeat(2, 1fr)',
-          }}
-          gap={4}
-          mb="4"
-          alignItems="stretch"
+          Create Task
+        </Button>
+        <Button
+          leftIcon={<Icon as={FiPlus} />}
+          variant="outline"
+          borderColor="rgba(128,128,128,.4)"
+          _hover={{ bg: 'rgba(128,128,128,.1)' }}
         >
-          <DashBasicTable />
-          <Grid
-            templateColumns={{
-              base: '1fr',
-              md: 'repeat(2, 1fr)',
-              lg: 'repeat(2, 1fr)',
-              xl: 'repeat(2, 1fr)',
-            }}
-            gap={4}
-          >
-            <Cards
-              name="Zhack D'Tech"
-              sub="FinanceDashboard"
-              url="https://avatars.githubusercontent.com/u/50767502?v=4"
-              img="https://raw.githubusercontent.com/zhackdtech/Financial-Dashboard/main/Mockup.jpg"
-            />
-            <MiniCalendar/>
-          </Grid>
-        </Grid>
-      </Box>
-    </>
+          Create Project
+        </Button>
+      </Flex>
+    </Box>
   );
 };
 
