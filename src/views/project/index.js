@@ -400,7 +400,7 @@ const Project = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Box p={6}>
-        <Flex justify="space-between" align="center" mb={8}>
+        <Flex justify="space-between" align="center" mb={8} direction={{ base: 'column', lg: 'row' }} gap={{ base: 4, lg: 0 }}>
           <Box>
             <Text
               fontSize="3xl"
@@ -423,13 +423,17 @@ const Project = () => {
               </Text>
             </Flex>
           </Box>
-          <Flex gap={3}>
+          <Flex gap={3} flexWrap="wrap" justify={{ base: 'center', lg: 'flex-start' }} w={{ base: '100%', lg: 'auto' }}>
             <Button
               leftIcon={<Icon as={FiUserPlus} />}
               variant="outline"
               borderColor={borderColor}
               _hover={{ bg: 'gray.50' }}
               colorScheme="gray"
+              size={{ base: "sm", md: "md" }}
+              flex={{ base: '1', sm: 'initial' }}
+              minW={{ base: "auto", sm: "initial" }}
+              px={{ base: 3, md: 4 }}
             >
               Invite
             </Button>
@@ -439,6 +443,10 @@ const Project = () => {
               borderColor={borderColor}
               _hover={{ bg: 'gray.50' }}
               colorScheme="gray"
+              size={{ base: "sm", md: "md" }}
+              flex={{ base: '1', sm: 'initial' }}
+              minW={{ base: "auto", sm: "initial" }}
+              px={{ base: 3, md: 4 }}
             >
               Settings
             </Button>
