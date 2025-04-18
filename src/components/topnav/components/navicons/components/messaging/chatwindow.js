@@ -46,7 +46,7 @@ const ChatWindow = ({
 
   // Calculate position from right to left
   const CHAT_WIDTH = 360;
-  const SPACE_BETWEEN = 20; // Consistent spacing between chats
+  const SPACE_BETWEEN = 0; // Consistent spacing between chats
   const rightPosition = (activeChats.length - position - 1) * (CHAT_WIDTH + SPACE_BETWEEN);
 
   const commonBoxStyles = {

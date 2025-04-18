@@ -50,7 +50,7 @@ const NavMessages = ({ contents, icon, title }) => {
             sender: content.header.split(': ')[1],
             content: content.content,
             time: 'Just now',
-            avatar: 'https://bit.ly/ryan-florence'
+            avatar: 'https://avatars.githubusercontent.com/u/50767502?v=4'
         };
 
         // Check if this chat is already open
