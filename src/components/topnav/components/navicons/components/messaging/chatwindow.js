@@ -14,7 +14,16 @@ import {
 } from '@chakra-ui/react';
 import { FaPaperclip, FaSmile, FaPaperPlane, FaMinus, FaTimes, FaExpand } from 'react-icons/fa';
 
-const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, isActive, onFocus }) => {
+const ChatWindow = ({ 
+  message, 
+  onClose, 
+  isMinimized, 
+  onMinimize, 
+  position = 0, 
+  isActive, 
+  onFocus,
+  activeChats = [] 
+}) => {
   const [newMessage, setNewMessage] = useState('');
   
   const contentTextColor = useColorModeValue('#0B1437', '#ffffff');
@@ -29,8 +38,6 @@ const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, i
   const messageBubbleBg = useColorModeValue('#F0F2F8', '#1B2559');
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const rightSpacing = useBreakpointValue({ base: 4, md: 20 });
-  const effectivePosition = isMobile ? 0 : position;
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
@@ -39,7 +46,10 @@ const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, i
     }
   };
 
-  const rightPosition = effectivePosition * 330 + rightSpacing;
+  // Calculate position from right to left
+  const CHAT_WIDTH = 360;
+  const SPACE_BETWEEN = 20; // Consistent spacing between chats
+  const rightPosition = (activeChats.length - position - 1) * (CHAT_WIDTH + SPACE_BETWEEN);
 
   const commonBoxStyles = {
     position: "absolute",

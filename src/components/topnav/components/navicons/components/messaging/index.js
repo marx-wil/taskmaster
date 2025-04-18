@@ -217,6 +217,7 @@ const NavMessages = ({ contents, icon, title }) => {
                         onMinimize={() => handleMinimizeChat(chat.id)}
                         isActive={chat.id === activeChat}
                         onFocus={() => handleFocusChat(chat.id)}
+                        activeChats={displayedChats}
                     />
                 ))}
             </ChatPortal>

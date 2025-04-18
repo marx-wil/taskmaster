@@ -94,6 +94,11 @@ const NavIcons = props => {
       content: 'Duis aute irure dolor in reprehenderit in voluptate',
       icon: <FaEnvelope />,
     },
+    {
+      header: 'New message from: Wilmarx John',
+      content: 'Duis aute irure dolor in reprehenderit in voluptate',
+      icon: <FaEnvelope />,
+    },
   ];
   return (
     <>
@@ -113,7 +118,7 @@ const NavIcons = props => {
           maxW="50%"
           borderRadius="3xl"
           bg={searcBoxBg}
-          // display={{ base: 'none', sm: 'flex' }}
+        // display={{ base: 'none', sm: 'flex' }}
         >
           <InputLeftElement pointerEvents="none">
             <SearchIcon color="gray.300" />
