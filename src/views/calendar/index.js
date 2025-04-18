@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Flex,
@@ -21,24 +21,13 @@ import {
   Heading,
   useColorModeValue,
   IconButton,
-  Divider,
   Grid,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  ButtonGroup,
   useToast,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaAngleLeft, FaAngleRight, FaEdit, FaTrash, FaEllipsisV } from 'react-icons/fa';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
+import { FaAngleLeft, FaAngleRight, FaEdit, FaTrash } from 'react-icons/fa';
 import './calendar.css';
 
-// Mock tasks from April 2025 to December 2025
 const defaultTasks = [
   // April 2025
   {
@@ -241,18 +230,18 @@ const defaultTasks = [
   }
 ];
 
-const Calendar = ({ 
-  tasks = defaultTasks, 
-  onEditTask, 
+const Calendar = ({
+  tasks = defaultTasks,
+  onEditTask,
   onDeleteTask,
-  currentUser = "John Doe" // For demo, should come from auth context
+  currentUser = "John Doe"
 }) => {
   const [filter, setFilter] = useState('all');
   const [selectedTask, setSelectedTask] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
-  
+
   // Theme colors
   const dateBgHover = useColorModeValue('purple.100', '#1B3BBB');
   const navButtonBg = useColorModeValue('purple.500', '#7551FF');
@@ -260,7 +249,6 @@ const Calendar = ({
   const headerColor = useColorModeValue('gray.800', 'white');
   const cardBg = useColorModeValue('white', '#111C44');
   const contentTextColor = useColorModeValue('gray.800', 'white');
-  const selectedDayBg = useColorModeValue('purple.500', '#7551FF');
   const dayColor = useColorModeValue('gray.700', 'white');
   const todayBg = useColorModeValue('purple.50', 'whiteAlpha.200');
   const calendarBorderColor = useColorModeValue('gray.200', 'whiteAlpha.100');
@@ -337,8 +325,8 @@ const Calendar = ({
     return getFilteredTasks().filter(task => {
       const taskDate = new Date(task.start);
       return taskDate.getDate() === date.getDate() &&
-             taskDate.getMonth() === date.getMonth() &&
-             taskDate.getFullYear() === date.getFullYear();
+        taskDate.getMonth() === date.getMonth() &&
+        taskDate.getFullYear() === date.getFullYear();
     });
   };
 
@@ -368,15 +356,12 @@ const Calendar = ({
     }
   };
 
-  // Get unique projects for filter
   const projects = [...new Set(tasks.map(task => task.project))];
 
   const TaskDisplay = ({ event }) => {
-    // For very small screens, just show a dot indicator
     const isXs = useBreakpointValue({ base: true, sm: false });
-    // For small screens, show truncated title
     const isSm = useBreakpointValue({ base: false, sm: true, md: false });
-    
+
     if (isXs) {
       return (
         <Box
@@ -420,9 +405,9 @@ const Calendar = ({
       <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={calendarBorderColor}>
         <CardHeader>
           <VStack spacing={4} w="100%">
-            <Flex 
-              justify="space-between" 
-              alignItems="center" 
+            <Flex
+              justify="space-between"
+              alignItems="center"
               w="100%"
               flexDirection={{ base: "column", md: "row" }}
               gap={4}
@@ -445,9 +430,9 @@ const Calendar = ({
                   size={{ base: "md", md: "lg" }}
                 />
               </Flex>
-              <Heading 
-                size={{ base: "md", md: "lg" }} 
-                fontWeight="bold" 
+              <Heading
+                size={{ base: "md", md: "lg" }}
+                fontWeight="bold"
                 color={headerColor}
                 textAlign={{ base: "center", md: "left" }}
               >
@@ -480,8 +465,8 @@ const Calendar = ({
         </CardHeader>
 
         <CardBody pt={8}>
-          <Grid 
-            templateColumns="repeat(7, 1fr)" 
+          <Grid
+            templateColumns="repeat(7, 1fr)"
             gap={{ base: 1, sm: 2, md: 4, lg: 6 }}
             fontSize={{ base: "sm", md: "md" }}
           >
@@ -525,8 +510,8 @@ const Calendar = ({
               >
                 <Text mb={{ base: 1, md: 2 }}>{day}</Text>
                 {day && (
-                  <VStack 
-                    spacing={{ base: 0.5, md: 1 }} 
+                  <VStack
+                    spacing={{ base: 0.5, md: 1 }}
                     align="stretch"
                     flex="1"
                     mt={{ base: 0, md: 1 }}
@@ -554,7 +539,7 @@ const Calendar = ({
               <VStack align="stretch" spacing={4}>
                 <Heading size="md" color={headerColor}>{selectedTask.title}</Heading>
                 <HStack spacing={2} wrap="wrap">
-                  <Badge 
+                  <Badge
                     px={3}
                     py={1}
                     borderRadius="md"
@@ -564,7 +549,7 @@ const Calendar = ({
                   >
                     {selectedTask.priority} Priority
                   </Badge>
-                  <Badge 
+                  <Badge
                     px={3}
                     py={1}
                     borderRadius="md"
@@ -574,7 +559,7 @@ const Calendar = ({
                   >
                     {selectedTask.status}
                   </Badge>
-                  <Badge 
+                  <Badge
                     px={3}
                     py={1}
                     borderRadius="md"
@@ -591,7 +576,7 @@ const Calendar = ({
                   <Text color={contentTextColor}><strong>Due Date:</strong> {new Date(selectedTask.start).toLocaleDateString()}</Text>
                 </Box>
                 <Flex gap={3} mt={2}>
-                  <Button 
+                  <Button
                     flex={1}
                     variant="outline"
                     color={contentTextColor}
@@ -604,7 +589,7 @@ const Calendar = ({
                   >
                     Edit
                   </Button>
-                  <Button 
+                  <Button
                     flex={1}
                     variant="outline"
                     color="red.400"
@@ -618,7 +603,7 @@ const Calendar = ({
                   >
                     Delete
                   </Button>
-                  <Button 
+                  <Button
                     flex={1}
                     bg={navButtonBg}
                     color="white"
