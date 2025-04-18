@@ -1,0 +1,90 @@
+/* Calendar container */
+.fc {
+  --fc-border-color: rgba(128,128,128,.4);
+  --fc-button-bg-color: #7551FF;
+  --fc-button-border-color: #7551FF;
+  --fc-button-text-color: #ffffff;
+  --fc-button-hover-bg-color: #1B3BBB;
+  --fc-button-hover-border-color: #1B3BBB;
+  --fc-button-active-bg-color: #1B3BBB;
+  --fc-button-active-border-color: #1B3BBB;
+  --fc-event-bg-color: #7551FF;
+  --fc-event-border-color: #7551FF;
+  --fc-event-text-color: #ffffff;
+  --fc-today-bg-color: rgba(117, 81, 255, 0.1);
+  --fc-page-bg-color: #F7F8FA;
+  --fc-neutral-bg-color: #F7F8FA;
+  --fc-list-event-hover-bg-color: rgba(117, 81, 255, 0.1);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .fc {
+  --fc-border-color: rgba(128,128,128,.2);
+  --fc-button-bg-color: #1B3BBB;
+  --fc-button-border-color: #1B3BBB;
+  --fc-button-text-color: #ffffff;
+  --fc-button-hover-bg-color: #7551FF;
+  --fc-button-hover-border-color: #7551FF;
+  --fc-button-active-bg-color: #7551FF;
+  --fc-button-active-border-color: #7551FF;
+  --fc-event-bg-color: #1B3BBB;
+  --fc-event-border-color: #1B3BBB;
+  --fc-event-text-color: #ffffff;
+  --fc-today-bg-color: rgba(27, 59, 187, 0.1);
+  --fc-page-bg-color: #111C44;
+  --fc-neutral-bg-color: #111C44;
+  --fc-list-event-hover-bg-color: rgba(27, 59, 187, 0.1);
+}
+
+/* Calendar header */
+.fc .fc-toolbar-title {
+  color: #0B1437;
+  font-weight: 600;
+}
+
+[data-theme="dark"] .fc .fc-toolbar-title {
+  color: #ffffff;
+}
+
+/* Calendar cells */
+.fc .fc-daygrid-day {
+  background-color: var(--fc-page-bg-color);
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+  background-color: var(--fc-today-bg-color);
+}
+
+/* Event styling */
+.fc .fc-event {
+  border-radius: 4px;
+  padding: 2px 4px;
+  font-size: 0.875rem;
+}
+
+/* Button styling */
+.fc .fc-button {
+  border-radius: 6px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  text-transform: capitalize;
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+  background-color: var(--fc-button-active-bg-color);
+  border-color: var(--fc-button-active-border-color);
+}
+
+/* Today button */
+.fc .fc-today-button {
+  background-color: var(--fc-button-bg-color);
+  border-color: var(--fc-button-border-color);
+  color: var(--fc-button-text-color);
+}
+
+.fc .fc-today-button:disabled {
+  background-color: var(--fc-button-bg-color);
+  border-color: var(--fc-button-border-color);
+  opacity: 0.5;
+} 
