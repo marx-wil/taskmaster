@@ -367,8 +367,17 @@ const Project = () => {
     const sourceTasks = [...project.tasks[sourceColumn]];
     const destTasks = sourceColumn === destColumn ? sourceTasks : [...project.tasks[destColumn]];
 
+    // Find the task by its ID
+    const taskId = parseInt(result.draggableId);
+    const taskIndex = sourceTasks.findIndex(task => task.id === taskId);
+    
+    if (taskIndex === -1) {
+      console.error('Task not found:', taskId);
+      return;
+    }
+
     // Remove the task from source
-    const [movedTask] = sourceTasks.splice(source.index, 1);
+    const [movedTask] = sourceTasks.splice(taskIndex, 1);
 
     // Add the task to destination
     destTasks.splice(destination.index, 0, movedTask);
