@@ -10,8 +10,10 @@ import {
   FaInbox,
   FaMoon,
   FaSun,
+  FaUser,
+  FaCog,
 } from 'react-icons/fa';
-
+import { useNavigate } from 'react-router-dom';
 import { SearchIcon } from '@chakra-ui/icons';
 import {
   Avatar,
@@ -105,6 +107,19 @@ const NavIcons = props => {
       icon: <FaEnvelope />,
     },
   ];
+  const accountMenu = [
+    {
+      title: 'My Account',
+      icon: <FaUser />,
+      href: '/account',
+    },
+    {
+      title: 'Settings',
+      icon: <FaCog />,
+      href: '/settings',
+    }
+  ]
+  const navigate = useNavigate();
   return (
     <>
       <Flex
@@ -178,22 +193,18 @@ const NavIcons = props => {
               }}
               m="3"
             >
-              {['My Account', 'Settings'].map((item, index) => (
+              {accountMenu.map((item, index) => (
                 <MenuItem
                   key={index}
                   style={{
                     transition: 'background-color 0.3s',
                     padding: '8px 16px',
                   }}
-                  onMouseEnter={e =>
-                    (e.target.style.backgroundColor = profileMenuHoverBg)
-                  }
-                  onMouseLeave={e =>
-                    (e.target.style.backgroundColor = 'transparent')
-                  }
-                  _hover={{ color: '#fff' }}
+                  onClick={() => {
+                    navigate(item.href);
+                  }}
                 >
-                  {item}
+                  {item.title}
                 </MenuItem>
               ))}
             </MenuGroup>
