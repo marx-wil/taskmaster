@@ -23,7 +23,7 @@ import Projects from './views/projects';
 import Project from './views/project';
 import Activity from './views/activity';
 import Settings from './views/settings';
-
+import MyAccount from './views/myaccount';
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
@@ -36,6 +36,7 @@ const ProjectsComponent = Layout(Projects);
 const ProjectComponent = Layout(Project);
 const ActivityComponent = Layout(Activity);
 const SettingsComponent = Layout(Settings);
+const MyAccountComponent = Layout(MyAccount);
 
 const router = createBrowserRouter([
   { path: '/', element: <MainComponent /> },
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
   { path: '/calendar', element: <CalendarComponent /> },
   { path: '/activity', element: <ActivityComponent /> },
   { path: '/settings', element: <SettingsComponent /> },
+  { path: '/account', element: <MyAccountComponent /> },
   { path: '/tables', element: <TableComponent /> },
   { path: '/progress', element: <ProgressComponent /> },
   { path: '/forms', element: <FormsComponent /> },
