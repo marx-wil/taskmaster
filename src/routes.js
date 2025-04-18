@@ -1,9 +1,9 @@
 import {
   FaCalendar,
   FaChartArea,
-  FaCircleNotch,
-  FaPager,
-  FaTable,
+  // FaCircleNotch,
+  // FaPager,
+  // FaTable,
   FaProjectDiagram,
   FaHistory,
   FaCog,
@@ -35,21 +35,21 @@ const routes = [
     path: '/settings',
     icon: <FaCog />,
   },
-  {
-    name: 'Tables',
-    path: '/tables',
-    icon: <FaTable />,
-  },
-  {
-    name: 'Progress',
-    path: '/progress',
-    icon: <FaCircleNotch />,
-  },
-  {
-    name: 'Forms',
-    path: '/forms',
-    icon: <FaPager />,
-  },
+  // {
+  //   name: 'Tables',
+  //   path: '/tables',
+  //   icon: <FaTable />,
+  // },
+  // {
+  //   name: 'Progress',
+  //   path: '/progress',
+  //   icon: <FaCircleNotch />,
+  // },
+  // {
+  //   name: 'Forms',
+  //   path: '/forms',
+  //   icon: <FaPager />,
+  // },
 ];
 
 export default routes;
