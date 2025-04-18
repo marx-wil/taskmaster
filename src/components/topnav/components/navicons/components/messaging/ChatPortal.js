@@ -29,7 +29,7 @@ const ChatPortal = ({ children }) => {
       position="fixed"
       bottom={0}
       right={0}
-      zIndex={9999}
+      zIndex={9000}
       pointerEvents="none"
       width="100%"
       height="0"

@@ -85,17 +85,22 @@ const NavIcons = props => {
 
   const MessagesContent = [
     {
-      header: 'New message from: John Doe',
+      header: 'New message from: Can You March?',
       content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
       icon: <FaEnvelope />,
     },
     {
-      header: 'New message from: Jane Doe',
+      header: 'New message from: April May',
       content: 'Duis aute irure dolor in reprehenderit in voluptate',
       icon: <FaEnvelope />,
     },
     {
       header: 'New message from: Wilmarx John',
+      content: 'Duis aute irure dolor in reprehenderit in voluptate',
+      icon: <FaEnvelope />,
+    },
+    {
+      header: 'New message from: April Labuyo',
       content: 'Duis aute irure dolor in reprehenderit in voluptate',
       icon: <FaEnvelope />,
     },

@@ -12,7 +12,6 @@ import {
     useColorMode,
     useColorModeValue,
     useBreakpointValue,
-    useToast,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import ChatWindow from './chatwindow';
@@ -23,8 +22,7 @@ const NavMessages = ({ contents, icon, title }) => {
     const [activeChats, setActiveChats] = useState([]);
     const [minimizedChats, setMinimizedChats] = useState(new Set());
     const [activeChat, setActiveChat] = useState(null);
-    const isMobile = useBreakpointValue({ base: true, md: false });
-    const toast = useToast();
+    const maxChats = useBreakpointValue({ base: 1, md: 2, xl: 3 });
 
     let iconColors = useColorModeValue('#0B1437', '#ffffff');
     let contentTextColor = useColorModeValue(
@@ -37,6 +35,7 @@ const NavMessages = ({ contents, icon, title }) => {
     );
     let menuBg = useColorModeValue('#fff', '#0B1437');
     let headerTextColor = useColorModeValue('#111C44', '#F4F7FE');
+
     const commonProps = {
         bg: 'transparent',
         size: 'sm',
@@ -53,29 +52,38 @@ const NavMessages = ({ contents, icon, title }) => {
             time: 'Just now',
             avatar: 'https://bit.ly/ryan-florence'
         };
-        
-        // Check if we're on mobile and already have a chat open
-        if (isMobile && activeChats.length > 0) {
-            toast({
-                title: "Chat limit reached",
-                description: "Please close the current chat before opening a new one on mobile.",
-                status: "warning",
-                duration: 3000,
-                isClosable: true,
-                position: "top"
-            });
+
+        // Check if this chat is already open
+        if (activeChats.some(chat => chat.sender === newMessage.sender)) {
+            // Focus the existing chat
+            const existingChat = activeChats.find(chat => chat.sender === newMessage.sender);
+            handleFocusChat(existingChat.id);
+            // Unminimize if minimized
+            if (minimizedChats.has(existingChat.id)) {
+                handleMinimizeChat(existingChat.id);
+            }
             return;
         }
 
-        if (!activeChats.some(chat => chat.sender === newMessage.sender)) {
-            setActiveChats(prev => [...prev, newMessage]);
-            setMinimizedChats(prev => {
-                const newSet = new Set(prev);
-                newSet.delete(newMessage.id);
-                return newSet;
-            });
-            setActiveChat(newMessage.id);
-        }
+        setActiveChats(prev => {
+            let updatedChats = [...prev];
+
+            // If we're at the max limit, remove the oldest chat
+            if (updatedChats.length >= maxChats) {
+                updatedChats.shift(); // Remove the oldest chat
+            }
+
+            // Add the new chat
+            updatedChats.push(newMessage);
+            return updatedChats;
+        });
+
+        setMinimizedChats(prev => {
+            const newSet = new Set(prev);
+            newSet.delete(newMessage.id);
+            return newSet;
+        });
+        setActiveChat(newMessage.id);
     };
 
     const handleCloseChat = (chatId) => {
@@ -112,100 +120,99 @@ const NavMessages = ({ contents, icon, title }) => {
         setActiveChat(chatId);
     };
 
-    // Filter chats for mobile - only show the most recent one
-    const displayedChats = isMobile 
-        ? activeChats.slice(-1) 
-        : activeChats;
+    const displayedChats = activeChats.slice(-maxChats);
 
     return (
         <>
-            <Menu>
-                <MenuButton>
-                    <IconButton icon={icon} {...commonProps} />
-                </MenuButton>
-                <MenuList
-                    p="0"
-                    width={{ base: '90vw', sm: '25rem' }}
-                    mx={{ base: '4', sm: 'auto' }}
-                    style={{ overflow: 'hidden' }}
-                    bg={menuBg}
-                >
-                    <MenuGroup
-                        py="3"
-                        px="4"
-                        m="0"
-                        title={title}
-                        bg="#5941CC"
-                        style={{
-                            fontWeight: '700',
-                            fontSize: '1rem',
-                        }}
-                        color="#fff"
+            <Box position="relative">
+                <Menu>
+                    <MenuButton>
+                        <IconButton icon={icon} {...commonProps} />
+                    </MenuButton>
+                    <MenuList
+                        p="0"
+                        width={{ base: '90vw', sm: '25rem' }}
+                        mx={{ base: '4', sm: 'auto' }}
+                        style={{ overflow: 'hidden' }}
+                        bg={menuBg}
                     >
-                        {contents.map((content, index) => (
-                            <MenuItem 
-                                key={index} 
-                                bg="transparent" 
-                                p="0"
-                                onClick={() => handleMessageClick(content)}
-                            >
-                                <Flex
-                                    p="4"
-                                    _hover={{
-                                        bg: colorMode === 'dark' ? 'whiteAlpha.100' : 'gray.100',
-                                        transition: 'background-color 0.3s',
-                                    }}
-                                    w="100%"
-                                    gap="2"
+                        <MenuGroup
+                            py="3"
+                            px="4"
+                            m="0"
+                            title={title}
+                            bg="#5941CC"
+                            style={{
+                                fontWeight: '700',
+                                fontSize: '1rem',
+                            }}
+                            color="#fff"
+                        >
+                            {contents.map((content, index) => (
+                                <MenuItem
+                                    key={index}
+                                    bg="transparent"
+                                    p="0"
+                                    onClick={() => handleMessageClick(content)}
                                 >
                                     <Flex
-                                        py="4"
-                                        mh="100%"
-                                        alignItems="center"
-                                        justifyContent="center"
+                                        p="4"
+                                        _hover={{
+                                            bg: colorMode === 'dark' ? 'whiteAlpha.100' : 'gray.100',
+                                            transition: 'background-color 0.3s',
+                                        }}
+                                        w="100%"
+                                        gap="2"
                                     >
                                         <Flex
-                                            bg="#1B3BBB"
-                                            h="4rem"
-                                            w="4rem"
+                                            py="4"
+                                            mh="100%"
                                             alignItems="center"
                                             justifyContent="center"
-                                            borderRadius="md"
-                                            color="#ffffff"
                                         >
-                                            {content.icon}
+                                            <Flex
+                                                bg="#1B3BBB"
+                                                h="4rem"
+                                                w="4rem"
+                                                alignItems="center"
+                                                justifyContent="center"
+                                                borderRadius="md"
+                                                color="#ffffff"
+                                            >
+                                                {content.icon}
+                                            </Flex>
                                         </Flex>
-                                    </Flex>
-                                    <Box>
-                                        <Flex alignItems="center">
+                                        <Box>
+                                            <Flex alignItems="center">
+                                                <Text
+                                                    fontSize="sm"
+                                                    mt="4"
+                                                    color={headerTextColor}
+                                                    fontWeight="700"
+                                                >
+                                                    {content.header}
+                                                </Text>
+                                            </Flex>
                                             <Text
                                                 fontSize="sm"
-                                                mt="4"
-                                                color={headerTextColor}
-                                                fontWeight="700"
+                                                color={contentTextColor}
+                                                style={{ letterSpacing: '0.04em' }}
                                             >
-                                                {content.header}
+                                                {content.content}
                                             </Text>
-                                        </Flex>
-                                        <Text
-                                            fontSize="sm"
-                                            color={contentTextColor}
-                                            style={{ letterSpacing: '0.04em' }}
-                                        >
-                                            {content.content}
-                                        </Text>
-                                    </Box>
+                                        </Box>
+                                    </Flex>
+                                </MenuItem>
+                            ))}
+                            <MenuItem bg="transparent" p="2">
+                                <Flex justifyContent="center" w="100%">
+                                    <Link fontSize="md" color={linkTextColor}>Read more</Link>
                                 </Flex>
                             </MenuItem>
-                        ))}
-                        <MenuItem bg="transparent" p="2">
-                            <Flex justifyContent="center" w="100%">
-                                <Link fontSize="md" color={linkTextColor}>Read more</Link>
-                            </Flex>
-                        </MenuItem>
-                    </MenuGroup>
-                </MenuList>
-            </Menu>
+                        </MenuGroup>
+                    </MenuList>
+                </Menu>
+            </Box>
             <ChatPortal>
                 {displayedChats.map((chat, index) => (
                     <ChatWindow

@@ -10,7 +10,6 @@ import {
   VStack,
   HStack,
   Divider,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaPaperclip, FaSmile, FaPaperPlane, FaMinus, FaTimes, FaExpand } from 'react-icons/fa';
 
@@ -37,7 +36,6 @@ const ChatWindow = ({
   );
   const messageBubbleBg = useColorModeValue('#F0F2F8', '#1B2559');
 
-  const isMobile = useBreakpointValue({ base: true, md: false });
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
