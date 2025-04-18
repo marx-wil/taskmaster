@@ -37,7 +37,7 @@ import {
 
 import Sidebar from '../../../../components/sidenav';
 import Navdrop from './navdrop';
-
+import NavMessages from './components/messaging';
 const NavIcons = props => {
   let iconColors = useColorModeValue('#0B1437', '#ffffff');
   let mainBg = useColorModeValue('#ffffff', '#0B1437');
@@ -138,7 +138,7 @@ const NavIcons = props => {
           title="Notifications"
           contents={NotificationsContent}
         />
-        <Navdrop icon={<FaInbox />} title="Inbox" contents={MessagesContent} />
+        <NavMessages icon={<FaInbox />} title="Inbox" contents={MessagesContent} />
         <IconButton
           hideFrom="lg"
           aria-label="Menu button"
