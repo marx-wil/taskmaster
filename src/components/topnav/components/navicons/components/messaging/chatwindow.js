@@ -17,10 +17,7 @@ import { FaPaperclip, FaSmile, FaPaperPlane, FaMinus, FaTimes, FaExpand } from '
 const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, isActive, onFocus }) => {
   const [newMessage, setNewMessage] = useState('');
   
-  // Move all useColorModeValue hooks to the top
-  const cardBg = useColorModeValue('rgba(255, 255, 255, 0.95)', 'rgba(17, 28, 68, 0.95)');
   const contentTextColor = useColorModeValue('#0B1437', '#ffffff');
-  const inputBg = useColorModeValue('#F7F8FA', '#111C44');
   const borderColor = useColorModeValue('rgba(0,0,0,0.1)', 'rgba(255,255,255,0.1)');
   const shadowColor = useColorModeValue('rgba(0, 0, 0, 0.2)', 'rgba(0, 0, 0, 0.4)');
   const innerShadowColor = useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(255, 255, 255, 0.05)');
@@ -31,7 +28,6 @@ const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, i
   );
   const messageBubbleBg = useColorModeValue('#F0F2F8', '#1B2559');
 
-  // Use 0 position on mobile, regular position on desktop
   const isMobile = useBreakpointValue({ base: true, md: false });
   const rightSpacing = useBreakpointValue({ base: 4, md: 20 });
   const effectivePosition = isMobile ? 0 : position;
@@ -43,7 +39,6 @@ const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, i
     }
   };
 
-  // Calculate position from right edge - each chat window is 320px wide with 10px gap
   const rightPosition = effectivePosition * 330 + rightSpacing;
 
   const commonBoxStyles = {
@@ -251,7 +246,7 @@ const ChatWindow = ({ message, onClose, isMinimized, onMinimize, position = 0, i
           _hover={{
             borderColor: 'purple.400'
           }}
-          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+          onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
         />
         <HStack>
           <IconButton
