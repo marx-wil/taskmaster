@@ -238,6 +238,7 @@ const Calendar = ({
 }) => {
   const [filter, setFilter] = useState('all');
   const [selectedTask, setSelectedTask] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [selectedDate, setSelectedDate] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
