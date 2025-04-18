@@ -6,7 +6,6 @@ const ChatPortal = ({ children }) => {
   const portalRef = useRef(null);
 
   useEffect(() => {
-    // Create a div for the portal if it doesn't exist
     if (!portalRef.current) {
       const div = document.createElement('div');
       div.id = 'chat-portal';
@@ -15,7 +14,6 @@ const ChatPortal = ({ children }) => {
     }
 
     return () => {
-      // Cleanup: remove the portal div when component unmounts
       if (portalRef.current) {
         document.body.removeChild(portalRef.current);
       }
