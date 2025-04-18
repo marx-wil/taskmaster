@@ -42,12 +42,17 @@ const Dashboard = () => {
       </Grid>
       <RecentActivity />
 
-      <Flex gap={4}>
+      <Flex gap={4} flexWrap="wrap" justify={{ base: 'center', lg: 'flex-start' }} w="100%">
         <Button
           leftIcon={<Icon as={FiPlus} />}
           bg="#7551FF"
           color="white"
           _hover={{ bg: '#6a48e6' }}
+          size={{ base: "sm", md: "md" }}
+          flex={{ base: '1', sm: 'initial' }}
+          minW={{ base: "auto", sm: "initial" }}
+          maxW={{ base: '100%', sm: 'initial' }}
+          px={{ base: 3, md: 4 }}
         >
           Create Task
         </Button>
@@ -56,6 +61,11 @@ const Dashboard = () => {
           variant="outline"
           borderColor="rgba(128,128,128,.4)"
           _hover={{ bg: 'rgba(128,128,128,.1)' }}
+          size={{ base: "sm", md: "md" }}
+          flex={{ base: '1', sm: 'initial' }}
+          minW={{ base: "auto", sm: "initial" }}
+          maxW={{ base: '100%', sm: 'initial' }}
+          px={{ base: 3, md: 4 }}
         >
           Create Project
         </Button>
