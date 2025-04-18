@@ -17,6 +17,7 @@ import {
   AlertDescription,
   useDisclosure,
   Modal,
+  Grid,
   ModalOverlay,
   ModalContent,
   ModalHeader,
@@ -35,7 +36,7 @@ const Settings = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [profile, setProfile] = useState({
-    name: 'Zahck DTech',
+    name: 'Zhack DTech',
     email: 'zhack.dtech@gmail.com',
     avatar: 'https://avatars.githubusercontent.com/u/50767502?s=400&u=02a09ea91424428f126cf68192b65e3819e978a2&v=4',
   });
@@ -63,104 +64,106 @@ const Settings = () => {
     <Box p={4} maxW="1200px" mx="auto">
       <VStack spacing={6} align="stretch">
         {/* Profile Section */}
-        <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={borderColor}>
-          <CardHeader>
-            <Text fontSize="lg" fontWeight="bold" color={headerColor}>
-              Profile
-            </Text>
-          </CardHeader>
-          <CardBody>
-            <form onSubmit={handleProfileUpdate}>
-              <VStack spacing={6} align="stretch">
-                <Flex align="center" gap={4}>
-                  <Avatar size="xl" src={profile.avatar} />
+        <Grid templateColumns={{ base: '1fr', lg: '1fr 1fr' }} gap={6}>
+          <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={borderColor}>
+            <CardHeader>
+              <Text fontSize="lg" fontWeight="bold" color={headerColor}>
+                Profile
+              </Text>
+            </CardHeader>
+            <CardBody>
+              <form onSubmit={handleProfileUpdate}>
+                <VStack spacing={6} align="stretch">
+                  <Flex align="center" gap={4}>
+                    <Avatar size="xl" src={profile.avatar} />
+                    <Button
+                      leftIcon={<Icon as={FiUpload} />}
+                      bg={buttonBg}
+                      color="white"
+                      _hover={{ bg: buttonHoverBg }}
+                    >
+                      Change Photo
+                    </Button>
+                  </Flex>
+                  <FormControl>
+                    <FormLabel color={headerColor}>Name</FormLabel>
+                    <Input
+                      value={profile.name}
+                      onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+                      borderColor={borderColor}
+                      _hover={{ borderColor: buttonBg }}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={headerColor}>Email</FormLabel>
+                    <Input
+                      type="email"
+                      value={profile.email}
+                      onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+                      borderColor={borderColor}
+                      _hover={{ borderColor: buttonBg }}
+                    />
+                  </FormControl>
                   <Button
-                    leftIcon={<Icon as={FiUpload} />}
+                    type="submit"
                     bg={buttonBg}
                     color="white"
                     _hover={{ bg: buttonHoverBg }}
                   >
-                    Change Photo
+                    Update Profile
                   </Button>
-                </Flex>
-                <FormControl>
-                  <FormLabel color={headerColor}>Name</FormLabel>
-                  <Input
-                    value={profile.name}
-                    onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-                    borderColor={borderColor}
-                    _hover={{ borderColor: buttonBg }}
-                  />
-                </FormControl>
-                <FormControl>
-                  <FormLabel color={headerColor}>Email</FormLabel>
-                  <Input
-                    type="email"
-                    value={profile.email}
-                    onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-                    borderColor={borderColor}
-                    _hover={{ borderColor: buttonBg }}
-                  />
-                </FormControl>
-                <Button
-                  type="submit"
-                  bg={buttonBg}
-                  color="white"
-                  _hover={{ bg: buttonHoverBg }}
-                >
-                  Update Profile
-                </Button>
-              </VStack>
-            </form>
-          </CardBody>
-        </Card>
+                </VStack>
+              </form>
+            </CardBody>
+          </Card>
 
-        {/* Account Section */}
-        <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={borderColor}>
-          <CardHeader>
-            <Text fontSize="lg" fontWeight="bold" color={headerColor}>
-              Account
-            </Text>
-          </CardHeader>
-          <CardBody>
-            <form onSubmit={handlePasswordChange}>
-              <VStack spacing={4} align="stretch">
-                <FormControl>
-                  <FormLabel color={headerColor}>Current Password</FormLabel>
-                  <Input
-                    type="password"
-                    borderColor={borderColor}
-                    _hover={{ borderColor: buttonBg }}
-                  />
-                </FormControl>
-                <FormControl>
-                  <FormLabel color={headerColor}>New Password</FormLabel>
-                  <Input
-                    type="password"
-                    borderColor={borderColor}
-                    _hover={{ borderColor: buttonBg }}
-                  />
-                </FormControl>
-                <FormControl>
-                  <FormLabel color={headerColor}>Confirm New Password</FormLabel>
-                  <Input
-                    type="password"
-                    borderColor={borderColor}
-                    _hover={{ borderColor: buttonBg }}
-                  />
-                </FormControl>
-                <Button
-                  type="submit"
-                  bg={buttonBg}
-                  color="white"
-                  _hover={{ bg: buttonHoverBg }}
-                >
-                  Change Password
-                </Button>
-              </VStack>
-            </form>
-          </CardBody>
-        </Card>
+          {/* Account Section */}
+          <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={borderColor}>
+            <CardHeader>
+              <Text fontSize="lg" fontWeight="bold" color={headerColor}>
+                Account
+              </Text>
+            </CardHeader>
+            <CardBody>
+              <form onSubmit={handlePasswordChange}>
+                <VStack spacing={4} align="stretch">
+                  <FormControl>
+                    <FormLabel color={headerColor}>Current Password</FormLabel>
+                    <Input
+                      type="password"
+                      borderColor={borderColor}
+                      _hover={{ borderColor: buttonBg }}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={headerColor}>New Password</FormLabel>
+                    <Input
+                      type="password"
+                      borderColor={borderColor}
+                      _hover={{ borderColor: buttonBg }}
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={headerColor}>Confirm New Password</FormLabel>
+                    <Input
+                      type="password"
+                      borderColor={borderColor}
+                      _hover={{ borderColor: buttonBg }}
+                    />
+                  </FormControl>
+                  <Button
+                    type="submit"
+                    bg={buttonBg}
+                    color="white"
+                    _hover={{ bg: buttonHoverBg }}
+                  >
+                    Change Password
+                  </Button>
+                </VStack>
+              </form>
+            </CardBody>
+          </Card>
+        </Grid>
 
         {/* Preferences Section */}
         <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={borderColor}>
