@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Box,
   Button,
@@ -12,20 +12,71 @@ import {
   Link as ChakraLink,
   useToast,
   useColorModeValue,
+  Image,
+  Flex,
 } from '@chakra-ui/react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
+import LoginImg from '../../assets/landingpage/auth/Computer login-amico.png'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const toast = useToast();
   const navigate = useNavigate();
-  const bgColor = useColorModeValue('white', 'gray.700');
-  const borderColor = useColorModeValue('gray.200', 'gray.600');
+
+  const pageRef = useRef(null);
+  const formRef = useRef(null);
+  const imageRef = useRef(null);
+
+  const bgColor = useColorModeValue('#FFF5EE', '#2D3748');
+  const textColor = useColorModeValue('#4A5568', '#E2E8F0');
+  const primaryColor = '#7928CA';
+  const accentColor = '#FF0080';
+  const glassEffect = {
+    background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(10px)',
+    borderRadius: '20px',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
+  };
+
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    if (window.innerWidth >= 992) { // Desktop animation
+      tl.from(imageRef.current, {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+      })
+        .from(formRef.current, {
+          x: 100,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out'
+        }, '-=0.5');
+    } else { // Mobile animation
+      tl.from(formRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out'
+      });
+    }
+
+    tl.from('.form-element', {
+      y: 20,
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.8,
+      ease: 'power2.out'
+    }, '-=0.5');
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement actual authentication
     if (email && password) {
       toast({
         title: 'Login successful',
@@ -46,52 +97,160 @@ const LoginPage = () => {
   };
 
   return (
-    <Box minH="100vh" display="flex" alignItems="center" justifyContent="center">
-      <Container maxW="md">
-        <Box
-          p={8}
-          borderWidth={1}
-          borderRadius="lg"
-          boxShadow="lg"
-          bg={bgColor}
-          borderColor={borderColor}
+    <Box
+      minH="100vh"
+      bg={bgColor}
+      ref={pageRef}
+      position="relative"
+      overflow="hidden"
+    >
+      {/* Background Image for Mobile */}
+      <Box
+        display={{ base: 'block', lg: 'none' }}
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        zIndex={0}
+      >
+        <Image
+          src={LoginImg}
+          alt="Background"
+          objectFit="cover"
+          w="full"
+          h="full"
+          opacity={0.15}
+        />
+      </Box>
+
+      <Container maxW="7xl" h="100dvh" position="relative" zIndex={1}>
+        <Flex
+          h="full"
+          align="center"
+          justify="space-between"
+          direction={{ base: 'column', lg: 'row' }}
+          gap={8}
+          py={8}
         >
-          <VStack spacing={6} as="form" onSubmit={handleSubmit}>
-            <Heading size="lg">Welcome Back</Heading>
-            <FormControl isRequired>
-              <FormLabel>Email</FormLabel>
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-              />
-            </FormControl>
-            <FormControl isRequired>
-              <FormLabel>Password</FormLabel>
-              <Input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-              />
-            </FormControl>
-            <Button
-              type="submit"
-              colorScheme="blue"
-              width="full"
-              size="lg"
+          {/* Left side - Image (Desktop only) */}
+          <Box
+            flex="1"
+            ref={imageRef}
+            display={{ base: 'none', lg: 'block' }}
+          >
+            <Image
+              src={LoginImg}
+              alt="Login Illustration"
+              w="full"
+              maxW="500px"
+              mx="auto"
+            />
+            <Text
+              fontSize="xl"
+              fontWeight="bold"
+              color={textColor}
+              mt={4}
+              className="form-element"
             >
-              Sign In
-            </Button>
-            <Text>
-              Don't have an account?{' '}
-              <ChakraLink as={RouterLink} to="/register" color="blue.500">
-                Sign up
-              </ChakraLink>
+              Turn your ideas into reality.
             </Text>
-          </VStack>
-        </Box>
+            <Text
+              color={textColor}
+              opacity={0.8}
+              className="form-element"
+            >
+              Start for free and get attractive offers from the community
+            </Text>
+          </Box>
+
+          {/* Right side - Form */}
+          <Box
+            flex="1"
+            ref={formRef}
+            maxW={{ base: '100%', lg: '450px' }}
+            w="full"
+            p={6}
+            {...(window.innerWidth < 992 ? glassEffect : {})}
+          >
+            <VStack spacing={6} align="stretch">
+              <Box className="form-element">
+                <Heading size="lg" color={textColor}>Login to your Account</Heading>
+                <Text color={textColor} opacity={0.8} mt={2}>
+                  Welcome back! Please enter your details
+                </Text>
+              </Box>
+
+              <VStack as="form" spacing={4} onSubmit={handleSubmit}>
+                <FormControl isRequired className="form-element">
+                  <FormLabel color={textColor}>Email</FormLabel>
+                  <Input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    bg={useColorModeValue('rgba(255, 255, 255, 0.1)', 'rgba(0, 0, 0, 0.1)')}
+                    border="1px solid"
+                    borderColor="rgba(255, 255, 255, 0.2)"
+                    color={textColor}
+                    _placeholder={{ color: 'gray.400' }}
+                    _hover={{
+                      borderColor: 'rgba(255, 255, 255, 0.3)',
+                    }}
+                    _focus={{
+                      borderColor: primaryColor,
+                      boxShadow: `0 0 0 1px ${primaryColor}`,
+                    }}
+                  />
+                </FormControl>
+
+                <FormControl isRequired className="form-element">
+                  <FormLabel color={textColor}>Password</FormLabel>
+                  <Input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    bg={useColorModeValue('rgba(255, 255, 255, 0.1)', 'rgba(0, 0, 0, 0.1)')}
+                    border="1px solid"
+                    borderColor="rgba(255, 255, 255, 0.2)"
+                    color={textColor}
+                    _placeholder={{ color: 'gray.400' }}
+                    _hover={{
+                      borderColor: 'rgba(255, 255, 255, 0.3)',
+                    }}
+                    _focus={{
+                      borderColor: primaryColor,
+                      boxShadow: `0 0 0 1px ${primaryColor}`,
+                    }}
+                  />
+                </FormControl>
+                <Button
+                  type="submit"
+                  w="full"
+                  bg={primaryColor}
+                  color="white"
+                  onClick={handleSubmit}
+                >
+                  Login
+                </Button>
+                <Text color={textColor} textAlign="center" className="form-element">
+                  Don't have an account?{' '}
+                  <ChakraLink
+                    as={RouterLink}
+                    to="/register"
+                    color={primaryColor}
+                    _hover={{
+                      color: accentColor,
+                    }}
+                  >
+                    Sign up
+                  </ChakraLink>
+                </Text>
+              </VStack>
+            </VStack>
+          </Box>
+        </Flex>
       </Container>
     </Box>
   );
