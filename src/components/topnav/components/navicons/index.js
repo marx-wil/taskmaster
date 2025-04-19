@@ -35,6 +35,7 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
+  useToast,
 } from '@chakra-ui/react';
 
 import Sidebar from '../../../../components/sidenav';
@@ -58,7 +59,7 @@ const NavIcons = props => {
     xl: 'xl',
     '2xl': '2xl',
   });
-
+  const toast = useToast();
   // Close drawer when screen size is lg and up
   useEffect(() => {
     if (screenSize === 'lg' || screenSize === 'xl' || screenSize === '2xl') {
@@ -221,6 +222,16 @@ const NavIcons = props => {
                 (e.target.style.backgroundColor = 'transparent')
               }
               _hover={{ color: '#fff' }}
+              onClick={() => {
+                navigate('/login');
+                toast({
+                  title: 'Logout successful',
+                  description: 'You have been logged out',
+                  status: 'success',
+                  duration: 3000,
+                  isClosable: true,
+                });
+              }}
             >
               Logout
             </MenuItem>
