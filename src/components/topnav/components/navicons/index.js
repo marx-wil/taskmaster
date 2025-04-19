@@ -111,12 +111,12 @@ const NavIcons = props => {
     {
       title: 'My Account',
       icon: <FaUser />,
-      href: '/account',
+      href: '/taskmaster/account',
     },
     {
       title: 'Settings',
       icon: <FaCog />,
-      href: '/settings',
+      href: '/taskmaster/settings',
     }
   ]
   const navigate = useNavigate();
