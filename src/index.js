@@ -11,6 +11,9 @@ import {
   ColorModeScript,
 } from '@chakra-ui/react';
 import './styles/poppin.scss';
+// landingpage layout
+import LandingLayout from './layouts/landingpage';
+// dashboard layout
 import Layout from './layouts/default';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
@@ -24,6 +27,9 @@ import Project from './views/project';
 import Activity from './views/activity';
 import Settings from './views/settings';
 import MyAccount from './views/myaccount';
+import LandingPage from './views/landingpage';
+import LoginPage from './views/login';
+import RegisterPage from './views/register/index.js';
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
@@ -37,18 +43,23 @@ const ProjectComponent = Layout(Project);
 const ActivityComponent = Layout(Activity);
 const SettingsComponent = Layout(Settings);
 const MyAccountComponent = Layout(MyAccount);
-
+const LandingPageComponent = LandingLayout(LandingPage);
 const router = createBrowserRouter([
-  { path: '/', element: <MainComponent /> },
-  { path: '/projects', element: <ProjectsComponent /> },
-  { path: '/project/:id', element: <ProjectComponent /> },
-  { path: '/calendar', element: <CalendarComponent /> },
-  { path: '/activity', element: <ActivityComponent /> },
-  { path: '/settings', element: <SettingsComponent /> },
-  { path: '/account', element: <MyAccountComponent /> },
-  { path: '/tables', element: <TableComponent /> },
-  { path: '/progress', element: <ProgressComponent /> },
-  { path: '/forms', element: <FormsComponent /> },
+  { path: '/', element: <LandingPageComponent /> },
+  { path: '/login', element: <LoginPage /> },
+  { path: '/register', element: <RegisterPage /> },
+  { path: '/taskmaster', element: <MainComponent /> },
+  { path: '/taskmaster/projects', element: <ProjectsComponent /> },
+  { path: '/taskmaster/project/:id', element: <ProjectComponent /> },
+  { path: '/taskmaster/calendar', element: <CalendarComponent /> },
+  { path: '/taskmaster/activity', element: <ActivityComponent /> },
+  { path: '/taskmaster/settings', element: <SettingsComponent /> },
+  { path: '/taskmaster/account', element: <MyAccountComponent /> },
+  { path: '/taskmaster/tables', element: <TableComponent /> },
+  { path: '/taskmaster/progress', element: <ProgressComponent /> },
+  { path: '/taskmaster/forms', element: <FormsComponent /> },
+  { path: '/taskmaster/settings', element: <SettingsComponent /> },
+
 ]);
 root.render(
   <ChakraProvider>

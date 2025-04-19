@@ -12,44 +12,34 @@ import {
 const routes = [
   {
     name: 'Dashboard',
-    path: '/',
+    path: '/taskmaster',
     icon: <FaChartArea />,
+    isPublic: false,
   },
   {
     name: 'Projects',
-    path: '/projects',
+    path: '/taskmaster/projects',
     icon: <FaProjectDiagram />,
+    isPublic: false,
   },
   {
     name: 'Calendar',
-    path: '/calendar',
+    path: '/taskmaster/calendar',
     icon: <FaCalendar />,
+    isPublic: false,
   },
   {
     name: 'Activity',
-    path: '/activity',
+    path: '/taskmaster/activity',
     icon: <FaHistory />,
+    isPublic: false,
   },
   {
     name: 'Settings',
-    path: '/settings',
+    path: '/taskmaster/settings',
     icon: <FaCog />,
+    isPublic: false,
   },
-  // {
-  //   name: 'Tables',
-  //   path: '/tables',
-  //   icon: <FaTable />,
-  // },
-  // {
-  //   name: 'Progress',
-  //   path: '/progress',
-  //   icon: <FaCircleNotch />,
-  // },
-  // {
-  //   name: 'Forms',
-  //   path: '/forms',
-  //   icon: <FaPager />,
-  // },
 ];
 
 export default routes;
