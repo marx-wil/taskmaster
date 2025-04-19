@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Box, useColorModeValue} from '@chakra-ui/react';
 import ThemeToggle from '../../components/landingpage/themetoggle';
 import Topnav from '../../components/landingpage/navbar';
-import Footer from '../../components/footer';
+import LandingFooter from '../../components/landingpage/footer';
 
 const Layout = Component => {
     const DefaultFunction = ({ ...props }) => {
@@ -45,7 +45,7 @@ const Layout = Component => {
                         <Component {...props} />
                     </motion.div>
                 </AnimatePresence>
-                <Footer />
+                <LandingFooter />
                 <ThemeToggle />
             </Box>
         );
