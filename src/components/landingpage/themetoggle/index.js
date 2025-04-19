@@ -1,6 +1,6 @@
 import { Box, IconButton, Icon, useColorMode } from '@chakra-ui/react';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 
 const ThemeToggle = () => {
