@@ -14,7 +14,10 @@ import {
   useColorModeValue,
   Image,
   Flex,
+  HStack,
+  IconButton,
 } from '@chakra-ui/react';
+import { FaArrowLeft } from 'react-icons/fa';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import LoginImg from '../../assets/landingpage/auth/Computer login-amico.png'
@@ -32,7 +35,7 @@ const LoginPage = () => {
   const bgColor = useColorModeValue('#FFF5EE', '#2D3748');
   const textColor = useColorModeValue('#4A5568', '#E2E8F0');
   const primaryColor = '#7928CA';
-  const accentColor = '#FF0080';
+  const accentColor = '#4E36AA';
   const glassEffect = {
     background: 'rgba(255, 255, 255, 0.1)',
     backdropFilter: 'blur(10px)',
@@ -175,7 +178,10 @@ const LoginPage = () => {
           >
             <VStack spacing={6} align="stretch">
               <Box className="form-element">
-                <Heading size="lg" color={textColor}>Login to your Account</Heading>
+                <HStack alignItems="center">
+                  <Heading size="lg" color={textColor}>
+                    <IconButton as={RouterLink} to="/" icon={<FaArrowLeft />} me={2} />Login to TaskMaster</Heading>
+                </HStack>
                 <Text color={textColor} opacity={0.8} mt={2}>
                   Welcome back! Please enter your details
                 </Text>
@@ -245,6 +251,19 @@ const LoginPage = () => {
                     }}
                   >
                     Sign up
+                  </ChakraLink>
+                </Text>
+                <Text color={textColor} textAlign="center" className="form-element">
+                  Forgot Password?{' '}
+                  <ChakraLink
+                    as={RouterLink}
+                    to="/forgot-password"
+                    color={primaryColor}
+                    _hover={{
+                      color: accentColor,
+                    }}
+                  >
+                    Reset Password
                   </ChakraLink>
                 </Text>
               </VStack>

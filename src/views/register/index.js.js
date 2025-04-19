@@ -14,10 +14,13 @@ import {
   useColorModeValue,
   Image,
   Flex,
+  HStack,
+  IconButton,
 } from '@chakra-ui/react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import LoginImg from '../../assets/landingpage/auth/Computer login-amico.png'
+import { FaArrowLeft } from 'react-icons/fa';
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -26,10 +29,10 @@ const RegisterPage = () => {
     password: '',
     confirmPassword: '',
   });
-  
+
   const toast = useToast();
   const navigate = useNavigate();
-  
+
   const pageRef = useRef(null);
   const formRef = useRef(null);
   const imageRef = useRef(null);
@@ -48,7 +51,7 @@ const RegisterPage = () => {
 
   useEffect(() => {
     const tl = gsap.timeline();
-    
+
     if (window.innerWidth >= 992) { // Desktop animation
       tl.from(imageRef.current, {
         x: -100,
@@ -56,12 +59,12 @@ const RegisterPage = () => {
         duration: 1,
         ease: 'power3.out'
       })
-      .from(formRef.current, {
-        x: 100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out'
-      }, '-=0.5');
+        .from(formRef.current, {
+          x: 100,
+          opacity: 0,
+          duration: 1,
+          ease: 'power3.out'
+        }, '-=0.5');
     } else { // Mobile animation
       tl.from(formRef.current, {
         y: 50,
@@ -70,7 +73,7 @@ const RegisterPage = () => {
         ease: 'power3.out'
       });
     }
-    
+
     tl.from('.form-element', {
       y: 20,
       opacity: 0,
@@ -121,8 +124,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <Box 
-      minH="100dvh" 
+    <Box
+      minH="100dvh"
       bg={bgColor}
       ref={pageRef}
       position="relative"
@@ -158,8 +161,8 @@ const RegisterPage = () => {
           py={8}
         >
           {/* Left side - Image (Desktop only) */}
-          <Box 
-            flex="1" 
+          <Box
+            flex="1"
             ref={imageRef}
             display={{ base: 'none', lg: 'block' }}
           >
@@ -199,7 +202,10 @@ const RegisterPage = () => {
           >
             <VStack spacing={6} align="stretch">
               <Box className="form-element">
-                <Heading size="lg" color={textColor}>Create Account</Heading>
+                <HStack alignItems="center">
+                  <Heading size="lg" color={textColor}>
+                    <IconButton as={RouterLink} to="/" icon={<FaArrowLeft />} me={2} />Create Account</Heading>
+                </HStack>
                 <Text color={textColor} opacity={0.8} mt={2}>
                   Fill in your details to get started
                 </Text>
@@ -298,7 +304,7 @@ const RegisterPage = () => {
                   />
                 </FormControl>
 
-                
+
                 <Button
                   type="submit"
                   w="full"
@@ -311,9 +317,9 @@ const RegisterPage = () => {
 
                 <Text color={textColor} textAlign="center" className="form-element">
                   Already have an account?{' '}
-                  <ChakraLink 
-                    as={RouterLink} 
-                    to="/login" 
+                  <ChakraLink
+                    as={RouterLink}
+                    to="/login"
                     color={primaryColor}
                     _hover={{
                       color: accentColor,
