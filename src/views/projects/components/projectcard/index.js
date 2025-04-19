@@ -18,7 +18,7 @@ const ProjectCard = ({ project }) => {
             border="1px solid"
             borderColor="rgba(128,128,128,.4)"
             cursor="pointer"
-            onClick={() => navigate(`/project/${project.id}`)}
+            onClick={() => navigate(`/taskmaster/project/${project.id}`)}
         >
             <Flex justifyContent="space-between" alignItems="center" mb={4}>
                 <Box>
