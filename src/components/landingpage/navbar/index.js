@@ -22,13 +22,13 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons'
-
+import { useNavigate } from 'react-router-dom'
 export default function LandingNavigation() {
     const { isOpen, onToggle } = useDisclosure()
     const bgColor = useColorModeValue('#ffffff', '#0B1437')
     const textColor = useColorModeValue('#0B1437', '#ffffff')
     const borderColor = useColorModeValue('gray.200', 'rgba(255, 255, 255, 0.16)')
-
+    const navigate = useNavigate()
     return (
         <Box
             bg={bgColor}>
@@ -84,7 +84,9 @@ export default function LandingNavigation() {
                         variant={'link'}
                         href={'#'}
                         color={textColor}
-                        _hover={{ color: '#7551FF' }}>
+                        className='poppins-bold'
+                        _hover={{ color: '#7551FF' }}
+                        onClick={() => navigate('/login')}>
                         Sign In
                     </Button>
                     <Button
@@ -93,11 +95,13 @@ export default function LandingNavigation() {
                         fontSize={'sm'}
                         fontWeight={600}
                         color={'white'}
+                        className='poppins-bold'
                         bg={'#7551FF'}
                         href={'#'}
                         _hover={{
                             bg: '#5941CC',
-                        }}>
+                        }}
+                        onClick={() => navigate('/register')}>
                         Sign Up
                     </Button>
                 </Stack>
