@@ -53,7 +53,7 @@ TaskMaster is a modern, feature-rich task and project management application bui
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/taskmaster.git
+git clone https://github.com/marx-wil/taskmaster.git
 cd taskmaster
 ```
 
