@@ -25,11 +25,11 @@ import {
 import { useNavigate } from 'react-router-dom';
 export default function LandingNavigation() {
   const { isOpen, onToggle } = useDisclosure();
-  const bgColor = useColorModeValue('#ffffff', '#1F1F1F');
-  const textColor = useColorModeValue('#0B1437', '#ffffff');
+  const bgColor = useColorModeValue('#ffffff', '#0D1117');
+  const textColor = useColorModeValue('#1e1e1e', '#E6EDF3');
   const borderColor = useColorModeValue(
-    'gray.200',
-    'rgba(255, 255, 255, 0.16)'
+    '#E5E7EB',
+    '#30363D'
   );
   const navigate = useNavigate();
   return (
@@ -97,7 +97,7 @@ export default function LandingNavigation() {
             href={'#'}
             color={textColor}
             className="poppins-bold"
-            _hover={{ color: '#7551FF' }}
+            _hover={{ color: useColorModeValue('#6D28D9', '#6E40C9') }}
             onClick={() => navigate('/login')}
           >
             Sign In
@@ -109,10 +109,10 @@ export default function LandingNavigation() {
             fontWeight={600}
             color={'white'}
             className="poppins-bold"
-            bg={'#7551FF'}
+            bg={useColorModeValue('#6D28D9', '#6E40C9')}
             href={'#'}
             _hover={{
-              bg: '#5941CC',
+              bg: '#A970FF',
             }}
             onClick={() => navigate('/register')}
           >
@@ -130,8 +130,8 @@ export default function LandingNavigation() {
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue('#0B1437', '#ffffff');
-  const linkHoverColor = useColorModeValue('#A38BFF', '#A38BFF');
-  const popoverContentBgColor = useColorModeValue('#ffffff', '#1A202C');
+  const linkHoverColor = useColorModeValue('#6D28D9', '#6E40C9');
+  const popoverContentBgColor = useColorModeValue('#F5F7FA', '#161B22');
 
   return (
     <Stack direction={'row'} spacing={4}>
@@ -219,7 +219,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('#ffffff', '#0B1437')}
+      bg={useColorModeValue('#ffffff', '#0D1117')}
       p={4}
       display={{ md: 'none' }}
     >
