@@ -9,7 +9,7 @@ import LandingFooter from '../../components/landingpage/footer';
 
 const Layout = Component => {
     const DefaultFunction = ({ ...props }) => {
-        let mainBg = useColorModeValue('#F4F7FE', '#0B1437');
+        let mainBg = useColorModeValue('#F5F7FA', '#161B22');
         const componentVariants = {
             hidden: { opacity: 0, y: 20 },
             visible: {
