@@ -131,7 +131,7 @@ export default function LandingNavigation() {
 const DesktopNav = () => {
   const linkColor = useColorModeValue('#0B1437', '#ffffff');
   const linkHoverColor = useColorModeValue('#A38BFF', '#A38BFF');
-  const popoverContentBgColor = useColorModeValue('#ffffff', '#11151D');
+  const popoverContentBgColor = useColorModeValue('#ffffff', '#1A202C');
 
   return (
     <Stack direction={'row'} spacing={4}>
