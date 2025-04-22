@@ -57,7 +57,7 @@ const ListHeader = ({ children }) => {
 }
 
 export default function LandingFooter() {
-    const bgColor = useColorModeValue('#ffffff', '#0B1437')
+    const bgColor = useColorModeValue('#ffffff', '#1A202C')
     const textColor = useColorModeValue('#0B1437', '#ffffff')
     return (
         <Box
@@ -132,10 +132,10 @@ export default function LandingFooter() {
                                 }}
                             />
                             <IconButton
-                                bg={useColorModeValue('green.400', 'green.800')}
-                                color={useColorModeValue('white', 'gray.800')}
+                                bg={useColorModeValue('#7551FF', '#7551FF')}
+                                color={useColorModeValue('white', 'white')}
                                 _hover={{
-                                    bg: 'green.600',
+                                    bg: '#5941CC',
                                 }}
                                 aria-label="Subscribe"
                                 icon={<BiMailSend />}
