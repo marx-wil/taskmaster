@@ -3,7 +3,7 @@ import { Box, Container, useColorModeValue } from '@chakra-ui/react';
 import Hero from '../../components/landingpage/hero';
 
 const LandingPage = () => {
-  const bgColor = useColorModeValue('#F4F7FE', '#111C44');
+  const bgColor = useColorModeValue('#F5F7FA', '#161B22');
 
   return (
     <Box bg={bgColor}>
