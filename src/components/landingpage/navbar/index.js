@@ -25,7 +25,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 export default function LandingNavigation() {
   const { isOpen, onToggle } = useDisclosure();
-  const bgColor = useColorModeValue('#ffffff', '#1A202C');
+  const bgColor = useColorModeValue('#ffffff', '#1F1F1F');
   const textColor = useColorModeValue('#0B1437', '#ffffff');
   const borderColor = useColorModeValue(
     'gray.200',
