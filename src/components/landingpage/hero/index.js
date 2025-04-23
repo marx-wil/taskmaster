@@ -29,12 +29,12 @@ export default function CallToActionWithVideo() {
     tl.to(
       blob1Ref.current,
       {
-        x: 30,
-        y: 25,
-        scale: 1.08,
-        rotate: 8,
-        duration: 6,
-        ease: 'sine.inOut',
+        x: 60,
+        y: 65,
+        scale: 1.15,
+        rotate: 15,
+        duration: 5,
+        ease: 'power1.inOut',
       },
       0
     );
@@ -55,33 +55,33 @@ export default function CallToActionWithVideo() {
   return (
     <Container maxW={'7xl'} position={'relative'} zIndex={1}>
       <Box
-        ref={blob1Ref}
-        position="absolute"
-        top="-100px"
-        left="-100px"
-        w="300px"
-        h="300px"
-        bg="purple.300"
-        filter="blur(120px)"
-        opacity={0.5}
-        zIndex={0}
-        rounded="full"
-        as={'div'}
-      />
-      <Box
-        ref={blob2Ref}
-        position="absolute"
-        bottom="-100px"
-        right="-100px"
-        w="250px"
-        h="250px"
-        bg="pink.300"
-        filter="blur(100px)"
-        opacity={0.4}
-        zIndex={0}
-        rounded="full"
-        as={'div'}
-      />
+  ref={blob1Ref}
+  position="absolute"
+  top="-100px"
+  left="-100px"
+  w="300px"
+  h="300px"
+  bg={useColorModeValue('purple.400', 'purple.300')}
+  filter="blur(100px)"
+  opacity={useColorModeValue(0.7, 0.5)}
+  zIndex={0}
+  rounded="full"
+  as="div"
+/>
+<Box
+  ref={blob2Ref}
+  position="absolute"
+  bottom="-100px"
+  right="-100px"
+  w="250px"
+  h="250px"
+  bg={useColorModeValue('pink.400', 'pink.300')}
+  filter="blur(80px)"
+  opacity={useColorModeValue(0.6, 0.4)}
+  zIndex={0}
+  rounded="full"
+  as="div"
+/>
 
       <Box
         position="absolute"

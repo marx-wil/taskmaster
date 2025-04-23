@@ -15,7 +15,6 @@ const Layout = Component => {
 
     const mainBg = useColorModeValue('#F5F7FA', '#161B22');
 
-    // Fancy entrance animation using timeline
     useEffect(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
       tl.fromTo(
@@ -36,7 +35,6 @@ const Layout = Component => {
       );
     }, []);
 
-    // Animate theme transitions
     useEffect(() => {
       const bgColor = colorMode === 'light' ? '#F5F7FA' : '#161B22';
       const tl = gsap.timeline();
