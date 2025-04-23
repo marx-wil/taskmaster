@@ -1,57 +1,82 @@
 import '../../styles/main.scss';
 
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Box, useColorModeValue} from '@chakra-ui/react';
+import React, { useEffect, useRef } from 'react';
+import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { gsap } from 'gsap';
 import ThemeToggle from '../../components/landingpage/themetoggle';
 import Topnav from '../../components/landingpage/navbar';
 import LandingFooter from '../../components/landingpage/footer';
 
 const Layout = Component => {
-    const DefaultFunction = ({ ...props }) => {
-        let mainBg = useColorModeValue('#F5F7FA', '#161B22');
-        const componentVariants = {
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                    duration: 0.4,
-                    ease: [0.25, 0.1, 0.25, 1]
-                }
-            },
-            exit: {
-                opacity: 0,
-                y: -20,
-                transition: {
-                    duration: 0.3,
-                    ease: [0.25, 0.1, 0.25, 1]
-                }
-            }
-        };
+  const DefaultFunction = ({ ...props }) => {
+    const { colorMode } = useColorMode();
+    const mainRef = useRef(null);
+    const componentRef = useRef(null);
 
-        return (
-            <Box bg={mainBg} style={{ overflowX: 'hidden' }}>
-                <Topnav />
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={window.location.pathname}
-                        variants={componentVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        style={{ width: '100%' }}
-                    >
-                        <Component {...props} />
-                    </motion.div>
-                </AnimatePresence>
-                <LandingFooter />
-                <ThemeToggle />
-            </Box>
-        );
-    };
+    const mainBg = useColorModeValue('#F5F7FA', '#161B22');
 
-    return DefaultFunction;
+    // Fancy entrance animation using timeline
+    useEffect(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      tl.fromTo(
+        mainRef.current,
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.8 }
+      ).fromTo(
+        componentRef.current.children,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'expo.out',
+        },
+        '-=0.4'
+      );
+    }, []);
+
+    // Animate theme transitions
+    useEffect(() => {
+      const bgColor = colorMode === 'light' ? '#F5F7FA' : '#161B22';
+      const tl = gsap.timeline();
+
+      tl.to(mainRef.current, {
+        backgroundColor: bgColor,
+        duration: 0.6,
+        ease: 'power2.inOut',
+      });
+
+      tl.fromTo(
+        componentRef.current.children,
+        { opacity: 0.6, y: 10 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.05,
+          ease: 'power2.out',
+        },
+        '-=0.3'
+      );
+    }, [colorMode]);
+
+    return (
+      <>
+        <Box ref={mainRef} bg={mainBg} style={{ overflowX: 'hidden' }}>
+          <Topnav />
+          <div ref={componentRef} style={{ width: '100%' }}>
+            <Component {...props} />
+          </div>
+          <LandingFooter />
+        </Box>
+
+        <ThemeToggle />
+      </>
+    );
+  };
+
+  return DefaultFunction;
 };
 
 export default Layout;
