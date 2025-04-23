@@ -146,6 +146,7 @@ export default function CallToActionWithVideo() {
               colorScheme={'red'}
               bg={accentColor}
               _hover={{ bg: accentHover }}
+              className='poppins-semibold'
             >
               Get started
             </Button>
@@ -155,6 +156,7 @@ export default function CallToActionWithVideo() {
               fontWeight={'normal'}
               px={6}
               leftIcon={<PlayIcon h={4} w={4} color={'gray.300'} />}
+              className='poppins-semibold'
             >
               How It Works
             </Button>
