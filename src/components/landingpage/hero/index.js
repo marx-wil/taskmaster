@@ -12,7 +12,6 @@ import {
   Icon,
   IconButton,
   createIcon,
-  IconProps,
   useColorModeValue,
 } from '@chakra-ui/react';
 
@@ -54,15 +53,11 @@ export default function CallToActionWithVideo() {
               Master your workflow,
             </Text>
             <br />
-            <Text
-              as={'span'}
-              color={accentHover}
-              className="poppins-bold"
-            >
+            <Text as={'span'} color={accentHover} className="poppins-bold">
               with TaskMaster.
             </Text>
           </Heading>
-          <Text color={secondaryTextColor} className='poppins-regular'>
+          <Text color={secondaryTextColor} className="poppins-regular">
             Snippy is a rich coding snippets app that lets you create your own
             code snippets, categorize them, and even sync them in the cloud so
             you can use them anywhere. All that is free!
