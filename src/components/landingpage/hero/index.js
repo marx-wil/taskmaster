@@ -14,19 +14,91 @@ import {
   createIcon,
   useColorModeValue,
 } from '@chakra-ui/react';
-
+import gsap from 'gsap';
+import { useRef, useEffect } from 'react';
 export default function CallToActionWithVideo() {
+  const blob1Ref = useRef(null);
+  const blob2Ref = useRef(null);
   const accentColor = useColorModeValue('#7C3AED', '#A970FF');
   const primaryTextColor = useColorModeValue('#1e1e1e', '#E6EDF3');
   const accentHover = useColorModeValue('#6D28D9', '#6E40C9');
   const secondaryTextColor = useColorModeValue('#4B5563', '#8B949E');
+  useEffect(() => {
+    const tl = gsap.timeline({ repeat: -1, yoyo: true });
+
+    tl.to(
+      blob1Ref.current,
+      {
+        x: 30,
+        y: 25,
+        scale: 1.08,
+        rotate: 8,
+        duration: 6,
+        ease: 'sine.inOut',
+      },
+      0
+    );
+
+    tl.to(
+      blob2Ref.current,
+      {
+        x: -25,
+        y: -20,
+        scale: 1.05,
+        rotate: -6,
+        duration: 7,
+        ease: 'sine.inOut',
+      },
+      0
+    );
+  }, []);
   return (
-    <Container maxW={'7xl'}>
+    <Container maxW={'7xl'} position={'relative'} zIndex={1}>
+      <Box
+        ref={blob1Ref}
+        position="absolute"
+        top="-100px"
+        left="-100px"
+        w="300px"
+        h="300px"
+        bg="purple.300"
+        filter="blur(120px)"
+        opacity={0.5}
+        zIndex={0}
+        rounded="full"
+        as={'div'}
+      />
+      <Box
+        ref={blob2Ref}
+        position="absolute"
+        bottom="-100px"
+        right="-100px"
+        w="250px"
+        h="250px"
+        bg="pink.300"
+        filter="blur(100px)"
+        opacity={0.4}
+        zIndex={0}
+        rounded="full"
+        as={'div'}
+      />
+
+      <Box
+        position="absolute"
+        inset={0}
+        bgImage="radial-gradient(#00000040 1px, transparent 1px)"
+        backgroundSize="20px 20px"
+        opacity={0.3}
+        zIndex={0}
+      />
       <Stack
         align={'center'}
         spacing={{ base: 8, md: 10 }}
         py={{ base: 20, md: 28 }}
         direction={{ base: 'column', md: 'row' }}
+        position={'relative'}
+        zIndex={1}
+        background={'transparent'}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
           <Heading
