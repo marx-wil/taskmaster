@@ -27,10 +27,8 @@ export default function LandingNavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const bgColor = useColorModeValue('#ffffff', '#0D1117');
   const textColor = useColorModeValue('#1e1e1e', '#E6EDF3');
-  const borderColor = useColorModeValue(
-    '#E5E7EB',
-    '#30363D'
-  );
+  const borderColor = useColorModeValue('#E5E7EB', '#30363D');
+  const secondaryTextColor = useColorModeValue('#7c3aed', '#a970ff');
   const navigate = useNavigate();
   return (
     <Box bg={bgColor}>
@@ -75,7 +73,20 @@ export default function LandingNavigation() {
             lineHeight={'tall'}
             color={textColor}
           >
-            TaskMaster
+            Task
+            <Text
+              as={'span'}
+              fontSize={{ base: '2xl', md: '3xl' }}
+              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+              fontFamily={'heading'}
+              className="poppins-bold"
+              letterSpacing={'1'}
+              fontWeight={'bold'}
+              lineHeight={'tall'}
+              color={secondaryTextColor}
+            >
+              Master
+            </Text>
           </Text>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
