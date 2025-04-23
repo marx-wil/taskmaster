@@ -9,8 +9,6 @@ import {
     Button,
     Avatar,
     Icon,
-    Switch,
-    useColorMode,
     Alert,
     AlertIcon,
     AlertTitle,
@@ -33,7 +31,6 @@ import {
 import { FiUpload, FiTrash2 } from 'react-icons/fi';
 
 const MyAccount = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [profile, setProfile] = useState({
         name: 'Zhack DTech',
