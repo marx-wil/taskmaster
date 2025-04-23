@@ -57,8 +57,8 @@ const ListHeader = ({ children }) => {
 }
 
 export default function LandingFooter() {
-    const bgColor = useColorModeValue('#ffffff', '#1F1F1F')
-    const textColor = useColorModeValue('#0B1437', '#ffffff')
+    const bgColor = useColorModeValue('#ffffff', '#0D1117')
+    const textColor = useColorModeValue('#1E1E1E', '#E6EDF3')
     return (
         <Box
             bg={bgColor}
