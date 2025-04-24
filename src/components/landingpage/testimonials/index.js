@@ -14,22 +14,7 @@ import {
 
 const Testimonial = props => {
   const { children } = props;
-  return (
-    <Box position={'relative'}>
-      <Box
-        position="absolute"
-        bottom="50%"
-        left="50%"
-        width="120px"
-        height="120px"
-        bgGradient="radial(circle, rgba(109,40,217,0.15), transparent 90%)"
-        filter="blur(10px)"
-        borderRadius="full"
-        zIndex={2}
-      />
-      {children}
-    </Box>
-  );
+  return <Box>{children}</Box>;
 };
 
 const TestimonialContent = props => {
@@ -167,6 +152,10 @@ export default function Testimonials() {
     },
   ];
   const accentColor = useColorModeValue('#7C3AED', '#A970FF');
+  const blobBg = useColorModeValue(
+    'rgba(124, 58, 237, 0.15)',
+    'rgba(169, 112, 255, 0.1)'
+  );
   return (
     <Box p={{ base: 6, md: 10 }}>
       <Container
@@ -178,7 +167,19 @@ export default function Testimonials() {
         borderRadius="2xl"
         px={6}
         position="relative"
+        zIndex={-1}
       >
+        <Box
+          position="absolute"
+          top="-100px"
+          left="-100px"
+          w="500px"
+          h="500px"
+          bg={blobBg}
+          borderRadius="50%"
+          filter="blur(120px)"
+          zIndex={0}
+        />
         <Stack spacing={4} align={'center'}>
           <Heading>
             <Text
