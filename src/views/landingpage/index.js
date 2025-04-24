@@ -5,7 +5,7 @@ import LandingFeatures from '../../components/landingpage/features';
 import HowItWorks from '../../components/landingpage/howitworks';
 import Testimonials from '../../components/landingpage/testimonials';
 import PricingSection from '../../components/landingpage/pricing';
-import ScrollAnimation from '../../components/landingpage/scrollanim/ScrollAnimation';
+import ScrollAnimation from '../../components/scrollanim/ScrollAnimation';
 
 const LandingPage = () => {
   const bgColor = useColorModeValue('#F5F7FA', '#161B22');
