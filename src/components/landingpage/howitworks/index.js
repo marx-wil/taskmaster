@@ -115,14 +115,16 @@ export default function HowItWorks() {
       />
       <Box
         position="absolute"
-        bottom="-8%"
-        left="-6%"
-        width="250px"
-        height="250px"
-        bgGradient="radial(circle, rgba(109,40,217,0.15), transparent 70%)"
-        filter="blur(30px)"
-        borderRadius="full"
+        bottom="-100px"
+        right="-100px"
+        w="250px"
+        h="250px"
+        bg={useColorModeValue('pink.400', 'pink.300')}
+        filter="blur(80px)"
+        opacity={useColorModeValue(0.6, 0.4)}
         zIndex={0}
+        rounded="full"
+        as="div"
       />
 
       <Grid
