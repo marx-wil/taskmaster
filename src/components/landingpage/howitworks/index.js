@@ -100,6 +100,7 @@ export default function HowItWorks() {
       p={{ base: 6, md: 10 }}
       borderRadius="2xl"
       position="relative"
+      mb={10}
     >
       <Box
         position="absolute"
