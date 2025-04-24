@@ -55,33 +55,33 @@ export default function CallToActionWithVideo() {
   return (
     <Container maxW={'7xl'} position={'relative'} zIndex={1}>
       <Box
-  ref={blob1Ref}
-  position="absolute"
-  top="-100px"
-  left="-100px"
-  w="300px"
-  h="300px"
-  bg={useColorModeValue('purple.400', 'purple.300')}
-  filter="blur(100px)"
-  opacity={useColorModeValue(0.7, 0.5)}
-  zIndex={0}
-  rounded="full"
-  as="div"
-/>
-<Box
-  ref={blob2Ref}
-  position="absolute"
-  bottom="-100px"
-  right="-100px"
-  w="250px"
-  h="250px"
-  bg={useColorModeValue('pink.400', 'pink.300')}
-  filter="blur(80px)"
-  opacity={useColorModeValue(0.6, 0.4)}
-  zIndex={0}
-  rounded="full"
-  as="div"
-/>
+        ref={blob1Ref}
+        position="absolute"
+        top="-100px"
+        left="-100px"
+        w="300px"
+        h="300px"
+        bg={useColorModeValue('purple.400', 'purple.300')}
+        filter="blur(100px)"
+        opacity={useColorModeValue(0.7, 0.5)}
+        zIndex={0}
+        rounded="full"
+        as="div"
+      />
+      <Box
+        ref={blob2Ref}
+        position="absolute"
+        bottom="-100px"
+        right="-100px"
+        w="250px"
+        h="250px"
+        bg={useColorModeValue('pink.400', 'pink.300')}
+        filter="blur(80px)"
+        opacity={useColorModeValue(0.6, 0.4)}
+        zIndex={0}
+        rounded="full"
+        as="div"
+      />
 
       <Box
         position="absolute"
@@ -130,9 +130,10 @@ export default function CallToActionWithVideo() {
             </Text>
           </Heading>
           <Text color={secondaryTextColor} className="poppins-regular">
-            Snippy is a rich coding snippets app that lets you create your own
-            code snippets, categorize them, and even sync them in the cloud so
-            you can use them anywhere. All that is free!
+            TaskMaster is a modern, feature-rich task and project management
+            application built with React. It provides a comprehensive suite of
+            tools for managing projects, tracking progress, and organizing tasks
+            efficiently.
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
@@ -146,7 +147,7 @@ export default function CallToActionWithVideo() {
               colorScheme={'red'}
               bg={accentColor}
               _hover={{ bg: accentHover }}
-              className='poppins-semibold'
+              className="poppins-semibold"
             >
               Get started
             </Button>
@@ -156,7 +157,7 @@ export default function CallToActionWithVideo() {
               fontWeight={'normal'}
               px={6}
               leftIcon={<PlayIcon h={4} w={4} color={'gray.300'} />}
-              className='poppins-semibold'
+              className="poppins-semibold"
             >
               How It Works
             </Button>
