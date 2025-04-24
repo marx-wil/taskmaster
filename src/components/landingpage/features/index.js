@@ -138,6 +138,7 @@ export default function LandingFeatures() {
       <Box
         position="relative"
         p={6}
+        py={16}
         bg={bg}
         boxShadow={'lg'}
         rounded={'lg'}
