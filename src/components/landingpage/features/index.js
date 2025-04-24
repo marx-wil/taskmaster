@@ -12,7 +12,7 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-
+import ScrollAnimation from '../../scrollanim/ScrollAnimation';
 import {
   HiViewBoards,
   HiClipboardCheck,
@@ -55,10 +55,11 @@ const Card = ({ heading, description, icon, href }) => {
           {icon}
         </Flex>
         <Box>
-          <Heading size="md" color={cardText}>
-            {heading}
+          <Heading size="md" >
+            <Text color={cardText} className='poppins-bold'>
+            {heading}</Text>
           </Heading>
-          <Text mt={1} fontSize={'sm'} color={cardSubText}>
+          <Text mt={1} fontSize={'sm'} color={cardSubText} className='poppins-regular'>
             {description}
           </Text>
         </Box>
@@ -67,6 +68,7 @@ const Card = ({ heading, description, icon, href }) => {
           color={useColorModeValue('#7C3AED', '#A970FF')}
           _hover={{ color: useColorModeValue('#6D28D9', '#6E40C9') }}
           size={'sm'}
+          className='poppins-semibold'
         >
           Learn more
         </Button>
@@ -160,35 +162,40 @@ export default function LandingFeatures() {
 
         <Box position="relative" zIndex={1}>
           <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
-            <Text
-              as={'Text'}
-              fontSize={{ base: '2xl', sm: '4xl' }}
-              color={text}
-              className="poppins-bold"
-            >
-              Organize. Focus. Deliver.
-            </Text>
-            <Text
-              color={subtext}
-              fontSize={{ base: 'sm', sm: 'lg' }}
-              className="poppins-regular"
-            >
-              Simple, intuitive tools designed to help you and your team stay
-              focused, work smarter, and accomplish more—without the clutter or
-              complexity.
-            </Text>
+            <ScrollAnimation>
+              <Text
+                as={'Text'}
+                fontSize={{ base: '2xl', sm: '4xl' }}
+                color={text}
+                className="poppins-bold"
+              >
+                Organize. Focus. Deliver.
+              </Text>
+            </ScrollAnimation>
+            <ScrollAnimation>
+              <Text
+                color={subtext}
+                fontSize={{ base: 'sm', sm: 'lg' }}
+                className="poppins-regular"
+              >
+                Simple, intuitive tools designed to help you and your team stay
+                focused, work smarter, and accomplish more—without the clutter
+                or complexity.
+              </Text>
+            </ScrollAnimation>
           </Stack>
 
           <Container maxW={'6xl'} mt={12}>
             <Flex flexWrap="wrap" gridGap={8} justify="center">
               {features.map((feature, key) => (
-                <Card
-                  key={key}
-                  heading={feature.heading}
-                  icon={feature.icon}
-                  description={feature.description}
-                  href={'#'}
-                />
+                <ScrollAnimation key={key}>
+                  <Card
+                    heading={feature.heading}
+                    icon={feature.icon}
+                    description={feature.description}
+                    href={'#'}
+                  />
+                </ScrollAnimation>
               ))}
             </Flex>
           </Container>
