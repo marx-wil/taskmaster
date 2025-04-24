@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-
+import ScrollAnimation from '../../scrollanim/ScrollAnimation';
 const Feature = ({ heading, text, delay = 0 }) => {
   const ref = useRef();
   const cardBg = useColorModeValue('#ffffff', '#0D1117');
@@ -48,36 +48,38 @@ const Feature = ({ heading, text, delay = 0 }) => {
     });
   };
   return (
-    <GridItem
-      ref={ref}
-      bg={cardBg}
-      p={6}
-      borderRadius="2xl"
-      boxShadow="lg"
-      transition="all 0.3s ease"
-      _hover={{ transform: 'scale(1.02)', transition: '0.3s' }}
-      border={'1px solid'}
-      borderColor={cardBorderColor}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <chakra.h3
-        fontSize="xl"
-        fontWeight="700"
-        color={primaryTextColor}
-        mb={2}
-        className="poppins-bold"
+    <ScrollAnimation>
+      <GridItem
+        ref={ref}
+        bg={cardBg}
+        p={6}
+        borderRadius="2xl"
+        boxShadow="lg"
+        transition="all 0.3s ease"
+        _hover={{ transform: 'scale(1.02)', transition: '0.3s' }}
+        border={'1px solid'}
+        borderColor={cardBorderColor}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
-        {heading}
-      </chakra.h3>
-      <chakra.p
-        fontSize="md"
-        color={secondaryTextColor}
-        className="poppins-regular"
-      >
-        {text}
-      </chakra.p>
-    </GridItem>
+        <chakra.h3
+          fontSize="xl"
+          fontWeight="700"
+          color={primaryTextColor}
+          mb={2}
+          className="poppins-bold"
+        >
+          {heading}
+        </chakra.h3>
+        <chakra.p
+          fontSize="md"
+          color={secondaryTextColor}
+          className="poppins-regular"
+        >
+          {text}
+        </chakra.p>
+      </GridItem>
+    </ScrollAnimation>
   );
 };
 
@@ -135,15 +137,17 @@ export default function HowItWorks() {
       >
         <GridItem colSpan={1}>
           <VStack alignItems="flex-start" spacing={6}>
-            <chakra.h1
-              fontSize="4xl"
-              fontWeight="extrabold"
-              lineHeight="shorter"
-              className="poppins-bold"
-              color={primaryTextColor}
-            >
-              How it works?
-            </chakra.h1>
+            <ScrollAnimation>
+              <chakra.h1
+                fontSize="4xl"
+                fontWeight="extrabold"
+                lineHeight="shorter"
+                className="poppins-bold"
+                color={primaryTextColor}
+              >
+                How it works?
+              </chakra.h1>
+            </ScrollAnimation>
           </VStack>
         </GridItem>
         <GridItem>
@@ -153,14 +157,16 @@ export default function HowItWorks() {
             justifyContent={'center'}
             alignContent={'center'}
           >
-            <chakra.p
-              fontSize="lg"
-              color={secondaryTextColor}
-              lineHeight="tall"
-              className="poppins-regular"
-            >
-              Getting started is quick and easy – no learning curve required.
-            </chakra.p>
+            <ScrollAnimation>
+              <chakra.p
+                fontSize="lg"
+                color={secondaryTextColor}
+                lineHeight="tall"
+                className="poppins-regular"
+              >
+                Getting started is quick and easy – no learning curve required.
+              </chakra.p>
+            </ScrollAnimation>
           </Flex>
         </GridItem>
       </Grid>
