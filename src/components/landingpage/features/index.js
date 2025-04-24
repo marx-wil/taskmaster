@@ -20,7 +20,8 @@ import {
   HiChartPie,
   HiClock,
 } from 'react-icons/hi';
-const Card = ({ heading, description, icon, href }) => {const cardBg = useColorModeValue(
+const Card = ({ heading, description, icon, href }) => {
+  const cardBg = useColorModeValue(
     'linear-gradient(135deg, #F5F7FA 0%, #E4E9F0 100%)',
     'linear-gradient(135deg, #161B22 0%, #1C1F26 100%)'
   );
@@ -133,63 +134,65 @@ export default function LandingFeatures() {
     },
   ];
   return (
-    <Box
-      position="relative"
-      p={6}
-      bg={bg}
-      boxShadow={'lg'}
-      rounded={'lg'}
-      overflow="hidden"
-    >
-      {/* Background Blob */}
+    <Container maxW={'7xl'} px={{ base: 4, md: 8, lg: 12 }} py={10}>
       <Box
-        ref={blobRef}
-        position="absolute"
-        top="-100px"
-        left="-100px"
-        w="500px"
-        h="500px"
-        bg={blobBg}
-        borderRadius="50%"
-        filter="blur(120px)"
-        zIndex={0}
-      />
+        position="relative"
+        p={6}
+        bg={bg}
+        boxShadow={'lg'}
+        rounded={'lg'}
+        overflow="hidden"
+      >
+        {/* Background Blob */}
+        <Box
+          ref={blobRef}
+          position="absolute"
+          top="-100px"
+          left="-100px"
+          w="500px"
+          h="500px"
+          bg={blobBg}
+          borderRadius="50%"
+          filter="blur(120px)"
+          zIndex={0}
+        />
 
-      <Box position="relative" zIndex={1}>
-        <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
-          <Text
-            as={'Text'}
-            fontSize={{ base: '2xl', sm: '4xl' }}
-            color={text}
-            className="poppins-bold"
-          >
-            Organize. Focus. Deliver.
-          </Text>
-          <Text
-            color={subtext}
-            fontSize={{ base: 'sm', sm: 'lg' }}
-            className="poppins-regular"
-          >
-            Simple, intuitive tools designed to help you and your team stay
-            focused, work smarter, and accomplish more—without the clutter or
-            complexity.
-          </Text>
-        </Stack>
+        <Box position="relative" zIndex={1}>
+          <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
+            <Text
+              as={'Text'}
+              fontSize={{ base: '2xl', sm: '4xl' }}
+              color={text}
+              className="poppins-bold"
+            >
+              Organize. Focus. Deliver.
+            </Text>
+            <Text
+              color={subtext}
+              fontSize={{ base: 'sm', sm: 'lg' }}
+              className="poppins-regular"
+            >
+              Simple, intuitive tools designed to help you and your team stay
+              focused, work smarter, and accomplish more—without the clutter or
+              complexity.
+            </Text>
+          </Stack>
 
-        <Container maxW={'6xl'} mt={12}>
-          <Flex flexWrap="wrap" gridGap={8} justify="center">
-            {features.map((feature, key) => (
-              <Card
-                key={key}
-                heading={feature.heading}
-                icon={feature.icon}
-                description={feature.description}
-                href={'#'}
-              />
-            ))}
-          </Flex>
-        </Container>
+          <Container maxW={'6xl'} mt={12}>
+            <Flex flexWrap="wrap" gridGap={8} justify="center">
+              {features.map((feature, key) => (
+                <Card
+                  key={key}
+                  heading={feature.heading}
+                  icon={feature.icon}
+                  description={feature.description}
+                  href={'#'}
+                />
+              ))}
+            </Flex>
+          </Container>
+        </Box>
       </Box>
-    </Box>
+    </Container>
   );
 }
