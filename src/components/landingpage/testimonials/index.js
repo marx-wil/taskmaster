@@ -11,6 +11,7 @@ import {
   useColorModeValue,
   Grid,
 } from '@chakra-ui/react';
+import ScrollAnimation from '../../scrollanim/ScrollAnimation';
 
 const Testimonial = props => {
   const { children } = props;
@@ -181,38 +182,42 @@ export default function Testimonials() {
           zIndex={0}
         />
         <Stack spacing={4} align={'center'}>
-          <Heading>
-            <Text
-              className="poppins-semibold"
-              color={useColorModeValue('#1E1E1E', '#E6EDF3')}
-            >
-              Loved by People Who Get Things&nbsp;
+          <ScrollAnimation>
+            <Heading>
               <Text
-                as={'span'}
                 className="poppins-semibold"
-                position={'relative'}
-                zIndex={1}
-                _after={{
-                  content: "''",
-                  width: 'full',
-                  height: '30%',
-                  position: 'absolute',
-                  bottom: 1,
-                  left: 0,
-                  bg: accentColor,
-                  zIndex: -1,
-                }}
+                color={useColorModeValue('#1E1E1E', '#E6EDF3')}
               >
-                Done.
+                Loved by People Who Get Things&nbsp;
+                <Text
+                  as={'span'}
+                  className="poppins-semibold"
+                  position={'relative'}
+                  zIndex={1}
+                  _after={{
+                    content: "''",
+                    width: 'full',
+                    height: '30%',
+                    position: 'absolute',
+                    bottom: 1,
+                    left: 0,
+                    bg: accentColor,
+                    zIndex: -1,
+                  }}
+                >
+                  Done.
+                </Text>
               </Text>
+            </Heading>
+          </ScrollAnimation>
+          <ScrollAnimation>
+            <Text
+              className="poppins-regular"
+              color={useColorModeValue('#4B5563', '#8B949E')}
+            >
+              Here’s what our users are saying about TaskMaster.
             </Text>
-          </Heading>
-          <Text
-            className="poppins-regular"
-            color={useColorModeValue('#4B5563', '#8B949E')}
-          >
-            Here’s what our users are saying about TaskMaster.
-          </Text>
+          </ScrollAnimation>
         </Stack>
         <Grid
           direction={{ base: 'column', md: 'row' }}
@@ -224,17 +229,19 @@ export default function Testimonials() {
           }}
         >
           {reviews.map((review, index) => (
-            <Testimonial key={index}>
-              <TestimonialContent>
-                <TestimonialHeading>{review.contentTitle}</TestimonialHeading>
-                <TestimonialText>{review.content}</TestimonialText>
-              </TestimonialContent>
-              <TestimonialAvatar
-                src={review.image}
-                name={review.name}
-                title={review.title}
-              />
-            </Testimonial>
+            <ScrollAnimation key={index}>
+              <Testimonial key={index}>
+                <TestimonialContent>
+                  <TestimonialHeading>{review.contentTitle}</TestimonialHeading>
+                  <TestimonialText>{review.content}</TestimonialText>
+                </TestimonialContent>
+                <TestimonialAvatar
+                  src={review.image}
+                  name={review.name}
+                  title={review.title}
+                />
+              </Testimonial>
+            </ScrollAnimation>
           ))}
         </Grid>
       </Container>
