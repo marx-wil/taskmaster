@@ -86,9 +86,12 @@ export default function CallToActionWithVideo() {
       <Box
         position="absolute"
         inset={0}
-        bgImage="radial-gradient(#00000040 1px, transparent 1px)"
+        bgImage={useColorModeValue(
+          'radial-gradient(#00000040 1px, transparent 1px)',
+          'radial-gradient(#ffffff20 1px, transparent 1px)'
+        )}
         backgroundSize="20px 20px"
-        opacity={0.3}
+        opacity={1}
         zIndex={0}
       />
       <Stack
@@ -144,7 +147,7 @@ export default function CallToActionWithVideo() {
               size={'lg'}
               fontWeight={'normal'}
               px={6}
-              colorScheme={'red'}
+              color={'white'}
               bg={accentColor}
               _hover={{ bg: accentHover }}
               className="poppins-semibold"
