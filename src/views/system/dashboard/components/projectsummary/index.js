@@ -1,4 +1,4 @@
-import StatsCard from '../../../../components/statscard';
+import StatsCard from '../../../../../components/statscard';
 import { FiFolder } from 'react-icons/fi';
 
 const ProjectSummary = () => {
