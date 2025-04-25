@@ -22,7 +22,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-import { useNavigate } from 'react-router-dom';
+import NAV_ITEMS from '../routes';
+import { useNavigate, useLocation } from 'react-router-dom';
 export default function LandingNavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const bgColor = useColorModeValue('#ffffff', '#0D1117');
@@ -140,64 +141,81 @@ export default function LandingNavigation() {
 }
 
 const DesktopNav = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   const linkColor = useColorModeValue('#0B1437', '#ffffff');
   const linkHoverColor = useColorModeValue('#6D28D9', '#6E40C9');
+  const activeLinkColor = useColorModeValue('#6D28D9', '#A970FF');
   const popoverContentBgColor = useColorModeValue('#F5F7FA', '#161B22');
 
   return (
     <Stack direction={'row'} spacing={4}>
-      {NAV_ITEMS.map(navItem => (
-        <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
-            <PopoverTrigger>
-              <Box
-                as="a"
-                p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: 'none',
-                  color: linkHoverColor,
-                }}
-              >
-                {navItem.label}
-              </Box>
-            </PopoverTrigger>
+      {NAV_ITEMS.map(navItem => {
+        const isActive = currentPath === navItem.href;
 
-            {navItem.children && (
-              <PopoverContent
-                border={0}
-                boxShadow={'xl'}
-                bg={popoverContentBgColor}
-                p={4}
-                rounded={'xl'}
-                minW={'sm'}
-              >
-                <Stack>
-                  {navItem.children.map(child => (
-                    <DesktopSubNav key={child.label} {...child} />
-                  ))}
-                </Stack>
-              </PopoverContent>
-            )}
-          </Popover>
-        </Box>
-      ))}
+        return (
+          <Box key={navItem.label}>
+            <Popover trigger={'hover'} placement={'bottom-start'}>
+              <PopoverTrigger>
+                <Box
+                  as="a"
+                  p={2}
+                  href={navItem.href ?? '#'}
+                  fontSize={'sm'}
+                  fontWeight={500}
+                  color={isActive ? activeLinkColor : linkColor}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.label}
+                </Box>
+              </PopoverTrigger>
+
+              {navItem.children && (
+                <PopoverContent
+                  border={0}
+                  boxShadow={'xl'}
+                  bg={popoverContentBgColor}
+                  p={4}
+                  rounded={'xl'}
+                  minW={'sm'}
+                >
+                  <Stack>
+                    {navItem.children.map(child => {
+                      const isChildActive = currentPath === `/${child.href}`;
+                      return (
+                        <DesktopSubNav
+                          key={child.label}
+                          {...child}
+                          isActive={isChildActive}
+                        />
+                      );
+                    })}
+                  </Stack>
+                </PopoverContent>
+              )}
+            </Popover>
+          </Box>
+        );
+      })}
     </Stack>
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) => {
+const DesktopSubNav = ({ label, href, subLabel, isActive }) => {
+  const bgActiveColor = useColorModeValue('#6D28D9', '#6E40C9');
   return (
     <Box
       as="a"
-      href={href}
+      href={`/${href}`}
       role={'group'}
       display={'block'}
       p={2}
       rounded={'md'}
+      bg={isActive ? bgActiveColor : 'transparent'}
       _hover={{ bg: useColorModeValue('#7551FF10', '#7551FF20') }}
     >
       <Stack direction={'row'} align={'center'}>
@@ -205,6 +223,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           <Text
             transition={'all .3s ease'}
             _groupHover={{ color: '#7551FF' }}
+            color={isActive ? '#7551FF' : 'inherit'}
             fontWeight={500}
           >
             {label}
@@ -302,44 +321,3 @@ const MobileNavItem = ({ label, children, href }) => {
     </Stack>
   );
 };
-
-const NAV_ITEMS = [
-  {
-    label: 'Home',
-    href: '#',
-  },
-  {
-    label: 'About',
-    children: [
-      {
-        label: 'TaskMaster',
-        subLabel: 'Our mission.',
-        href: '#',
-      },
-      {
-        label: 'SysGo Solutions',
-        subLabel: 'Our goals and mission.',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Features',
-    children: [
-      {
-        label: 'TaskMaster',
-        subLabel: 'Our features.',
-        href: '#',
-      },
-      {
-        label: 'SysGo Solutions',
-        subLabel: 'What we offer.',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'Contact',
-    href: '#',
-  },
-];
