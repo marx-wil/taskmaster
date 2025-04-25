@@ -14,7 +14,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { FiSearch, FiPlus, FiFolder } from 'react-icons/fi';
-import StatsCard from '../../components/statscard';
+import StatsCard from '../../../components/statscard';
 import ProjectCard from './components/projectcard';
 import debounce from 'lodash/debounce';
 import CreateProjectModal from './components/createprojectmodal';
