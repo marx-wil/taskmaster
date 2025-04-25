@@ -13,10 +13,13 @@ import {
   useToast,
   Image,
   Flex,
+  IconButton,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import LoginImg from '../../assets/auth/';
 import { useAuthTheme } from '../../theme/auth';
+import { FaArrowLeft } from 'react-icons/fa';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -26,15 +29,15 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const theme = useAuthTheme();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     try {
       if (email && password) {
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 1000));
-        
+
         toast({
           title: 'Login successful',
           status: 'success',
@@ -79,6 +82,19 @@ const LoginPage = () => {
             border="1px solid"
             borderColor="whiteAlpha.200"
           >
+            <IconButton
+              aria-label="Back"
+              position="absolute"
+              top={4}
+              left={4}
+              size="sm"
+              icon={<FaArrowLeft />}
+              variant={'ghost'}
+              background={useColorModeValue('#7C3AED', '#A970FF')}
+              _hover={{ background: useColorModeValue('#7C3AED', '#A970FF') }}
+              color={'#fff'}
+              onClick={() => navigate('/')}
+            />
             <VStack spacing={8} align="stretch">
               <Box textAlign="center">
                 <Image
@@ -96,26 +112,22 @@ const LoginPage = () => {
 
               <VStack as="form" spacing={4} onSubmit={handleSubmit}>
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>
-                    Email
-                  </FormLabel>
+                  <FormLabel {...theme.labelStyles}>Email</FormLabel>
                   <Input
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={e => setEmail(e.target.value)}
                     placeholder="Enter your email"
                     {...theme.inputStyles}
                   />
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>
-                    Password
-                  </FormLabel>
+                  <FormLabel {...theme.labelStyles}>Password</FormLabel>
                   <Input
                     type="password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={e => setPassword(e.target.value)}
                     placeholder="Enter your password"
                     {...theme.inputStyles}
                   />
@@ -161,4 +173,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage; 
+export default LoginPage;
