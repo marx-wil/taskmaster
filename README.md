@@ -2,7 +2,8 @@
 
 TaskMaster is a modern, feature-rich task and project management application built with React. It provides a comprehensive suite of tools for managing projects, tracking progress, and organizing tasks efficiently.
 
-![TaskMaster Screenshot]
+![image](https://github.com/user-attachments/assets/a3a0c19a-abe6-4754-bd3e-9502787bcdd6)
+
 
 ## 🌟 Features
 
