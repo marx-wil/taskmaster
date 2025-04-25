@@ -13,11 +13,13 @@ import {
   useToast,
   Image,
   Flex,
+  IconButton,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import RegisterImg from '../../assets/auth/';
 import { useAuthTheme } from '../../theme/auth';
-
+import { FaArrowLeft } from 'react-icons/fa';
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -30,15 +32,15 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const theme = useAuthTheme();
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -92,6 +94,19 @@ const RegisterPage = () => {
             border="1px solid"
             borderColor="whiteAlpha.200"
           >
+            <IconButton
+              aria-label="Back"
+              position="absolute"
+              top={4}
+              left={4}
+              size="sm"
+              icon={<FaArrowLeft />}
+              variant={'ghost'}
+              background={useColorModeValue('#7C3AED', '#A970FF')}
+              _hover={{ background: useColorModeValue('#7C3AED', '#A970FF') }}
+              color={'#fff'}
+              onClick={() => navigate('/')}
+            />
             <VStack spacing={8} align="stretch">
               <Box textAlign="center">
                 <Image
@@ -109,9 +124,7 @@ const RegisterPage = () => {
 
               <VStack as="form" spacing={4} onSubmit={handleSubmit}>
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>
-                    Full Name
-                  </FormLabel>
+                  <FormLabel {...theme.labelStyles}>Full Name</FormLabel>
                   <Input
                     name="name"
                     value={formData.name}
@@ -122,9 +135,7 @@ const RegisterPage = () => {
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>
-                    Email
-                  </FormLabel>
+                  <FormLabel {...theme.labelStyles}>Email</FormLabel>
                   <Input
                     type="email"
                     name="email"
@@ -136,9 +147,7 @@ const RegisterPage = () => {
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>
-                    Password
-                  </FormLabel>
+                  <FormLabel {...theme.labelStyles}>Password</FormLabel>
                   <Input
                     type="password"
                     name="password"
@@ -150,9 +159,7 @@ const RegisterPage = () => {
                 </FormControl>
 
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>
-                    Confirm Password
-                  </FormLabel>
+                  <FormLabel {...theme.labelStyles}>Confirm Password</FormLabel>
                   <Input
                     type="password"
                     name="confirmPassword"
@@ -175,11 +182,7 @@ const RegisterPage = () => {
 
                 <Text color={theme.textColor} fontSize="sm" textAlign="center">
                   Already have an account?{' '}
-                  <ChakraLink
-                    as={RouterLink}
-                    to="/login"
-                    {...theme.linkStyles}
-                  >
+                  <ChakraLink as={RouterLink} to="/login" {...theme.linkStyles}>
                     Sign in
                   </ChakraLink>
                 </Text>
@@ -192,4 +195,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage; 
+export default RegisterPage;
