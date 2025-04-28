@@ -33,9 +33,19 @@ import {
   InputLeftElement,
   IconButton,
   HStack,
+  Checkbox,
+  InputRightAddon,
 } from '@chakra-ui/react';
-import { FiSettings, FiUserPlus, FiPlus, FiSearch, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import {
+  FiSettings,
+  FiUserPlus,
+  FiPlus,
+  FiSearch,
+  FiChevronLeft,
+  FiChevronRight,
+} from 'react-icons/fi';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { FaPaperclip } from 'react-icons/fa';
 
 const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
@@ -43,33 +53,33 @@ const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
   const hoverBg = useColorModeValue('gray.50', 'gray.700');
   const secondaryTextColor = useColorModeValue('gray.600', 'gray.400');
 
-  const isTaskDueOrOverdue = (dueDate) => {
+  const isTaskDueOrOverdue = dueDate => {
     const today = new Date();
     const taskDueDate = new Date(dueDate);
-    
+
     // Reset time portions to compare dates only
     today.setHours(0, 0, 0, 0);
     taskDueDate.setHours(0, 0, 0, 0);
-    
+
     // Convert to timestamps for reliable comparison
     const todayTimestamp = today.getTime();
     const dueTimestamp = taskDueDate.getTime();
-    
+
     return dueTimestamp < todayTimestamp;
   };
 
-  const formatDueDate = (dueDate) => {
+  const formatDueDate = dueDate => {
     const date = new Date(dueDate);
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
       day: 'numeric',
-      year: 'numeric'
+      year: 'numeric',
     });
   };
 
   return (
     <Droppable droppableId={droppableId} type="task">
-      {(provided) => (
+      {provided => (
         <VStack
           ref={provided.innerRef}
           {...provided.droppableProps}
@@ -79,7 +89,7 @@ const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
         >
           {tasks.map((task, index) => {
             const isDueOrOverdue = isTaskDueOrOverdue(task.dueDate);
-            
+
             return (
               <Draggable
                 key={task.id}
@@ -97,7 +107,9 @@ const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
                     bg={cardBg}
                     mb="4"
                     border="1px solid"
-                    borderColor={isDueOrOverdue ? "red.500" : "rgba(128,128,128,.2)"}
+                    borderColor={
+                      isDueOrOverdue ? 'red.500' : 'rgba(128,128,128,.2)'
+                    }
                     cursor="pointer"
                     onClick={() => onTaskClick(task)}
                     transition="all 0.2s"
@@ -111,7 +123,11 @@ const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
                       opacity: snapshot.isDragging ? 0.8 : 1,
                     }}
                   >
-                    <Flex justifyContent="space-between" alignItems="center" gap={4}>
+                    <Flex
+                      justifyContent="space-between"
+                      alignItems="center"
+                      gap={4}
+                    >
                       <Box flex="1">
                         <Text
                           fontSize="md"
@@ -124,7 +140,13 @@ const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
                         </Text>
                         <Flex gap={2} alignItems="center">
                           <Badge
-                            colorScheme={task.priority === 'high' ? 'red' : task.priority === 'medium' ? 'yellow' : 'green'}
+                            colorScheme={
+                              task.priority === 'high'
+                                ? 'red'
+                                : task.priority === 'medium'
+                                ? 'yellow'
+                                : 'green'
+                            }
                             fontSize="xs"
                             px={2}
                             py={1}
@@ -132,21 +154,18 @@ const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
                           >
                             {task.priority}
                           </Badge>
-                          <Text fontSize="xs" color={isDueOrOverdue ? "red.500" : secondaryTextColor}>
+                          <Text
+                            fontSize="xs"
+                            color={
+                              isDueOrOverdue ? 'red.500' : secondaryTextColor
+                            }
+                          >
                             Due {formatDueDate(task.dueDate)}
                           </Text>
                         </Flex>
                       </Box>
-                      <Flex
-                        direction="column"
-                        align="center"
-                        minW="60px"
-                      >
-                        <Text
-                          fontSize="xs"
-                          color={secondaryTextColor}
-                          mb={1}
-                        >
+                      <Flex direction="column" align="center" minW="60px">
+                        <Text fontSize="xs" color={secondaryTextColor} mb={1}>
                           Assignee
                         </Text>
                         <Avatar
@@ -177,18 +196,25 @@ const Column = ({ title, tasks, onTaskClick, droppableId }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const tasksPerPage = 3;
 
-  const handleTaskClick = useCallback((task) => {
-    onTaskClick(task);
-  }, [onTaskClick]);
+  const handleTaskClick = useCallback(
+    task => {
+      onTaskClick(task);
+    },
+    [onTaskClick]
+  );
 
-  const filteredTasks = tasks.filter(task =>
-    task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    task.assignee.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredTasks = tasks.filter(
+    task =>
+      task.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      task.assignee.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const totalPages = Math.ceil(filteredTasks.length / tasksPerPage);
   const startIndex = (currentPage - 1) * tasksPerPage;
-  const paginatedTasks = filteredTasks.slice(startIndex, startIndex + tasksPerPage);
+  const paginatedTasks = filteredTasks.slice(
+    startIndex,
+    startIndex + tasksPerPage
+  );
 
   useEffect(() => {
     setCurrentPage(1);
@@ -231,7 +257,7 @@ const Column = ({ title, tasks, onTaskClick, droppableId }) => {
             <Input
               placeholder="Search tasks..."
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={e => setSearchQuery(e.target.value)}
               bg={inputBg}
               border="none"
               borderRadius="md"
@@ -306,30 +332,150 @@ const Project = () => {
     ],
     tasks: {
       todo: [
-        { id: 1, title: 'Create social media posts', assignee: 'John Doe', priority: 'high', dueDate: '2025-04-22' },
-        { id: 2, title: 'Design email template', assignee: 'Jane Smith', priority: 'medium', dueDate: '2025-04-25' },
-        { id: 5, title: 'Research competitor campaigns', assignee: 'Mike Johnson', priority: 'high', dueDate: '2025-04-28' },
-        { id: 6, title: 'Create content calendar', assignee: 'Sarah Wilson', priority: 'medium', dueDate: '2025-04-22' },
-        { id: 7, title: 'Design promotional banners', assignee: 'Jane Smith', priority: 'low', dueDate: '2025-04-25' },
-        { id: 8, title: 'Plan influencer outreach', assignee: 'John Doe', priority: 'high', dueDate: '2025-03-25' },
-        { id: 9, title: 'Create video storyboards', assignee: 'Mike Johnson', priority: 'medium', dueDate: '2025-04-20' },
+        {
+          id: 1,
+          title: 'Create social media posts',
+          assignee: 'John Doe',
+          priority: 'high',
+          dueDate: '2025-04-22',
+        },
+        {
+          id: 2,
+          title: 'Design email template',
+          assignee: 'Jane Smith',
+          priority: 'medium',
+          dueDate: '2025-04-25',
+        },
+        {
+          id: 5,
+          title: 'Research competitor campaigns',
+          assignee: 'Mike Johnson',
+          priority: 'high',
+          dueDate: '2025-04-28',
+        },
+        {
+          id: 6,
+          title: 'Create content calendar',
+          assignee: 'Sarah Wilson',
+          priority: 'medium',
+          dueDate: '2025-04-22',
+        },
+        {
+          id: 7,
+          title: 'Design promotional banners',
+          assignee: 'Jane Smith',
+          priority: 'low',
+          dueDate: '2025-04-25',
+        },
+        {
+          id: 8,
+          title: 'Plan influencer outreach',
+          assignee: 'John Doe',
+          priority: 'high',
+          dueDate: '2025-03-25',
+        },
+        {
+          id: 9,
+          title: 'Create video storyboards',
+          assignee: 'Mike Johnson',
+          priority: 'medium',
+          dueDate: '2025-04-20',
+        },
       ],
       inProgress: [
-        { id: 3, title: 'Write blog post', assignee: 'John Doe', priority: 'low', dueDate: '2025-03-26' },
-        { id: 10, title: 'Design landing page', assignee: 'Jane Smith', priority: 'high', dueDate: '2025-03-27' },
-        { id: 11, title: 'Create email copy', assignee: 'Sarah Wilson', priority: 'medium', dueDate: '2025-04-06' },
-        { id: 12, title: 'Set up tracking pixels', assignee: 'Mike Johnson', priority: 'high', dueDate: '2025-04-10' },
-        { id: 13, title: 'Design social media graphics', assignee: 'Jane Smith', priority: 'medium', dueDate: '2025-04-14' },
-        { id: 14, title: 'Write press release', assignee: 'John Doe', priority: 'high', dueDate: '2025-04-18' },
+        {
+          id: 3,
+          title: 'Write blog post',
+          assignee: 'John Doe',
+          priority: 'low',
+          dueDate: '2025-03-26',
+        },
+        {
+          id: 10,
+          title: 'Design landing page',
+          assignee: 'Jane Smith',
+          priority: 'high',
+          dueDate: '2025-03-27',
+        },
+        {
+          id: 11,
+          title: 'Create email copy',
+          assignee: 'Sarah Wilson',
+          priority: 'medium',
+          dueDate: '2025-04-06',
+        },
+        {
+          id: 12,
+          title: 'Set up tracking pixels',
+          assignee: 'Mike Johnson',
+          priority: 'high',
+          dueDate: '2025-04-10',
+        },
+        {
+          id: 13,
+          title: 'Design social media graphics',
+          assignee: 'Jane Smith',
+          priority: 'medium',
+          dueDate: '2025-04-14',
+        },
+        {
+          id: 14,
+          title: 'Write press release',
+          assignee: 'John Doe',
+          priority: 'high',
+          dueDate: '2025-04-18',
+        },
       ],
       done: [
-        { id: 4, title: 'Set up analytics', assignee: 'Jane Smith', priority: 'high', dueDate: '2025-03-24' },
-        { id: 15, title: 'Create campaign brief', assignee: 'Mike Johnson', priority: 'medium', dueDate: '2025-03-20' },
-        { id: 16, title: 'Stakeholder interviews', assignee: 'Sarah Wilson', priority: 'high', dueDate: '2025-03-15' },
-        { id: 17, title: 'Market research', assignee: 'John Doe', priority: 'medium', dueDate: '2025-03-18' },
-        { id: 18, title: 'Competitor analysis', assignee: 'Jane Smith', priority: 'high', dueDate: '2025-03-22' },
-        { id: 19, title: 'Define target audience', assignee: 'Mike Johnson', priority: 'low', dueDate: '2025-03-19' },
-        { id: 20, title: 'Budget planning', assignee: 'Sarah Wilson', priority: 'high', dueDate: '2025-03-21' },
+        {
+          id: 4,
+          title: 'Set up analytics',
+          assignee: 'Jane Smith',
+          priority: 'high',
+          dueDate: '2025-03-24',
+        },
+        {
+          id: 15,
+          title: 'Create campaign brief',
+          assignee: 'Mike Johnson',
+          priority: 'medium',
+          dueDate: '2025-03-20',
+        },
+        {
+          id: 16,
+          title: 'Stakeholder interviews',
+          assignee: 'Sarah Wilson',
+          priority: 'high',
+          dueDate: '2025-03-15',
+        },
+        {
+          id: 17,
+          title: 'Market research',
+          assignee: 'John Doe',
+          priority: 'medium',
+          dueDate: '2025-03-18',
+        },
+        {
+          id: 18,
+          title: 'Competitor analysis',
+          assignee: 'Jane Smith',
+          priority: 'high',
+          dueDate: '2025-03-22',
+        },
+        {
+          id: 19,
+          title: 'Define target audience',
+          assignee: 'Mike Johnson',
+          priority: 'low',
+          dueDate: '2025-03-19',
+        },
+        {
+          id: 20,
+          title: 'Budget planning',
+          assignee: 'Sarah Wilson',
+          priority: 'high',
+          dueDate: '2025-03-21',
+        },
       ],
     },
   });
@@ -338,12 +484,12 @@ const Project = () => {
   const contentTextColor = useColorModeValue('#0B1437', '#ffffff');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
 
-  const handleTaskClick = (task) => {
+  const handleTaskClick = task => {
     setSelectedTask(task);
     onOpen();
   };
 
-  const onDragEnd = (result) => {
+  const onDragEnd = result => {
     const { source, destination } = result;
 
     // Dropped outside the list
@@ -365,12 +511,15 @@ const Project = () => {
 
     // Get the full task lists
     const sourceTasks = [...project.tasks[sourceColumn]];
-    const destTasks = sourceColumn === destColumn ? sourceTasks : [...project.tasks[destColumn]];
+    const destTasks =
+      sourceColumn === destColumn
+        ? sourceTasks
+        : [...project.tasks[destColumn]];
 
     // Find the task by its ID
     const taskId = parseInt(result.draggableId);
     const taskIndex = sourceTasks.findIndex(task => task.id === taskId);
-    
+
     if (taskIndex === -1) {
       console.error('Task not found:', taskId);
       return;
@@ -388,19 +537,24 @@ const Project = () => {
       tasks: {
         ...prev.tasks,
         [sourceColumn]: sourceTasks,
-        ...(sourceColumn !== destColumn && { [destColumn]: destTasks })
-      }
+        ...(sourceColumn !== destColumn && { [destColumn]: destTasks }),
+      },
     }));
 
     if (source.droppableId.startsWith('modal-')) {
       onClose();
     }
   };
-
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Box p={6}>
-        <Flex justify="space-between" align="center" mb={8} direction={{ base: 'column', lg: 'row' }} gap={{ base: 4, lg: 0 }}>
+        <Flex
+          justify="space-between"
+          align="center"
+          mb={8}
+          direction={{ base: 'column', lg: 'row' }}
+          gap={{ base: 4, lg: 0 }}
+        >
           <Box>
             <Text
               fontSize="3xl"
@@ -423,16 +577,21 @@ const Project = () => {
               </Text>
             </Flex>
           </Box>
-          <Flex gap={3} flexWrap="wrap" justify={{ base: 'center', lg: 'flex-start' }} w={{ base: '100%', lg: 'auto' }}>
+          <Flex
+            gap={3}
+            flexWrap="wrap"
+            justify={{ base: 'center', lg: 'flex-start' }}
+            w={{ base: '100%', lg: 'auto' }}
+          >
             <Button
               leftIcon={<Icon as={FiUserPlus} />}
               variant="outline"
               borderColor={borderColor}
               _hover={{ bg: 'gray.50' }}
               colorScheme="gray"
-              size={{ base: "sm", md: "md" }}
+              size={{ base: 'sm', md: 'md' }}
               flex={{ base: '1', sm: 'initial' }}
-              minW={{ base: "auto", sm: "initial" }}
+              minW={{ base: 'auto', sm: 'initial' }}
               px={{ base: 3, md: 4 }}
             >
               Invite
@@ -443,9 +602,9 @@ const Project = () => {
               borderColor={borderColor}
               _hover={{ bg: 'gray.50' }}
               colorScheme="gray"
-              size={{ base: "sm", md: "md" }}
+              size={{ base: 'sm', md: 'md' }}
               flex={{ base: '1', sm: 'initial' }}
-              minW={{ base: "auto", sm: "initial" }}
+              minW={{ base: 'auto', sm: 'initial' }}
               px={{ base: 3, md: 4 }}
             >
               Settings
@@ -460,18 +619,29 @@ const Project = () => {
           }}
           gap={8}
         >
-          <Column title="To Do" tasks={project.tasks.todo} onTaskClick={handleTaskClick} droppableId="todo" />
-          <Column title="In Progress" tasks={project.tasks.inProgress} onTaskClick={handleTaskClick} droppableId="inProgress" />
-          <Column title="Done" tasks={project.tasks.done} onTaskClick={handleTaskClick} droppableId="done" />
+          <Column
+            title="To Do"
+            tasks={project.tasks.todo}
+            onTaskClick={handleTaskClick}
+            droppableId="todo"
+          />
+          <Column
+            title="In Progress"
+            tasks={project.tasks.inProgress}
+            onTaskClick={handleTaskClick}
+            droppableId="inProgress"
+          />
+          <Column
+            title="Done"
+            tasks={project.tasks.done}
+            onTaskClick={handleTaskClick}
+            droppableId="done"
+          />
         </Grid>
 
         <Modal isOpen={isOpen} onClose={onClose} size="xl">
           <ModalOverlay backdropFilter="blur(4px)" />
-          <ModalContent
-            bg={cardBg}
-            borderRadius="xl"
-            boxShadow="2xl"
-          >
+          <ModalContent bg={cardBg} borderRadius="xl" boxShadow="2xl">
             <ModalHeader
               color={contentTextColor}
               borderBottom="1px solid"
@@ -489,7 +659,10 @@ const Project = () => {
                       value={selectedTask.title}
                       bg={cardBg}
                       borderColor={borderColor}
-                      _focus={{ borderColor: '#7551FF', boxShadow: '0 0 0 1px #7551FF' }}
+                      _focus={{
+                        borderColor: '#7551FF',
+                        boxShadow: '0 0 0 1px #7551FF',
+                      }}
                       size="lg"
                     />
                   </FormControl>
@@ -498,20 +671,41 @@ const Project = () => {
                     <Textarea
                       bg={cardBg}
                       borderColor={borderColor}
-                      _focus={{ borderColor: '#7551FF', boxShadow: '0 0 0 1px #7551FF' }}
+                      _focus={{
+                        borderColor: '#7551FF',
+                        boxShadow: '0 0 0 1px #7551FF',
+                      }}
                       size="lg"
                       minH="150px"
                     />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={contentTextColor}>Subtasks</FormLabel>
+                    <Stack direction={'column'} spacing={4}>
+                      <Checkbox>
+                        <Text className="poppins-regular">
+                          Lorem ipsum dolor
+                        </Text>
+                      </Checkbox>
+                      <Checkbox>
+                        <Text className="poppins-regular">
+                          Sit amet consectetur
+                        </Text>
+                      </Checkbox>
+                    </Stack>
                   </FormControl>
                   <FormControl>
                     <FormLabel color={contentTextColor}>Assignee</FormLabel>
                     <Select
                       bg={cardBg}
                       borderColor={borderColor}
-                      _focus={{ borderColor: '#7551FF', boxShadow: '0 0 0 1px #7551FF' }}
+                      _focus={{
+                        borderColor: '#7551FF',
+                        boxShadow: '0 0 0 1px #7551FF',
+                      }}
                       size="lg"
                     >
-                      {project.members.map((member) => (
+                      {project.members.map(member => (
                         <option key={member.name} value={member.name}>
                           {member.name}
                         </option>
@@ -524,13 +718,59 @@ const Project = () => {
                       value={selectedTask.priority}
                       bg={cardBg}
                       borderColor={borderColor}
-                      _focus={{ borderColor: '#7551FF', boxShadow: '0 0 0 1px #7551FF' }}
+                      _focus={{
+                        borderColor: '#7551FF',
+                        boxShadow: '0 0 0 1px #7551FF',
+                      }}
                       size="lg"
                     >
                       <option value="high">High</option>
                       <option value="medium">Medium</option>
                       <option value="low">Low</option>
                     </Select>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={contentTextColor}>Attachment</FormLabel>
+                    <InputGroup size={'lg'}>
+                      <Input
+                        value={'Click to browse'}
+                        bg={cardBg}
+                        borderColor={borderColor}
+                        _focus={{
+                          borderColor: '#7551FF',
+                          boxShadow: '0 0 0 1px #7551FF',
+                        }}
+                      />
+                      <InputRightAddon bg={cardBg} borderColor={borderColor}>
+                        <Icon as={FaPaperclip} />
+                      </InputRightAddon>
+                    </InputGroup>
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={contentTextColor}>Due date</FormLabel>
+                    <Input
+                      type={'date'}
+                      value={selectedTask.dueDate}
+                      bg={cardBg}
+                      borderColor={borderColor}
+                      _focus={{
+                        borderColor: '#7551FF',
+                        boxShadow: '0 0 0 1px #7551FF',
+                      }}
+                      size="lg"
+                    />
+                  </FormControl>
+                  <FormControl>
+                    <FormLabel color={contentTextColor}>Tags</FormLabel>
+                    <Input
+                      bg={cardBg}
+                      borderColor={borderColor}
+                      _focus={{
+                        borderColor: '#7551FF',
+                        boxShadow: '0 0 0 1px #7551FF',
+                      }}
+                      size="lg"
+                    />
                   </FormControl>
                 </VStack>
               )}
@@ -542,4 +782,4 @@ const Project = () => {
   );
 };
 
-export default Project; 
+export default Project;
