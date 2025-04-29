@@ -35,6 +35,7 @@ import {
   HStack,
   Checkbox,
   InputRightAddon,
+  ModalFooter,
 } from '@chakra-ui/react';
 import {
   FiSettings,
@@ -46,6 +47,7 @@ import {
 } from 'react-icons/fi';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { FaPaperclip } from 'react-icons/fa';
+import ProjectSettings from './components/settings';
 
 const TaskList = ({ tasks, onTaskClick, droppableId, startIndex }) => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
@@ -507,7 +509,7 @@ const Project = () => {
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const contentTextColor = useColorModeValue('#0B1437', '#ffffff');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
-
+  const saveBtnBg = useColorModeValue('green.500', 'green.500');
   const handleTaskClick = task => {
     setSelectedTask(task);
     onOpen();
@@ -608,32 +610,7 @@ const Project = () => {
             justify={{ base: 'center', lg: 'flex-start' }}
             w={{ base: '100%', lg: 'auto' }}
           >
-            <Button
-              leftIcon={<Icon as={FiUserPlus} />}
-              variant="outline"
-              borderColor={borderColor}
-              _hover={{ bg: 'gray.50' }}
-              colorScheme="gray"
-              size={{ base: 'sm', md: 'md' }}
-              flex={{ base: '1', sm: 'initial' }}
-              minW={{ base: 'auto', sm: 'initial' }}
-              px={{ base: 3, md: 4 }}
-            >
-              Invite
-            </Button>
-            <Button
-              leftIcon={<Icon as={FiSettings} />}
-              variant="outline"
-              borderColor={borderColor}
-              _hover={{ bg: 'gray.50' }}
-              colorScheme="gray"
-              size={{ base: 'sm', md: 'md' }}
-              flex={{ base: '1', sm: 'initial' }}
-              minW={{ base: 'auto', sm: 'initial' }}
-              px={{ base: 3, md: 4 }}
-            >
-              Settings
-            </Button>
+            <ProjectSettings />
           </Flex>
         </Flex>
 
@@ -664,7 +641,12 @@ const Project = () => {
           />
         </Grid>
 
-        <Modal isOpen={isOpen} onClose={onClose} size="xl">
+        <Modal
+          isOpen={isOpen}
+          onClose={onClose}
+          size="xl"
+          scrollBehavior="inside"
+        >
           <ModalOverlay backdropFilter="blur(4px)" />
           <ModalContent bg={cardBg} borderRadius="xl" boxShadow="2xl">
             <ModalHeader
@@ -798,9 +780,7 @@ const Project = () => {
                     />
                   </FormControl>
                   <FormControl mt={8}>
-                    <FormLabel color={contentTextColor}>
-                      Comments
-                    </FormLabel>
+                    <FormLabel color={contentTextColor}>Comments</FormLabel>
                     <HStack spacing={4}>
                       <Input
                         placeholder="Write a comment..."
@@ -853,7 +833,7 @@ const Project = () => {
                             </Text>
                           </Box>
                         ))}
-                      <HStack justify="center" pt={4}>
+                      <HStack justify="center" pt={4} mb={4}>
                         <Button
                           size="sm"
                           onClick={() =>
@@ -889,6 +869,19 @@ const Project = () => {
                 </VStack>
               )}
             </ModalBody>
+            <ModalFooter>
+              <HStack justify="flex-end" pt={4}>
+                <Button
+                  bg={saveBtnBg}
+                  className={'poppins-regular'}
+                  color={'#fff'}
+                  _hover={{ opacity: 0.8 }}
+                >
+                  Save Changes
+                </Button>
+                <Button onClick={onClose}>Close</Button>
+              </HStack>
+            </ModalFooter>
           </ModalContent>
         </Modal>
       </Box>
