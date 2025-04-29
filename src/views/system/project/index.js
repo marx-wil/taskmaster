@@ -479,7 +479,31 @@ const Project = () => {
       ],
     },
   });
-
+  const allComments = [
+    {
+      author: 'Zhack',
+      text: 'Updated the task priority.',
+      date: 'Apr 23, 10:15 AM',
+    },
+    {
+      author: 'Maria',
+      text: 'Please finalize the content before Monday.',
+      date: 'Apr 21',
+    },
+    { author: 'Anna', text: 'I have reviewed the task.', date: 'Apr 20' },
+    { author: 'Leo', text: 'Please double-check the figures.', date: 'Apr 19' },
+    { author: 'Chris', text: 'Let’s schedule a sync meeting.', date: 'Apr 18' },
+    { author: 'Jen', text: 'Minor edits added to the draft.', date: 'Apr 17' },
+    {
+      author: 'Ray',
+      text: 'Task assigned to the correct person.',
+      date: 'Apr 16',
+    },
+    { author: 'Kim', text: 'Timeline adjusted for urgency.', date: 'Apr 15' },
+    { author: 'Alex', text: 'Initial structure completed.', date: 'Apr 14' },
+    { author: 'Sam', text: 'Waiting for the design asset.', date: 'Apr 13' },
+  ];
+  const COMMENTS_PER_PAGE = 3;
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const contentTextColor = useColorModeValue('#0B1437', '#ffffff');
   const borderColor = useColorModeValue('gray.200', 'gray.700');
@@ -545,6 +569,7 @@ const Project = () => {
       onClose();
     }
   };
+  const [currentPage, setCurrentPage] = useState(1);
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Box p={6}>
@@ -772,6 +797,95 @@ const Project = () => {
                       size="lg"
                     />
                   </FormControl>
+                  <FormControl mt={8}>
+                    <FormLabel color={contentTextColor}>
+                      Comments
+                    </FormLabel>
+                    <HStack spacing={4}>
+                      <Input
+                        placeholder="Write a comment..."
+                        bg={cardBg}
+                        borderColor={borderColor}
+                        _focus={{
+                          borderColor: '#7551FF',
+                          boxShadow: '0 0 0 1px #7551FF',
+                        }}
+                        size="lg"
+                        flex="1"
+                      />
+                      <Button colorScheme="purple" size="lg">
+                        Send
+                      </Button>
+                    </HStack>
+                  </FormControl>
+
+                  <Box mt={8}>
+                    <Text
+                      fontSize="md"
+                      fontWeight="semibold"
+                      mb={4}
+                      color={contentTextColor}
+                    >
+                      Comments
+                    </Text>
+                    <VStack align="stretch" spacing={4}>
+                      {allComments
+                        .slice(
+                          (currentPage - 1) * COMMENTS_PER_PAGE,
+                          currentPage * COMMENTS_PER_PAGE
+                        )
+                        .map((comment, index) => (
+                          <Box
+                            key={index}
+                            p={4}
+                            borderWidth="1px"
+                            borderRadius="md"
+                            bg={cardBg}
+                          >
+                            <Text fontWeight="bold" mb={1}>
+                              🧑 {comment.author}
+                            </Text>
+                            <Text color="gray.600" mb={1}>
+                              “{comment.text}”
+                            </Text>
+                            <Text fontSize="sm" color="gray.400">
+                              – {comment.date}
+                            </Text>
+                          </Box>
+                        ))}
+                      <HStack justify="center" pt={4}>
+                        <Button
+                          size="sm"
+                          onClick={() =>
+                            setCurrentPage(prev => Math.max(prev - 1, 1))
+                          }
+                          isDisabled={currentPage === 1}
+                        >
+                          Previous
+                        </Button>
+                        <Text fontSize="sm" color="gray.500">
+                          Page {currentPage}
+                        </Text>
+                        <Button
+                          size="sm"
+                          onClick={() =>
+                            setCurrentPage(prev =>
+                              prev <
+                              Math.ceil(allComments.length / COMMENTS_PER_PAGE)
+                                ? prev + 1
+                                : prev
+                            )
+                          }
+                          isDisabled={
+                            currentPage >=
+                            Math.ceil(allComments.length / COMMENTS_PER_PAGE)
+                          }
+                        >
+                          Next
+                        </Button>
+                      </HStack>
+                    </VStack>
+                  </Box>
                 </VStack>
               )}
             </ModalBody>
