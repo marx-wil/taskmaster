@@ -7,6 +7,7 @@ import {
   FaProjectDiagram,
   FaHistory,
   FaCog,
+  FaUserFriends ,
 } from 'react-icons/fa';
 
 const routes = [
@@ -32,6 +33,12 @@ const routes = [
     name: 'Activity',
     path: '/taskmaster/activity',
     icon: <FaHistory />,
+    isPublic: false,
+  },
+  {
+    name: 'Team Board',
+    path: '/taskmaster/team',
+    icon: <FaUserFriends  />,
     isPublic: false,
   },
   {
