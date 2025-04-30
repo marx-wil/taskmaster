@@ -1,13 +1,11 @@
 import {
   Box,
-  Heading,
   Text,
   Avatar,
   HStack,
   VStack,
   Input,
   Button,
-  SimpleGrid,
   useToast,
   Select,
   Divider,
@@ -15,9 +13,8 @@ import {
   Flex,
   Icon,
 } from '@chakra-ui/react';
-import { FiPlus, FiUserPlus } from 'react-icons/fi';
+import { FiUserPlus } from 'react-icons/fi';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ProjectCard from './components/projectcard';
 const dummyMembers = [
   {
@@ -88,8 +85,8 @@ const dummyBoards = [
 ];
 
 export default function TeamBoard() {
-  const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  //   eslint-disable-next-line
   const [members, setMembers] = useState(dummyMembers);
   const [selectedUser, setSelectedUser] = useState('');
   const [assignedTask, setAssignedTask] = useState('');
@@ -132,8 +129,14 @@ export default function TeamBoard() {
           {members.map(member => (
             <VStack key={member.id} spacing={1}>
               <Avatar name={member.name} src={member.avatar} />
-              <Text fontSize="sm">{member.name}</Text>
-              <Text fontSize="xs" color="gray.500">
+              <Text fontSize="sm" className={'poppins-regular'}>
+                {member.name}
+              </Text>
+              <Text
+                fontSize="xs"
+                color="gray.500"
+                className={'poppins-regular'}
+              >
                 {member.role}
               </Text>
             </VStack>
@@ -180,6 +183,7 @@ export default function TeamBoard() {
           <Input
             placeholder="Enter email address"
             value={email}
+            className={'poppins-regular'}
             onChange={e => setEmail(e.target.value)}
           />
           <Flex justifyContent={{ base: 'flex-end', lg: 'flex-start' }}>
@@ -189,6 +193,7 @@ export default function TeamBoard() {
               color="white"
               _hover={{ bg: '#6a48e6' }}
               className="poppins-regular"
+              onClick={handleInvite}
             >
               Invite
             </Button>
@@ -213,6 +218,7 @@ export default function TeamBoard() {
             placeholder="Select member"
             value={selectedUser}
             onChange={e => setSelectedUser(e.target.value)}
+            className={'poppins-regular'}
           >
             {members.map(m => (
               <option key={m.id} value={m.name}>
@@ -224,6 +230,7 @@ export default function TeamBoard() {
             placeholder="Task title"
             value={assignedTask}
             onChange={e => setAssignedTask(e.target.value)}
+            className={'poppins-regular'}
           />
           <Flex justifyContent={{ base: 'flex-end', lg: 'flex-start' }}>
             <Button
@@ -232,6 +239,7 @@ export default function TeamBoard() {
               color="white"
               _hover={{ bg: '#6a48e6' }}
               className="poppins-regular"
+              onClick={handleAssign}
             >
               Assign
             </Button>
