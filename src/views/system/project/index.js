@@ -40,7 +40,7 @@ import {
   WrapItem,
   Tag,
   TagLabel,
-  TagCloseButton
+  TagCloseButton,
 } from '@chakra-ui/react';
 import {
   FiPlus,
@@ -678,7 +678,12 @@ const Project = () => {
               {selectedTask && (
                 <VStack spacing={6} align="stretch">
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Title</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Title
+                    </FormLabel>
                     <Input
                       value={selectedTask.title}
                       bg={cardBg}
@@ -688,10 +693,16 @@ const Project = () => {
                         boxShadow: '0 0 0 1px #7551FF',
                       }}
                       size="lg"
+                      className={'poppins-regular'}
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Description</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Description
+                    </FormLabel>
                     <Textarea
                       bg={cardBg}
                       borderColor={borderColor}
@@ -701,10 +712,16 @@ const Project = () => {
                       }}
                       size="lg"
                       minH="150px"
+                      className={'poppins-regular'}
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Subtasks</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Subtasks
+                    </FormLabel>
                     <Stack direction={'column'} spacing={4}>
                       <Checkbox>
                         <Text className="poppins-regular">
@@ -719,7 +736,12 @@ const Project = () => {
                     </Stack>
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Assignee</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Assignee
+                    </FormLabel>
                     <Select
                       bg={cardBg}
                       borderColor={borderColor}
@@ -728,16 +750,26 @@ const Project = () => {
                         boxShadow: '0 0 0 1px #7551FF',
                       }}
                       size="lg"
+                      className={'poppins-regular'}
                     >
                       {project.members.map(member => (
-                        <option key={member.name} value={member.name}>
+                        <option
+                          className={'poppins-regular'}
+                          key={member.name}
+                          value={member.name}
+                        >
                           {member.name}
                         </option>
                       ))}
                     </Select>
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Priority</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Priority
+                    </FormLabel>
                     <Select
                       value={selectedTask.priority}
                       bg={cardBg}
@@ -747,14 +779,26 @@ const Project = () => {
                         boxShadow: '0 0 0 1px #7551FF',
                       }}
                       size="lg"
+                      className={'poppins-regular'}
                     >
-                      <option value="high">High</option>
-                      <option value="medium">Medium</option>
-                      <option value="low">Low</option>
+                      <option className={'poppins-regular'} value="high">
+                        High
+                      </option>
+                      <option className={'poppins-regular'} value="medium">
+                        Medium
+                      </option>
+                      <option className={'poppins-regular'} value="low">
+                        Low
+                      </option>
                     </Select>
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Attachment</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Attachment
+                    </FormLabel>
                     <InputGroup size={'lg'}>
                       <Input
                         value={'Click to browse'}
@@ -764,6 +808,7 @@ const Project = () => {
                           borderColor: '#7551FF',
                           boxShadow: '0 0 0 1px #7551FF',
                         }}
+                        className={'poppins-regular'}
                       />
                       <InputRightAddon bg={cardBg} borderColor={borderColor}>
                         <Icon as={FaPaperclip} />
@@ -771,7 +816,9 @@ const Project = () => {
                     </InputGroup>
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Due date</FormLabel>
+                    <FormLabel color={contentTextColor}>
+                      className={'poppins-regular'}Due date
+                    </FormLabel>
                     <Input
                       type={'date'}
                       value={selectedTask.dueDate}
@@ -782,10 +829,16 @@ const Project = () => {
                         boxShadow: '0 0 0 1px #7551FF',
                       }}
                       size="lg"
+                      className={'poppins-regular'}
                     />
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>Tags</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Tags
+                    </FormLabel>
                     <Input
                       bg={cardBg}
                       borderColor={borderColor}
@@ -793,6 +846,7 @@ const Project = () => {
                         borderColor: '#7551FF',
                         boxShadow: '0 0 0 1px #7551FF',
                       }}
+                      className={'poppins-regular'}
                       size="lg"
                       value={inputValue}
                       onChange={e => setInputValue(e.target.value)}
@@ -806,6 +860,7 @@ const Project = () => {
                             borderRadius="full"
                             variant="solid"
                             colorScheme="purple"
+                            className={'poppins-regular'}
                           >
                             <TagLabel>{tag}</TagLabel>
                             <TagCloseButton onClick={() => removeTag(index)} />
@@ -815,7 +870,12 @@ const Project = () => {
                     </Wrap>
                   </FormControl>
                   <FormControl mt={8}>
-                    <FormLabel color={contentTextColor}>Comments</FormLabel>
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Comments
+                    </FormLabel>
                     <HStack spacing={4}>
                       <Input
                         placeholder="Write a comment..."
@@ -827,8 +887,13 @@ const Project = () => {
                         }}
                         size="lg"
                         flex="1"
+                        className={'poppins-regular'}
                       />
-                      <Button colorScheme="purple" size="lg">
+                      <Button
+                        colorScheme="purple"
+                        size="lg"
+                        className={'poppins-regular'}
+                      >
                         Send
                       </Button>
                     </HStack>
@@ -840,6 +905,7 @@ const Project = () => {
                       fontWeight="semibold"
                       mb={4}
                       color={contentTextColor}
+                      className={'poppins-regular'}
                     >
                       Comments
                     </Text>
@@ -857,13 +923,25 @@ const Project = () => {
                             borderRadius="md"
                             bg={cardBg}
                           >
-                            <Text fontWeight="bold" mb={1}>
+                            <Text
+                              fontWeight="bold"
+                              mb={1}
+                              className={'poppins-regular'}
+                            >
                               🧑 {comment.author}
                             </Text>
-                            <Text color="gray.600" mb={1}>
+                            <Text
+                              color="gray.600"
+                              mb={1}
+                              className={'poppins-regular'}
+                            >
                               “{comment.text}”
                             </Text>
-                            <Text fontSize="sm" color="gray.400">
+                            <Text
+                              fontSize="sm"
+                              color="gray.400"
+                              className={'poppins-regular'}
+                            >
                               – {comment.date}
                             </Text>
                           </Box>
@@ -871,6 +949,7 @@ const Project = () => {
                       <HStack justify="center" pt={4} mb={4}>
                         <Button
                           size="sm"
+                          className={'poppins-regular'}
                           onClick={() =>
                             setCurrentPage(prev => Math.max(prev - 1, 1))
                           }
@@ -878,11 +957,16 @@ const Project = () => {
                         >
                           Previous
                         </Button>
-                        <Text fontSize="sm" color="gray.500">
+                        <Text
+                          fontSize="sm"
+                          color="gray.500"
+                          className={'poppins-regular'}
+                        >
                           Page {currentPage}
                         </Text>
                         <Button
                           size="sm"
+                          className={'poppins-regular'}
                           onClick={() =>
                             setCurrentPage(prev =>
                               prev <
@@ -911,10 +995,13 @@ const Project = () => {
                   className={'poppins-regular'}
                   color={'#fff'}
                   _hover={{ opacity: 0.8 }}
+                  className={'poppins-regular'}
                 >
                   Save Changes
                 </Button>
-                <Button onClick={onClose}>Close</Button>
+                <Button onClick={onClose} className={'poppins-regular'}>
+                  Close
+                </Button>
               </HStack>
             </ModalFooter>
           </ModalContent>
