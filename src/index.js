@@ -30,6 +30,7 @@ import MyAccount from './views/system/myaccount';
 import LandingPage from './views/landingpage';
 import LoginPage from './views/login';
 import RegisterPage from './views/register/index.js';
+import TeamPage from "./views/system/team/"
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
@@ -43,6 +44,7 @@ const ProjectComponent = Layout(Project);
 const ActivityComponent = Layout(Activity);
 const SettingsComponent = Layout(Settings);
 const MyAccountComponent = Layout(MyAccount);
+const TeamComponent = Layout(TeamPage)
 const LandingPageComponent = LandingLayout(LandingPage);
 const router = createBrowserRouter([
   { path: '/', element: <LandingPageComponent /> },
@@ -59,6 +61,7 @@ const router = createBrowserRouter([
   { path: '/taskmaster/progress', element: <ProgressComponent /> },
   { path: '/taskmaster/forms', element: <FormsComponent /> },
   { path: '/taskmaster/settings', element: <SettingsComponent /> },
+  { path: '/taskmaster/team', element: <TeamComponent /> },
 
 ]);
 root.render(
