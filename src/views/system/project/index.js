@@ -36,10 +36,13 @@ import {
   Checkbox,
   InputRightAddon,
   ModalFooter,
+  Wrap,
+  WrapItem,
+  Tag,
+  TagLabel,
+  TagCloseButton
 } from '@chakra-ui/react';
 import {
-  FiSettings,
-  FiUserPlus,
   FiPlus,
   FiSearch,
   FiChevronLeft,
@@ -515,6 +518,20 @@ const Project = () => {
     onOpen();
   };
 
+  const [tags, setTags] = useState([]);
+  const [inputValue, setInputValue] = useState([]);
+  const handleKeyDown = e => {
+    if (e.key === 'Enter' && inputValue.trim() !== '') {
+      e.preventDefault();
+      if (!tags.includes(inputValue.trim())) {
+        setTags([...tags, inputValue.trim()]);
+      }
+      setInputValue();
+    }
+  };
+  const removeTag = indexToRemove => {
+    setTags(tags.filter((_, index) => index !== indexToRemove));
+  };
   const onDragEnd = result => {
     const { source, destination } = result;
 
@@ -777,7 +794,25 @@ const Project = () => {
                         boxShadow: '0 0 0 1px #7551FF',
                       }}
                       size="lg"
+                      value={inputValue}
+                      onChange={e => setInputValue(e.target.value)}
+                      onKeyDown={handleKeyDown}
                     />
+                    <Wrap mt={2}>
+                      {tags.map((tag, index) => (
+                        <WrapItem key={index}>
+                          <Tag
+                            size="md"
+                            borderRadius="full"
+                            variant="solid"
+                            colorScheme="purple"
+                          >
+                            <TagLabel>{tag}</TagLabel>
+                            <TagCloseButton onClick={() => removeTag(index)} />
+                          </Tag>
+                        </WrapItem>
+                      ))}
+                    </Wrap>
                   </FormControl>
                   <FormControl mt={8}>
                     <FormLabel color={contentTextColor}>Comments</FormLabel>
