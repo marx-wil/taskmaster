@@ -55,11 +55,17 @@ const Card = ({ heading, description, icon, href }) => {
           {icon}
         </Flex>
         <Box>
-          <Heading size="md" >
-            <Text color={cardText} className='poppins-bold'>
-            {heading}</Text>
+          <Heading size="md">
+            <Text color={cardText} className="poppins-bold">
+              {heading}
+            </Text>
           </Heading>
-          <Text mt={1} fontSize={'sm'} color={cardSubText} className='poppins-regular'>
+          <Text
+            mt={1}
+            fontSize={'sm'}
+            color={cardSubText}
+            className="poppins-regular"
+          >
             {description}
           </Text>
         </Box>
@@ -68,7 +74,7 @@ const Card = ({ heading, description, icon, href }) => {
           color={useColorModeValue('#7C3AED', '#A970FF')}
           _hover={{ color: useColorModeValue('#6D28D9', '#6E40C9') }}
           size={'sm'}
-          className='poppins-semibold'
+          className="poppins-semibold"
         >
           Learn more
         </Button>
