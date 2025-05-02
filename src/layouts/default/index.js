@@ -10,10 +10,8 @@ import Footer from '../../components/footer';
 
 const Layout = Component => {
   const DefaultFunction = ({ ...props }) => {
-    // Check if the screen size is lg or above
-    // const isLgScreen = useBreakpointValue({ base: false, lg: true });
     let mainBg = useColorModeValue('#F4F7FE', '#111C44');
-    
+
     const componentVariants = {
       hidden: { opacity: 0, y: 20 },
       visible: {
@@ -21,23 +19,21 @@ const Layout = Component => {
         y: 0,
         transition: {
           duration: 0.4,
-          ease: [0.25, 0.1, 0.25, 1]
-        }
+          ease: [0.25, 0.1, 0.25, 1],
+        },
       },
       exit: {
         opacity: 0,
         y: -20,
         transition: {
           duration: 0.3,
-          ease: [0.25, 0.1, 0.25, 1]
-        }
-      }
+          ease: [0.25, 0.1, 0.25, 1],
+        },
+      },
     };
 
     return (
       <Flex>
-        {/* Conditionally render Sidenav only on screens larger than lg */}
-        {/* {isLgScreen && <Sidenav />}  */}
         <Box className="sidenav">
           <Sidenav />
         </Box>
