@@ -25,7 +25,11 @@ import {
   useToast,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaAngleLeft, FaAngleRight, FaEdit, FaTrash } from 'react-icons/fa';
+import {
+  FaAngleLeft,
+  FaAngleRight,
+  FaEye,
+} from 'react-icons/fa';
 import './calendar.css';
 
 const defaultTasks = [
@@ -601,24 +605,10 @@ const Calendar = ({
                     _hover={{
                       bg: 'whiteAlpha.100',
                     }}
-                    leftIcon={<FaEdit />}
+                    leftIcon={<FaEye />}
                     onClick={handleEditTask}
                   >
-                    Edit
-                  </Button>
-                  <Button
-                    flex={1}
-                    variant="outline"
-                    color="red.400"
-                    borderColor="red.400"
-                    _hover={{
-                      bg: 'red.400',
-                      color: 'white',
-                    }}
-                    leftIcon={<FaTrash />}
-                    onClick={handleDeleteTask}
-                  >
-                    Delete
+                    View
                   </Button>
                   <Button
                     flex={1}
