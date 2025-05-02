@@ -28,7 +28,6 @@ import {
   CardBody,
   useColorModeValue,
   Switch,
-  Divider,
 } from '@chakra-ui/react';
 import { FiUpload, FiTrash2, FiDownload } from 'react-icons/fi';
 
