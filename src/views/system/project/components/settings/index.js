@@ -12,7 +12,6 @@ import {
   Input,
   Textarea,
   FormLabel,
-  Switch,
   Checkbox,
   Select,
   VStack,
@@ -26,7 +25,6 @@ import { FiSettings } from 'react-icons/fi';
 
 export default function ProjectSettings() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const sectionBg = useColorModeValue('gray.50', 'gray.700');
   const borderColor = useColorModeValue('gray.200', 'gray.600');
 
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
