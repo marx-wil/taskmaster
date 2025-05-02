@@ -46,4 +46,4 @@ const ScrollAnimation = ({ children, className = '' }) => {
   );
 };
 
-export default ScrollAnimation; 
+export default ScrollAnimation;
