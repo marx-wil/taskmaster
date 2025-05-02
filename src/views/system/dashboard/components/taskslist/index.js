@@ -1,7 +1,4 @@
-import {
-  FaCode,
-  FaPager,
-} from 'react-icons/fa';
+import { FaCode, FaPager } from 'react-icons/fa';
 
 import {
   Box,
