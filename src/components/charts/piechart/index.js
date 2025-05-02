@@ -1,15 +1,6 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
-import {
-  Cell,
-  Legend,
-  Pie,
-  PieChart,
-  ResponsiveContainer,
-} from 'recharts';
+import { Cell, Legend, Pie, PieChart, ResponsiveContainer } from 'recharts';
 
 import {
   Box,
@@ -39,7 +30,12 @@ const Charts = () => {
     return (
       <Box display="flex" justifyContent="center">
         {data.map((entry, index) => (
-          <Box key={`legend-${index}`} display="flex" alignItems="center" mr={4}>
+          <Box
+            key={`legend-${index}`}
+            display="flex"
+            alignItems="center"
+            mr={4}
+          >
             <Box
               bg={COLORS[index % COLORS.length]}
               w={4}
@@ -58,7 +54,12 @@ const Charts = () => {
     <Box>
       <Card bg={cardBg}>
         <CardHeader>
-          <Heading size="md" fontFamily="Manrope" fontWeight="600" color={headerColor}>
+          <Heading
+            size="md"
+            fontFamily="Manrope"
+            fontWeight="600"
+            color={headerColor}
+          >
             Pie Chart
           </Heading>
         </CardHeader>
