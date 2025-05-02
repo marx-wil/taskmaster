@@ -23,7 +23,7 @@ import {
   Icon,
   useDisclosure,
 } from '@chakra-ui/react';
-import { AddIcon, CloseIcon } from '@chakra-ui/icons';
+import { CloseIcon } from '@chakra-ui/icons';
 import { FiPlus } from 'react-icons/fi';
 import { useState } from 'react';
 
@@ -89,17 +89,6 @@ export default function NewTaskModal() {
       });
       return;
     }
-
-    const taskData = {
-      title,
-      desc,
-      assignee,
-      priority,
-      dueDate,
-      tags,
-      project,
-      subtasks,
-    };
 
     toast({
       title: 'Task Created',
