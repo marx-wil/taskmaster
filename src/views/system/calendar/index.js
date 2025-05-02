@@ -25,13 +25,9 @@ import {
   useToast,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaEye,
-} from 'react-icons/fa';
+import { FaAngleLeft, FaAngleRight, FaEye } from 'react-icons/fa';
 import './calendar.css';
-
+import { useNavigate } from 'react-router-dom';
 const defaultTasks = [
   {
     id: 1,
@@ -253,7 +249,7 @@ const Calendar = ({
     'gray.300',
     'whiteAlpha.400'
   );
-
+  const navigate = useNavigate();
   // Get current date
   const currentDate = new Date();
   const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth());
@@ -286,27 +282,7 @@ const Calendar = ({
 
   const handleTaskClick = (event, task) => {
     event.stopPropagation(); // Prevent triggering the day click
-    setSelectedTask(task);
-    onOpen();
-  };
-
-  const handleEditTask = () => {
-    if (onEditTask) {
-      onEditTask(selectedTask);
-    }
-    onClose();
-  };
-
-  const handleDeleteTask = () => {
-    if (onDeleteTask) {
-      onDeleteTask(selectedTask.id);
-      toast({
-        title: 'Task deleted',
-        status: 'success',
-        duration: 2000,
-      });
-    }
-    onClose();
+    navigate(`/taskmaster/project/${task.id}`);
   };
 
   const getFilteredTasks = () => {
@@ -536,95 +512,6 @@ const Calendar = ({
           </Grid>
         </CardBody>
       </Card>
-
-      <Modal isOpen={isOpen} onClose={onClose} size="md">
-        <ModalOverlay />
-        <ModalContent
-          bg={cardBg}
-          borderColor={calendarBorderColor}
-          borderWidth="1px"
-        >
-          <ModalHeader color={headerColor}>Task Details</ModalHeader>
-          <ModalCloseButton color={headerColor} />
-          <ModalBody pb={6}>
-            {selectedTask && (
-              <VStack align="stretch" spacing={4}>
-                <Heading size="md" color={headerColor}>
-                  {selectedTask.title}
-                </Heading>
-                <HStack spacing={2} wrap="wrap">
-                  <Badge
-                    px={3}
-                    py={1}
-                    borderRadius="md"
-                    textTransform="uppercase"
-                    bg={getEventColor(selectedTask.priority)}
-                    color="white"
-                  >
-                    {selectedTask.priority} Priority
-                  </Badge>
-                  <Badge
-                    px={3}
-                    py={1}
-                    borderRadius="md"
-                    textTransform="uppercase"
-                    bg={getStatusColor(selectedTask.status)}
-                    color="white"
-                  >
-                    {selectedTask.status}
-                  </Badge>
-                  <Badge
-                    px={3}
-                    py={1}
-                    borderRadius="md"
-                    textTransform="uppercase"
-                    bg={navButtonBg}
-                    color="white"
-                  >
-                    {selectedTask.project}
-                  </Badge>
-                </HStack>
-                <Box>
-                  <Text color={contentTextColor} mb={1}>
-                    <strong>Project:</strong> {selectedTask.project}
-                  </Text>
-                  <Text color={contentTextColor} mb={1}>
-                    <strong>Assignee:</strong> {selectedTask.assignee}
-                  </Text>
-                  <Text color={contentTextColor}>
-                    <strong>Due Date:</strong>{' '}
-                    {new Date(selectedTask.start).toLocaleDateString()}
-                  </Text>
-                </Box>
-                <Flex gap={3} mt={2}>
-                  <Button
-                    flex={1}
-                    variant="outline"
-                    color={contentTextColor}
-                    borderColor="whiteAlpha.400"
-                    _hover={{
-                      bg: 'whiteAlpha.100',
-                    }}
-                    leftIcon={<FaEye />}
-                    onClick={handleEditTask}
-                  >
-                    View
-                  </Button>
-                  <Button
-                    flex={1}
-                    bg={navButtonBg}
-                    color="white"
-                    _hover={{ bg: navButtonHoverBg }}
-                    onClick={onClose}
-                  >
-                    Close
-                  </Button>
-                </Flex>
-              </VStack>
-            )}
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </Box>
   );
 };
