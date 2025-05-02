@@ -9,7 +9,7 @@ export const useAuthTheme = () => {
   const inputBgColor = 'rgba(45, 55, 72, 0.5)';
   const borderColor = 'rgba(255, 255, 255, 0.2)';
   const hoverBorderColor = 'rgba(255, 255, 255, 0.3)';
-  
+
   // Glass effect for mobile
   const glassEffect = {
     background: 'rgba(26, 32, 44, 0.8)',
@@ -18,7 +18,7 @@ export const useAuthTheme = () => {
     border: '1px solid rgba(255, 255, 255, 0.1)',
     boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
   };
-  
+
   // Input styles
   const inputStyles = {
     bg: inputBgColor,
@@ -37,7 +37,7 @@ export const useAuthTheme = () => {
     height: '50px',
     borderRadius: 'md',
   };
-  
+
   // Form label styles
   const labelStyles = {
     color: textColor,
@@ -51,7 +51,7 @@ export const useAuthTheme = () => {
     color: 'red.500',
     ml: 1,
   };
-  
+
   // Button styles
   const buttonStyles = {
     width: '100%',
@@ -83,7 +83,7 @@ export const useAuthTheme = () => {
     alignItems: 'center',
     justifyContent: 'center',
   };
-  
+
   // Link styles
   const linkStyles = {
     color: primaryColor,
@@ -109,7 +109,7 @@ export const useAuthTheme = () => {
     fontSize: 'md',
     mb: 6,
   };
-  
+
   return {
     bgColor,
     textColor,
@@ -124,4 +124,4 @@ export const useAuthTheme = () => {
     headingStyles,
     subheadingStyles,
   };
-}; 
+};
