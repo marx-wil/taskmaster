@@ -17,7 +17,7 @@ import {
 import { FiSearch } from 'react-icons/fi';
 
 const ActivityItem = ({ activity }) => {
-  const getActivityIcon = (type) => {
+  const getActivityIcon = type => {
     switch (type) {
       case 'task':
         return '📝';
@@ -216,11 +216,13 @@ const Activity = () => {
       description: 'on "Performance Metrics"',
       project: 'Performance Improvement',
       time: '1 week ago',
-    }
+    },
   ];
 
-  const filteredActivities = activities.filter((activity) => {
-    const matchesSearch = activity.project.toLowerCase().includes(searchQuery.toLowerCase());
+  const filteredActivities = activities.filter(activity => {
+    const matchesSearch = activity.project
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
     const matchesFilter = filter === 'all' || activity.type === filter;
     const matchesUser = userFilter === 'all' || activity.user === userFilter;
     return matchesSearch && matchesFilter && matchesUser;
@@ -229,7 +231,10 @@ const Activity = () => {
   // Pagination logic
   const totalPages = Math.ceil(filteredActivities.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedActivities = filteredActivities.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedActivities = filteredActivities.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
     <Box>
@@ -241,13 +246,13 @@ const Activity = () => {
           <Input
             placeholder="Search by project name..."
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={e => setSearchQuery(e.target.value)}
           />
         </InputGroup>
         <Select
           maxW="200px"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={e => setFilter(e.target.value)}
         >
           <option value="all">All Activities</option>
           <option value="task">Tasks</option>
@@ -257,7 +262,7 @@ const Activity = () => {
         <Select
           maxW="200px"
           value={userFilter}
-          onChange={(e) => setUserFilter(e.target.value)}
+          onChange={e => setUserFilter(e.target.value)}
         >
           <option value="all">All Users</option>
           <option value="John Doe">John Doe</option>
@@ -266,7 +271,7 @@ const Activity = () => {
       </Flex>
 
       <VStack align="stretch" spacing={0}>
-        {paginatedActivities.map((activity) => (
+        {paginatedActivities.map(activity => (
           <ActivityItem key={activity.id} activity={activity} />
         ))}
       </VStack>
@@ -286,7 +291,9 @@ const Activity = () => {
             </Text>
             <Button
               size="sm"
-              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              onClick={() =>
+                setCurrentPage(prev => Math.min(prev + 1, totalPages))
+              }
               isDisabled={currentPage === totalPages}
             >
               Next
@@ -298,4 +305,4 @@ const Activity = () => {
   );
 };
 
-export default Activity; 
+export default Activity;
