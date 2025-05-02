@@ -12,9 +12,6 @@ import {
   useColorModeValue,
   Select,
   Input,
-  HStack,
-  Checkbox,
-  SimpleGrid,
 } from '@chakra-ui/react';
 
 const Settings = () => {
