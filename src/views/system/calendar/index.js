@@ -29,7 +29,6 @@ import { FaAngleLeft, FaAngleRight, FaEdit, FaTrash } from 'react-icons/fa';
 import './calendar.css';
 
 const defaultTasks = [
-  // April 2025
   {
     id: 1,
     title: 'Complete Project Proposal',
@@ -38,7 +37,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'in-progress',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 2,
@@ -48,7 +47,7 @@ const defaultTasks = [
     priority: 'medium',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
   {
     id: 3,
@@ -58,9 +57,8 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
-  // May 2025
   {
     id: 4,
     title: 'Sprint Planning',
@@ -69,7 +67,7 @@ const defaultTasks = [
     priority: 'medium',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
   {
     id: 5,
@@ -79,9 +77,8 @@ const defaultTasks = [
     priority: 'high',
     status: 'in-progress',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
-  // June 2025
   {
     id: 6,
     title: 'Product Launch',
@@ -90,7 +87,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 7,
@@ -100,9 +97,8 @@ const defaultTasks = [
     priority: 'low',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
-  // July 2025
   {
     id: 8,
     title: 'Quarterly Review',
@@ -111,7 +107,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 9,
@@ -121,9 +117,8 @@ const defaultTasks = [
     priority: 'medium',
     status: 'in-progress',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
-  // August 2025
   {
     id: 10,
     title: 'System Update',
@@ -132,7 +127,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 11,
@@ -142,9 +137,8 @@ const defaultTasks = [
     priority: 'medium',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
-  // September 2025
   {
     id: 12,
     title: 'Annual Conference',
@@ -153,7 +147,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 13,
@@ -163,9 +157,8 @@ const defaultTasks = [
     priority: 'medium',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
-  // October 2025
   {
     id: 14,
     title: 'Product Enhancement',
@@ -174,7 +167,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'in-progress',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 15,
@@ -184,9 +177,8 @@ const defaultTasks = [
     priority: 'low',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
-  // November 2025
   {
     id: 16,
     title: 'Year-end Planning',
@@ -195,7 +187,7 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 17,
@@ -205,9 +197,8 @@ const defaultTasks = [
     priority: 'medium',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
+    assignee: 'Jane Smith',
   },
-  // December 2025
   {
     id: 18,
     title: 'Holiday Party',
@@ -216,7 +207,7 @@ const defaultTasks = [
     priority: 'low',
     status: 'pending',
     project: 'Project A',
-    assignee: 'John Doe'
+    assignee: 'John Doe',
   },
   {
     id: 19,
@@ -226,15 +217,15 @@ const defaultTasks = [
     priority: 'high',
     status: 'pending',
     project: 'Project B',
-    assignee: 'Jane Smith'
-  }
+    assignee: 'Jane Smith',
+  },
 ];
 
 const Calendar = ({
   tasks = defaultTasks,
   onEditTask,
   onDeleteTask,
-  currentUser = "John Doe"
+  currentUser = 'John Doe',
 }) => {
   const [filter, setFilter] = useState('all');
   const [selectedTask, setSelectedTask] = useState(null);
@@ -243,7 +234,6 @@ const Calendar = ({
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
 
-  // Theme colors
   const dateBgHover = useColorModeValue('purple.100', '#1B3BBB');
   const navButtonBg = useColorModeValue('purple.500', '#7551FF');
   const navButtonHoverBg = useColorModeValue('purple.600', '#1B3BBB');
@@ -255,7 +245,10 @@ const Calendar = ({
   const calendarBorderColor = useColorModeValue('gray.200', 'whiteAlpha.100');
   const selectBg = useColorModeValue('white', '#111C44');
   const selectBorderColor = useColorModeValue('gray.200', 'whiteAlpha.200');
-  const selectHoverBorderColor = useColorModeValue('gray.300', 'whiteAlpha.400');
+  const selectHoverBorderColor = useColorModeValue(
+    'gray.300',
+    'whiteAlpha.400'
+  );
 
   // Get current date
   const currentDate = new Date();
@@ -304,8 +297,8 @@ const Calendar = ({
     if (onDeleteTask) {
       onDeleteTask(selectedTask.id);
       toast({
-        title: "Task deleted",
-        status: "success",
+        title: 'Task deleted',
+        status: 'success',
         duration: 2000,
       });
     }
@@ -320,18 +313,20 @@ const Calendar = ({
     });
   };
 
-  const getEventsByDate = (day) => {
+  const getEventsByDate = day => {
     if (!day) return [];
     const date = new Date(currentYear, currentMonth, day);
     return getFilteredTasks().filter(task => {
       const taskDate = new Date(task.start);
-      return taskDate.getDate() === date.getDate() &&
+      return (
+        taskDate.getDate() === date.getDate() &&
         taskDate.getMonth() === date.getMonth() &&
-        taskDate.getFullYear() === date.getFullYear();
+        taskDate.getFullYear() === date.getFullYear()
+      );
     });
   };
 
-  const getStatusColor = (status) => {
+  const getStatusColor = status => {
     switch (status.toLowerCase()) {
       case 'completed':
         return 'green.500';
@@ -344,7 +339,7 @@ const Calendar = ({
     }
   };
 
-  const getEventColor = (priority) => {
+  const getEventColor = priority => {
     switch (priority) {
       case 'high':
         return '#FF4D4D';
@@ -372,7 +367,7 @@ const Calendar = ({
           bg={getEventColor(event.priority)}
           mx="auto"
           cursor="pointer"
-          onClick={(e) => handleTaskClick(e, event)}
+          onClick={e => handleTaskClick(e, event)}
         />
       );
     }
@@ -381,15 +376,15 @@ const Calendar = ({
       <Box
         bg={getEventColor(event.priority)}
         color="white"
-        fontSize={{ base: "2xs", md: "xs" }}
-        p={{ base: "1px 2px", md: 1 }}
+        fontSize={{ base: '2xs', md: 'xs' }}
+        p={{ base: '1px 2px', md: 1 }}
         borderRadius="md"
         mx={{ base: 0.5, md: 2 }}
-        onClick={(e) => handleTaskClick(e, event)}
+        onClick={e => handleTaskClick(e, event)}
         cursor="pointer"
         _hover={{
           opacity: 0.8,
-          transform: "scale(1.02)",
+          transform: 'scale(1.02)',
         }}
         transition="all 0.2s"
         whiteSpace="nowrap"
@@ -403,14 +398,20 @@ const Calendar = ({
 
   return (
     <Box p={{ base: 2, md: 4 }} maxW="1200px" mx="auto">
-      <Card bg={cardBg} boxShadow="lg" borderRadius="20px" borderWidth="1px" borderColor={calendarBorderColor}>
+      <Card
+        bg={cardBg}
+        boxShadow="lg"
+        borderRadius="20px"
+        borderWidth="1px"
+        borderColor={calendarBorderColor}
+      >
         <CardHeader>
           <VStack spacing={4} w="100%">
             <Flex
               justify="space-between"
               alignItems="center"
               w="100%"
-              flexDirection={{ base: "column", md: "row" }}
+              flexDirection={{ base: 'column', md: 'row' }}
               gap={4}
             >
               <Flex gap={2}>
@@ -420,7 +421,7 @@ const Calendar = ({
                   bg={navButtonBg}
                   color="white"
                   _hover={{ bg: navButtonHoverBg }}
-                  size={{ base: "md", md: "lg" }}
+                  size={{ base: 'md', md: 'lg' }}
                 />
                 <IconButton
                   icon={<FaAngleRight />}
@@ -428,37 +429,36 @@ const Calendar = ({
                   bg={navButtonBg}
                   color="white"
                   _hover={{ bg: navButtonHoverBg }}
-                  size={{ base: "md", md: "lg" }}
+                  size={{ base: 'md', md: 'lg' }}
                 />
               </Flex>
               <Heading
-                size={{ base: "md", md: "lg" }}
+                size={{ base: 'md', md: 'lg' }}
                 fontWeight="bold"
                 color={headerColor}
-                textAlign={{ base: "center", md: "left" }}
+                textAlign={{ base: 'center', md: 'left' }}
               >
-                {new Date(currentYear, currentMonth).toLocaleString(
-                  'default',
-                  {
-                    month: 'long',
-                    year: 'numeric',
-                  }
-                )}
+                {new Date(currentYear, currentMonth).toLocaleString('default', {
+                  month: 'long',
+                  year: 'numeric',
+                })}
               </Heading>
               <Select
                 value={filter}
-                onChange={(e) => setFilter(e.target.value)}
-                w={{ base: "100%", md: "200px" }}
+                onChange={e => setFilter(e.target.value)}
+                w={{ base: '100%', md: '200px' }}
                 bg={selectBg}
                 color={contentTextColor}
                 borderColor={selectBorderColor}
                 _hover={{ borderColor: selectHoverBorderColor }}
-                size={{ base: "md", md: "lg" }}
+                size={{ base: 'md', md: 'lg' }}
               >
                 <option value="all">All Tasks</option>
                 <option value="my-tasks">My Tasks</option>
                 {projects.map(project => (
-                  <option key={project} value={project}>{project}</option>
+                  <option key={project} value={project}>
+                    {project}
+                  </option>
                 ))}
               </Select>
             </Flex>
@@ -469,12 +469,12 @@ const Calendar = ({
           <Grid
             templateColumns="repeat(7, 1fr)"
             gap={{ base: 1, sm: 2, md: 4, lg: 6 }}
-            fontSize={{ base: "sm", md: "md" }}
+            fontSize={{ base: 'sm', md: 'md' }}
           >
             {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map(day => (
               <Heading
                 key={day}
-                size={{ base: "xs", md: "sm" }}
+                size={{ base: 'xs', md: 'sm' }}
                 fontWeight="bold"
                 textAlign="center"
                 color={headerColor}
@@ -498,14 +498,17 @@ const Calendar = ({
                 py={{ base: 1, sm: 2, md: 4 }}
                 px={{ base: 0, sm: 1, md: 2 }}
                 position="relative"
-                cursor={day ? "pointer" : "default"}
+                cursor={day ? 'pointer' : 'default'}
                 transition="all 0.2s"
                 _hover={{
                   bg: day ? dateBgHover : 'transparent',
                 }}
-                onClick={() => day && setSelectedDate(new Date(currentYear, currentMonth, day))}
-                fontSize={{ base: "sm", md: "lg" }}
-                minH={{ base: "40px", sm: "60px", md: "80px" }}
+                onClick={() =>
+                  day &&
+                  setSelectedDate(new Date(currentYear, currentMonth, day))
+                }
+                fontSize={{ base: 'sm', md: 'lg' }}
+                minH={{ base: '40px', sm: '60px', md: '80px' }}
                 display="flex"
                 flexDirection="column"
               >
@@ -516,7 +519,7 @@ const Calendar = ({
                     align="stretch"
                     flex="1"
                     mt={{ base: 0, md: 1 }}
-                    maxH={{ base: "40px", sm: "60px", md: "none" }}
+                    maxH={{ base: '40px', sm: '60px', md: 'none' }}
                     overflow="hidden"
                   >
                     {getEventsByDate(day).map((event, i) => (
@@ -532,13 +535,19 @@ const Calendar = ({
 
       <Modal isOpen={isOpen} onClose={onClose} size="md">
         <ModalOverlay />
-        <ModalContent bg={cardBg} borderColor={calendarBorderColor} borderWidth="1px">
+        <ModalContent
+          bg={cardBg}
+          borderColor={calendarBorderColor}
+          borderWidth="1px"
+        >
           <ModalHeader color={headerColor}>Task Details</ModalHeader>
           <ModalCloseButton color={headerColor} />
           <ModalBody pb={6}>
             {selectedTask && (
               <VStack align="stretch" spacing={4}>
-                <Heading size="md" color={headerColor}>{selectedTask.title}</Heading>
+                <Heading size="md" color={headerColor}>
+                  {selectedTask.title}
+                </Heading>
                 <HStack spacing={2} wrap="wrap">
                   <Badge
                     px={3}
@@ -572,9 +581,16 @@ const Calendar = ({
                   </Badge>
                 </HStack>
                 <Box>
-                  <Text color={contentTextColor} mb={1}><strong>Project:</strong> {selectedTask.project}</Text>
-                  <Text color={contentTextColor} mb={1}><strong>Assignee:</strong> {selectedTask.assignee}</Text>
-                  <Text color={contentTextColor}><strong>Due Date:</strong> {new Date(selectedTask.start).toLocaleDateString()}</Text>
+                  <Text color={contentTextColor} mb={1}>
+                    <strong>Project:</strong> {selectedTask.project}
+                  </Text>
+                  <Text color={contentTextColor} mb={1}>
+                    <strong>Assignee:</strong> {selectedTask.assignee}
+                  </Text>
+                  <Text color={contentTextColor}>
+                    <strong>Due Date:</strong>{' '}
+                    {new Date(selectedTask.start).toLocaleDateString()}
+                  </Text>
                 </Box>
                 <Flex gap={3} mt={2}>
                   <Button
@@ -583,7 +599,7 @@ const Calendar = ({
                     color={contentTextColor}
                     borderColor="whiteAlpha.400"
                     _hover={{
-                      bg: 'whiteAlpha.100'
+                      bg: 'whiteAlpha.100',
                     }}
                     leftIcon={<FaEdit />}
                     onClick={handleEditTask}
@@ -597,7 +613,7 @@ const Calendar = ({
                     borderColor="red.400"
                     _hover={{
                       bg: 'red.400',
-                      color: 'white'
+                      color: 'white',
                     }}
                     leftIcon={<FaTrash />}
                     onClick={handleDeleteTask}
