@@ -19,7 +19,6 @@ import ProjectCard from './components/projectcard';
 import debounce from 'lodash/debounce';
 import CreateProjectModal from './components/createprojectmodal';
 
-
 const Projects = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('all');
@@ -45,9 +44,7 @@ const Projects = () => {
       id: 2,
       name: 'Personal Website',
       progress: 30,
-      members: [
-        { name: 'John Doe', avatar: 'https://bit.ly/dan-abramov' },
-      ],
+      members: [{ name: 'John Doe', avatar: 'https://bit.ly/dan-abramov' }],
       lastUpdated: '1 day ago',
       createdAt: '1 week ago',
       type: 'personal',
@@ -57,9 +54,7 @@ const Projects = () => {
       id: 3,
       name: 'Portfolio',
       progress: 30,
-      members: [
-        { name: 'John Doe', avatar: 'https://bit.ly/dan-abramov' },
-      ],
+      members: [{ name: 'John Doe', avatar: 'https://bit.ly/dan-abramov' }],
       lastUpdated: '1 day ago',
       createdAt: '1 week ago',
       type: 'personal',
@@ -69,9 +64,7 @@ const Projects = () => {
       id: 4,
       name: 'TaskMaster',
       progress: 30,
-      members: [
-        { name: 'John Doe', avatar: 'https://bit.ly/dan-abramov' },
-      ],
+      members: [{ name: 'John Doe', avatar: 'https://bit.ly/dan-abramov' }],
       lastUpdated: '1 day ago',
       createdAt: '1 week ago',
       type: 'personal',
@@ -95,9 +88,10 @@ const Projects = () => {
   ];
 
   const debouncedSetSearchQuery = useMemo(
-    () => debounce((value) => {
-      setSearchQuery(value);
-    }, 300),
+    () =>
+      debounce(value => {
+        setSearchQuery(value);
+      }, 300),
     []
   );
 
@@ -108,13 +102,19 @@ const Projects = () => {
     };
   }, [debouncedSetSearchQuery]);
 
-  const handleSearch = useCallback((e) => {
-    debouncedSetSearchQuery(e.target.value);
-  }, [debouncedSetSearchQuery]);
+  const handleSearch = useCallback(
+    e => {
+      debouncedSetSearchQuery(e.target.value);
+    },
+    [debouncedSetSearchQuery]
+  );
 
   const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesFilter = filter === 'all' ||
+    const matchesSearch = project.name
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase());
+    const matchesFilter =
+      filter === 'all' ||
       (filter === 'personal' && project.type === 'personal') ||
       (filter === 'team' && project.type === 'team') ||
       (filter === 'active' && project.status === 'active') ||
@@ -173,7 +173,7 @@ const Projects = () => {
         <Select
           maxW="200px"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
+          onChange={e => setFilter(e.target.value)}
           bg={cardBg}
           borderColor="rgba(128,128,128,.4)"
           _focus={{ borderColor: '#7551FF' }}
@@ -199,7 +199,7 @@ const Projects = () => {
           }}
           gap={6}
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map(project => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </Grid>
@@ -210,4 +210,4 @@ const Projects = () => {
   );
 };
 
-export default Projects; 
+export default Projects;
