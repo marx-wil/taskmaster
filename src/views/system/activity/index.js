@@ -13,6 +13,7 @@ import {
   Badge,
   Button,
   HStack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { FiSearch } from 'react-icons/fi';
 
@@ -31,7 +32,13 @@ const ActivityItem = ({ activity }) => {
   };
 
   return (
-    <Flex p={4} borderBottom="1px" borderColor="gray.200">
+    <Flex
+      p={4}
+      border={'1px solid'}
+      borderColor={useColorModeValue('#E5E7EB', '#30363D')}
+      rounded={'lg'}
+      mb={4}
+    >
       <Box mr={4}>
         <Text fontSize="2xl">{getActivityIcon(activity.type)}</Text>
       </Box>
