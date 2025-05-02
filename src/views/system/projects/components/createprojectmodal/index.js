@@ -1,66 +1,169 @@
-import React from 'react';
 import {
-  Input,
-  Select,
-  useColorModeValue,
   Modal,
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalBody,
   ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+  Button,
+  Input,
+  Textarea,
+  VStack,
   FormControl,
   FormLabel,
-  VStack,
+  useToast,
+  useDisclosure,
+  Icon,
+  Select,
+  Tag,
+  TagLabel,
+  TagCloseButton,
+  HStack,
+  useColorModeValue
 } from '@chakra-ui/react';
+import { useState } from 'react';
+import { FiPlus } from 'react-icons/fi';
 
-const CreateProjectModal = ({ isOpen, onClose }) => {
-  const cardBg = useColorModeValue('#ffffff', '#0B1437');
-  const contentTextColor = useColorModeValue('#0B1437', '#ffffff');
+const dummyMembers = ['Zhack Dtech', 'Maria Lopez', 'John Doe', 'Nina Perez'];
+
+export default function CreateProjectModal() {
+  const toast = useToast();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [projectName, setProjectName] = useState('');
+  const [description, setDescription] = useState('');
+  const [selectedMember, setSelectedMember] = useState('');
+  const [members, setMembers] = useState([]);
+
+  const resetForm = () => {
+    setProjectName('');
+    setDescription('');
+    setSelectedMember('');
+    setMembers([]);
+  };
+
+  const handleSubmit = () => {
+    if (!projectName.trim()) {
+      toast({
+        title: 'Project name is required.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+
+    // Handle actual API submission here
+
+    toast({
+      title: 'Project Created',
+      description: `"${projectName}" has been added to your workspace.`,
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
+
+    resetForm();
+    onClose();
+  };
+
+  const handleAddMember = () => {
+    if (selectedMember && !members.includes(selectedMember)) {
+      setMembers(prev => [...prev, selectedMember]);
+    }
+    setSelectedMember('');
+  };
+
+  const handleRemoveMember = member => {
+    setMembers(members.filter(m => m !== member));
+  };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="xl">
-      <ModalOverlay />
-      <ModalContent bg={cardBg}>
-        <ModalHeader color={contentTextColor}>Create New Project</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody pb={6}>
-          <VStack spacing={4} align="stretch">
-            <FormControl>
-              <FormLabel color={contentTextColor}>Project Name</FormLabel>
-              <Input
-                placeholder="Enter project name"
-                bg={cardBg}
-                borderColor="rgba(128,128,128,.4)"
-                _focus={{ borderColor: '#7551FF' }}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel color={contentTextColor}>Description</FormLabel>
-              <Input
-                placeholder="Enter project description"
-                bg={cardBg}
-                borderColor="rgba(128,128,128,.4)"
-                _focus={{ borderColor: '#7551FF' }}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel color={contentTextColor}>Project Type</FormLabel>
-              <Select
-                placeholder="Select project type"
-                bg={cardBg}
-                borderColor="rgba(128,128,128,.4)"
-                _focus={{ borderColor: '#7551FF' }}
-              >
-                <option value="personal">Personal</option>
-                <option value="team">Team</option>
-              </Select>
-            </FormControl>
-          </VStack>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
-  );
-};
+    <>
+      <Button
+        leftIcon={<Icon as={FiPlus} />}
+        bg="#7551FF"
+        color="white"
+        _hover={{ bg: '#6a48e6' }}
+        size={{ base: 'sm', md: 'md' }}
+        flex={{ base: '1', sm: 'initial' }}
+        minW={{ base: 'auto', sm: 'initial' }}
+        maxW={{ base: '100%', sm: 'initial' }}
+        px={{ base: 3, md: 4 }}
+        onClick={onOpen}
+      >
+        Create Project
+      </Button>
 
-export default CreateProjectModal;
+      <Modal isOpen={isOpen} onClose={onClose} size="lg" isCentered>
+        <ModalOverlay />
+        <ModalContent bg={useColorModeValue('#fff', '#111C44')}>
+          <ModalHeader>Create New Project</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <VStack spacing={4} align="stretch">
+              <FormControl isRequired>
+                <FormLabel>Project Name</FormLabel>
+                <Input
+                  placeholder="e.g. Marketing Website Redesign"
+                  value={projectName}
+                  onChange={e => setProjectName(e.target.value)}
+                />
+              </FormControl>
+
+              <FormControl>
+                <FormLabel>Description</FormLabel>
+                <Textarea
+                  placeholder="What is this project about?"
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                />
+              </FormControl>
+
+              <FormControl>
+                <FormLabel>Add Members</FormLabel>
+                <HStack>
+                  <Select
+                    placeholder="Select member"
+                    value={selectedMember}
+                    onChange={e => setSelectedMember(e.target.value)}
+                    flex="1"
+                  >
+                    {dummyMembers
+                      .filter(m => !members.includes(m))
+                      .map(member => (
+                        <option key={member} value={member}>
+                          {member}
+                        </option>
+                      ))}
+                  </Select>
+                  <Button onClick={handleAddMember}>Add</Button>
+                </HStack>
+                <HStack mt={2} wrap="wrap">
+                  {members.map(member => (
+                    <Tag key={member} colorScheme="blue" borderRadius="full">
+                      <TagLabel>{member}</TagLabel>
+                      <TagCloseButton
+                        onClick={() => handleRemoveMember(member)}
+                      />
+                    </Tag>
+                  ))}
+                </HStack>
+              </FormControl>
+            </VStack>
+          </ModalBody>
+
+          <ModalFooter>
+            <Button variant="ghost" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme="purple" onClick={handleSubmit}>
+              Create Project
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+}
