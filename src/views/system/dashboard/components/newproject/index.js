@@ -20,6 +20,7 @@ import {
   TagLabel,
   TagCloseButton,
   HStack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
@@ -97,7 +98,7 @@ export default function NewProjectModal() {
 
       <Modal isOpen={isOpen} onClose={onClose} size="lg" isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg={useColorModeValue('#fff', '#111C44')}>
           <ModalHeader>Create New Project</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
