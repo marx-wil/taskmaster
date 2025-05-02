@@ -22,6 +22,7 @@ import {
   Text,
   Icon,
   useDisclosure,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
 import { FiPlus } from 'react-icons/fi';
@@ -125,7 +126,7 @@ export default function NewTaskModal() {
         scrollBehavior="inside"
       >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg={useColorModeValue('#fff', '#111C44')}>
           <ModalHeader>Create New Task</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
