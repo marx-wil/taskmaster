@@ -125,15 +125,7 @@ const Projects = () => {
   return (
     <Box>
       <Flex justify="flex-end" align="center" mb={6}>
-        <Button
-          leftIcon={<Icon as={FiPlus} />}
-          bg="#7551FF"
-          color="white"
-          _hover={{ bg: '#6a48e6' }}
-          onClick={onOpen}
-        >
-          Create Project
-        </Button>
+        <CreateProjectModal />
       </Flex>
 
       <Grid
