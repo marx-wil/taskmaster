@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Flex, Button, Icon, Grid } from '@chakra-ui/react';
-import { FiPlus } from 'react-icons/fi';
+import { Box, Flex, Grid } from '@chakra-ui/react';
 import MiniCalendar from '../../../components/minicalendar';
 import MyTask from './components/mytask';
 import WelcomeCard from './components/welcomecard';
@@ -11,7 +10,6 @@ import NewTaskModal from './components/newtask';
 import NewProjectModal from './components/newproject';
 
 const Dashboard = () => {
-  // Mock data - replace with actual data from your backend
   const userData = {
     name: 'John Doe',
   };
