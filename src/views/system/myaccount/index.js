@@ -27,8 +27,10 @@ import {
   CardHeader,
   CardBody,
   useColorModeValue,
+  Switch,
+  Divider,
 } from '@chakra-ui/react';
-import { FiUpload, FiTrash2 } from 'react-icons/fi';
+import { FiUpload, FiTrash2, FiDownload } from 'react-icons/fi';
 
 const MyAccount = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -39,30 +41,31 @@ const MyAccount = () => {
       'https://avatars.githubusercontent.com/u/50767502?s=400&u=02a09ea91424428f126cf68192b65e3819e978a2&v=4',
   });
 
-  // Color mode values
+  const [twoFAEnabled, setTwoFAEnabled] = useState(false);
+  const [emailPrefs, setEmailPrefs] = useState({
+    updates: true,
+    tips: false,
+    reports: true,
+  });
+
   const cardBg = useColorModeValue('white', '#111C44');
   const headerColor = useColorModeValue('gray.800', 'white');
   const borderColor = useColorModeValue('gray.200', 'whiteAlpha.100');
   const buttonBg = useColorModeValue('#7551FF', '#7551FF');
   const buttonHoverBg = useColorModeValue('#1B3BBB', '#1B3BBB');
 
-  const handleProfileUpdate = e => {
-    e.preventDefault();
-  };
-
-  const handlePasswordChange = e => {
-    e.preventDefault();
-  };
-
-  const handleAccountDelete = () => {
-    onClose();
-  };
+  const handleProfileUpdate = e => e.preventDefault();
+  const handlePasswordChange = e => e.preventDefault();
+  const handleAccountDelete = () => onClose();
+  const downloadData = () => alert('Downloading data...');
+  const revokeSession = id => alert(`Revoked session: ${id}`);
 
   return (
     <Box p={4} maxW="1200px" mx="auto">
       <VStack spacing={6} align="stretch">
-        {/* Profile Section */}
+        {/* Profile & Account */}
         <Grid templateColumns={{ base: '1fr', lg: '1fr 1fr' }} gap={6}>
+          {/* Profile */}
           <Card
             bg={cardBg}
             boxShadow="lg"
@@ -125,7 +128,7 @@ const MyAccount = () => {
             </CardBody>
           </Card>
 
-          {/* Account Section */}
+          {/* Account */}
           <Card
             bg={cardBg}
             boxShadow="lg"
@@ -181,6 +184,99 @@ const MyAccount = () => {
           </Card>
         </Grid>
 
+        {/* Data & Security */}
+        <Card
+          bg={cardBg}
+          boxShadow="lg"
+          borderRadius="20px"
+          borderWidth="1px"
+          borderColor={borderColor}
+        >
+          <CardHeader>
+            <Text fontSize="lg" fontWeight="bold" color={headerColor}>
+              Data & Security
+            </Text>
+          </CardHeader>
+          <CardBody>
+            <VStack spacing={4} align="stretch">
+              <Button
+                leftIcon={<FiDownload />}
+                onClick={downloadData}
+                colorScheme="purple"
+                variant="outline"
+              >
+                Download My Data
+              </Button>
+              <Box>
+                <Text fontWeight="medium" color={headerColor} mb={2}>
+                  Active Sessions
+                </Text>
+                <Flex justify="space-between" align="center">
+                  <Text color="gray.400">Chrome · Mac · 192.168.1.10</Text>
+                  <Button
+                    size="sm"
+                    onClick={() => revokeSession(1)}
+                    variant="ghost"
+                    colorScheme="red"
+                  >
+                    Revoke
+                  </Button>
+                </Flex>
+              </Box>
+              <Flex justify="space-between" align="center">
+                <Text color={headerColor}>Two-Factor Authentication</Text>
+                <Switch
+                  isChecked={twoFAEnabled}
+                  onChange={() => setTwoFAEnabled(!twoFAEnabled)}
+                  colorScheme="purple"
+                />
+              </Flex>
+            </VStack>
+          </CardBody>
+        </Card>
+
+        {/* Email Preferences */}
+        <Card
+          bg={cardBg}
+          boxShadow="lg"
+          borderRadius="20px"
+          borderWidth="1px"
+          borderColor={borderColor}
+        >
+          <CardHeader>
+            <Text fontSize="lg" fontWeight="bold" color={headerColor}>
+              Email Preferences
+            </Text>
+          </CardHeader>
+          <CardBody>
+            <VStack spacing={4} align="stretch">
+              {['updates', 'tips', 'reports'].map(type => (
+                <Flex key={type} justify="space-between" align="center">
+                  <Text color={headerColor}>
+                    {
+                      {
+                        updates: 'Product Updates',
+                        tips: 'Tips & Onboarding Emails',
+                        reports: 'Weekly Productivity Reports',
+                      }[type]
+                    }
+                  </Text>
+                  <Switch
+                    isChecked={emailPrefs[type]}
+                    onChange={() =>
+                      setEmailPrefs({
+                        ...emailPrefs,
+                        [type]: !emailPrefs[type],
+                      })
+                    }
+                    colorScheme="purple"
+                  />
+                </Flex>
+              ))}
+            </VStack>
+          </CardBody>
+        </Card>
+
         {/* Danger Zone */}
         <Card
           bg={cardBg}
@@ -218,7 +314,7 @@ const MyAccount = () => {
         </Card>
       </VStack>
 
-      {/* Delete Account Modal */}
+      {/* Modal */}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent bg={cardBg}>
