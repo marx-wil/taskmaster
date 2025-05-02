@@ -1,7 +1,4 @@
-import {
-  NavLink,
-  useLocation,
-} from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import {
   Box,
@@ -28,12 +25,13 @@ const Sidenav = props => {
   let navlinkBg = useColorModeValue('#1B3BBB', '#7551FF');
   //   color of the links
   let linkActiveColor = useColorModeValue('#fff', '#fff');
-  let linkColor = useColorModeValue("#111C44","#fff")
+  let linkColor = useColorModeValue('#111C44', '#fff');
   return (
     <>
       <Box>
         <VStack spacing="1.2rem" py="1rem">
-          {lists.map((list, index) => { // Added index parameter
+          {lists.map((list, index) => {
+            // Added index parameter
             return (
               <Box
                 key={index} // Assign unique key to each Box element
