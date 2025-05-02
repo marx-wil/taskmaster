@@ -35,7 +35,7 @@ const BasicTable = ({ header, data, theaderdata }) => {
         </CardHeader>
         <CardBody>
           <TableContainer>
-            <Table variant="unstyled" >
+            <Table variant="unstyled">
               <Thead
                 borderBottom="0.01em solid"
                 borderColor="#E2E8F0"
