@@ -3,18 +3,8 @@ import {
   Box,
   Flex,
   Select,
-  Button,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
   VStack,
   Text,
-  Badge,
-  HStack,
   Card,
   CardBody,
   CardHeader,
@@ -22,10 +12,9 @@ import {
   useColorModeValue,
   IconButton,
   Grid,
-  useToast,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { FaAngleLeft, FaAngleRight, FaEye } from 'react-icons/fa';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import './calendar.css';
 import { useNavigate } from 'react-router-dom';
 const defaultTasks = [
@@ -221,18 +210,10 @@ const defaultTasks = [
   },
 ];
 
-const Calendar = ({
-  tasks = defaultTasks,
-  onEditTask,
-  onDeleteTask,
-  currentUser = 'John Doe',
-}) => {
+const Calendar = ({ tasks = defaultTasks, currentUser = 'John Doe' }) => {
   const [filter, setFilter] = useState('all');
-  const [selectedTask, setSelectedTask] = useState(null);
   // eslint-disable-next-line no-unused-vars
   const [selectedDate, setSelectedDate] = useState(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const toast = useToast();
 
   const dateBgHover = useColorModeValue('purple.100', '#1B3BBB');
   const navButtonBg = useColorModeValue('purple.500', '#7551FF');
@@ -305,20 +286,6 @@ const Calendar = ({
       );
     });
   };
-
-  const getStatusColor = status => {
-    switch (status.toLowerCase()) {
-      case 'completed':
-        return 'green.500';
-      case 'in-progress':
-        return 'blue.500';
-      case 'pending':
-        return 'orange.500';
-      default:
-        return 'gray.500';
-    }
-  };
-
   const getEventColor = priority => {
     switch (priority) {
       case 'high':
