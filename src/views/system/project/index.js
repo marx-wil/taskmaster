@@ -995,7 +995,6 @@ const Project = () => {
                   className={'poppins-regular'}
                   color={'#fff'}
                   _hover={{ opacity: 0.8 }}
-                  className={'poppins-regular'}
                 >
                   Save Changes
                 </Button>
