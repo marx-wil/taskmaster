@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  Button,
-  Icon,
-  Grid,
-} from '@chakra-ui/react';
+import { Box, Flex, Button, Icon, Grid } from '@chakra-ui/react';
 import { FiPlus } from 'react-icons/fi';
 import MiniCalendar from '../../../components/minicalendar';
 import MyTask from './components/mytask';
@@ -13,10 +7,10 @@ import WelcomeCard from './components/welcomecard';
 import UpcomingDeadline from './components/upcomingdeadline';
 import ProjectSummary from './components/projectsummary';
 import RecentActivity from './components/recentactivity';
-
+import NewTaskModal from './components/newtask';
+import NewProjectModal from './components/newproject';
 
 const Dashboard = () => {
-
   // Mock data - replace with actual data from your backend
   const userData = {
     name: 'John Doe',
@@ -24,6 +18,16 @@ const Dashboard = () => {
 
   return (
     <Box>
+      <Flex
+        mb={4}
+        gap={4}
+        flexWrap="wrap"
+        justify={{ base: 'center', lg: 'flex-end' }}
+        w="100%"
+      >
+        <NewTaskModal />
+        <NewProjectModal />
+      </Flex>
       <WelcomeCard name={userData.name} />
 
       <Grid
@@ -41,35 +45,6 @@ const Dashboard = () => {
         <MiniCalendar />
       </Grid>
       <RecentActivity />
-
-      <Flex gap={4} flexWrap="wrap" justify={{ base: 'center', lg: 'flex-start' }} w="100%">
-        <Button
-          leftIcon={<Icon as={FiPlus} />}
-          bg="#7551FF"
-          color="white"
-          _hover={{ bg: '#6a48e6' }}
-          size={{ base: "sm", md: "md" }}
-          flex={{ base: '1', sm: 'initial' }}
-          minW={{ base: "auto", sm: "initial" }}
-          maxW={{ base: '100%', sm: 'initial' }}
-          px={{ base: 3, md: 4 }}
-        >
-          Create Task
-        </Button>
-        <Button
-          leftIcon={<Icon as={FiPlus} />}
-          variant="outline"
-          borderColor="rgba(128,128,128,.4)"
-          _hover={{ bg: 'rgba(128,128,128,.1)' }}
-          size={{ base: "sm", md: "md" }}
-          flex={{ base: '1', sm: 'initial' }}
-          minW={{ base: "auto", sm: "initial" }}
-          maxW={{ base: '100%', sm: 'initial' }}
-          px={{ base: 3, md: 4 }}
-        >
-          Create Project
-        </Button>
-      </Flex>
     </Box>
   );
 };
