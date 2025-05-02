@@ -6,14 +6,13 @@ import {
   InputGroup,
   InputLeftElement,
   Select,
-  Button,
   Icon,
   Flex,
   useColorModeValue,
   useDisclosure,
   Text,
 } from '@chakra-ui/react';
-import { FiSearch, FiPlus, FiFolder } from 'react-icons/fi';
+import { FiSearch,  FiFolder } from 'react-icons/fi';
 import StatsCard from '../../../components/statscard';
 import ProjectCard from './components/projectcard';
 import debounce from 'lodash/debounce';
@@ -22,6 +21,7 @@ import CreateProjectModal from './components/createprojectmodal';
 const Projects = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('all');
+  //  eslint-disable-next-line
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cardBg = useColorModeValue('#ffffff', '#0B1437');
   const textColor = useColorModeValue('#0B1437', '#ffffff');
