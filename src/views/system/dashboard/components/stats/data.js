@@ -1,7 +1,4 @@
-import {
-  FaClipboardCheck,
-  FaClipboardList,
-} from 'react-icons/fa';
+import { FaClipboardCheck, FaClipboardList } from 'react-icons/fa';
 
 const statsData = [
   {
