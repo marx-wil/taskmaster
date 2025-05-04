@@ -29,7 +29,7 @@ const UpcomingDeadline = () => {
       <CardHeader>
         <Text
           size="md"
-          fontFamily="Manrope"
+          className="poppins-bold"
           fontWeight="600"
           color={contentTextColor}
         >
@@ -37,13 +37,18 @@ const UpcomingDeadline = () => {
         </Text>
       </CardHeader>
       <CardBody>
-        <VStack align="stretch" spacing={3}>
+        <VStack align="stretch" spacing={4}>
           {userData.upcomingDeadlines.map(task => (
             <Flex key={task.id} justify="space-between" align="center">
-              <Text fontSize="sm" color={contentTextColor}>
+              <Text
+                fontSize="sm"
+                color={contentTextColor}
+                className="poppins-regular"
+              >
                 {task.title}
               </Text>
               <Badge
+                className="poppins-regular"
                 colorScheme={
                   task.priority === 'high'
                     ? 'red'
