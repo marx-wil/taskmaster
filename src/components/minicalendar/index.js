@@ -58,7 +58,12 @@ const MiniCalendar = props => {
               onClick={goToPreviousMonth}
               {...navProps}
             />
-            <Heading size="md" fontWeight="bold" color={headerColor}>
+            <Heading
+              size="md"
+              fontWeight="bold"
+              color={headerColor}
+              className="poppins-regular"
+            >
               {new Date(currentYear, currentMonth).toLocaleDateString(
                 'default',
                 {
@@ -84,6 +89,7 @@ const MiniCalendar = props => {
                 textAlign="center"
                 color={headerColor}
                 textTransform="uppercase"
+                className="poppins-regular"
               >
                 {day}
               </Heading>
