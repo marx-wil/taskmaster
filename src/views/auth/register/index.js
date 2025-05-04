@@ -17,8 +17,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import RegisterImg from '../../assets/auth/';
-import { useAuthTheme } from '../../theme/auth';
+import RegisterImg from '../../../assets/auth/';
+import { useAuthTheme } from '../../../theme/auth';
 import { FaArrowLeft } from 'react-icons/fa';
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
