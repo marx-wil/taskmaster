@@ -28,8 +28,8 @@ import Activity from './views/system/activity';
 import Settings from './views/system/settings';
 import MyAccount from './views/system/myaccount';
 import LandingPage from './views/landingpage';
-import LoginPage from './views/login';
-import RegisterPage from './views/register/index.js';
+import LoginPage from './views/auth/login';
+import RegisterPage from './views/auth/register';
 import TeamPage from "./views/system/team/"
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
