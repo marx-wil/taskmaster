@@ -278,9 +278,15 @@ const Activity = () => {
       </Flex>
 
       <VStack align="stretch" spacing={0}>
-        {paginatedActivities.map(activity => (
-          <ActivityItem key={activity.id} activity={activity} />
-        ))}
+        {paginatedActivities.length > 0 ? (
+          paginatedActivities.map(activity => (
+            <ActivityItem key={activity.id} activity={activity} />
+          ))
+        ) : (
+          <Box textAlign="center" py={10} color="gray.500">
+            <Text className='poppins-regular'>No results found.</Text>
+          </Box>
+        )}
       </VStack>
 
       {totalPages > 1 && (
