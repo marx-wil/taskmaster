@@ -17,8 +17,8 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
-import LoginImg from '../../assets/auth/';
-import { useAuthTheme } from '../../theme/auth';
+import LoginImg from '../../../assets/auth/';
+import { useAuthTheme } from '../../../theme/auth';
 import { FaArrowLeft } from 'react-icons/fa';
 
 const LoginPage = () => {
