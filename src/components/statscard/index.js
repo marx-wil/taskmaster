@@ -22,6 +22,8 @@ const StatsCard = props => {
               opacity: '0.9',
             }}
             color={statTextColor}
+            fontSize="md"
+            className="poppins-regular"
           >
             {props.header}
           </StatLabel>
@@ -32,6 +34,7 @@ const StatsCard = props => {
                 fontFamily: 'Manrope',
               }}
               color={statTextColor}
+              className="poppins-regular"
             >
               {props.main}
             </StatNumber>
@@ -45,7 +48,11 @@ const StatsCard = props => {
               <Icon as={props.icon} />
             </Flex>
           </Flex>
-          <StatHelpText color={statTextColor} style={{ fontWeight: '400' }}>
+          <StatHelpText
+            color={statTextColor}
+            style={{ fontWeight: '400' }}
+            className="poppins-regular"
+          >
             {props.footer}
           </StatHelpText>
         </Stat>
