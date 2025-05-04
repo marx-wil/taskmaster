@@ -60,21 +60,26 @@ const MyTask = () => {
       <CardHeader>
         <Text
           size="md"
-          fontFamily="Manrope"
           fontWeight="600"
           color={contentTextColor}
+          className="poppins-bold"
         >
           My Tasks
         </Text>
       </CardHeader>
       <CardBody>
-        <VStack align="stretch" spacing={3}>
+        <VStack align="stretch" spacing={4}>
           {userData.myTasks.map(task => (
             <Flex key={task.id} justify="space-between" align="center">
-              <Text fontSize="sm" color={contentTextColor}>
+              <Text
+                fontSize="sm"
+                color={contentTextColor}
+                className="poppins-regular"
+              >
                 {task.title}
               </Text>
               <Badge
+                className="poppins-regular"
                 colorScheme={
                   task.priority === 'high'
                     ? 'red'
