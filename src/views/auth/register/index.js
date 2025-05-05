@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -20,7 +20,93 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import RegisterImg from '../../../assets/auth/';
 import { useAuthTheme } from '../../../theme/auth';
 import { FaArrowLeft } from 'react-icons/fa';
+import { method } from 'lodash';
 const RegisterPage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/taskmaster/');
+    }
+    // eslint-disable-next-line
+  }, [navigate]);
+  const validateForm = () => {
+    const { name, email, password, confirmPassword } = formData;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d\S]{8,}$/;
+
+    if (!name.trim()) return 'First name is required.';
+    if (!email.trim()) return 'Email is required.';
+    if (!emailRegex.test(email)) return 'Enter a valid email address.';
+    if (!password.trim()) return 'Password is required.';
+    if (!passwordRegex.test(password))
+      return 'Password must be at least 8 characters, include a number and a special character.';
+    if (password !== confirmPassword) return 'Passwords do not match.';
+
+    return null; // <-- Add this
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    const errorMsg = validateForm();
+    if (errorMsg) {
+      toast({
+        title: 'Error',
+        description: errorMsg,
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const res = await fetch(
+        'https://taskmaster-be-production.up.railway.app/api/auth/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast({
+          title: 'Error',
+          description: 'Something went wrong',
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+        throw new Error(data.message || 'Something went wrong');
+      }
+      toast({
+        title: 'Success',
+        description: data.message,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+      navigate('/login');
+      setIsLoading(false);
+      setFormData({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,7 +115,6 @@ const RegisterPage = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-  const navigate = useNavigate();
   const theme = useAuthTheme();
 
   const handleChange = e => {
@@ -40,44 +125,44 @@ const RegisterPage = () => {
     }));
   };
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    setIsLoading(true);
+  // const handleSubmit = async e => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
 
-    try {
-      const { name, email, password, confirmPassword } = formData;
+  //   try {
+  //     const { name, email, password, confirmPassword } = formData;
 
-      if (!name || !email || !password || !confirmPassword) {
-        throw new Error('Please fill in all fields');
-      }
+  //     if (!name || !email || !password || !confirmPassword) {
+  //       throw new Error('Please fill in all fields');
+  //     }
 
-      if (password !== confirmPassword) {
-        throw new Error('Passwords do not match');
-      }
+  //     if (password !== confirmPassword) {
+  //       throw new Error('Passwords do not match');
+  //     }
 
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+  //     // Simulate API call delay
+  //     await new Promise(resolve => setTimeout(resolve, 1000));
 
-      toast({
-        title: 'Registration successful',
-        description: 'Welcome to TaskMaster!',
-        status: 'success',
-        duration: 3000,
-        isClosable: true,
-      });
-      navigate('/login');
-    } catch (error) {
-      toast({
-        title: 'Error',
-        description: error.message || 'An error occurred',
-        status: 'error',
-        duration: 3000,
-        isClosable: true,
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  //     toast({
+  //       title: 'Registration successful',
+  //       description: 'Welcome to TaskMaster!',
+  //       status: 'success',
+  //       duration: 3000,
+  //       isClosable: true,
+  //     });
+  //     navigate('/login');
+  //   } catch (error) {
+  //     toast({
+  //       title: 'Error',
+  //       description: error.message || 'An error occurred',
+  //       status: 'error',
+  //       duration: 3000,
+  //       isClosable: true,
+  //     });
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   return (
     <Box minH="100vh" bg={theme.bgColor} position="relative" overflow="hidden">
@@ -124,12 +209,12 @@ const RegisterPage = () => {
 
               <VStack as="form" spacing={4} onSubmit={handleSubmit}>
                 <FormControl isRequired>
-                  <FormLabel {...theme.labelStyles}>Full Name</FormLabel>
+                  <FormLabel {...theme.labelStyles}>First name</FormLabel>
                   <Input
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Enter your full name"
+                    placeholder="Enter your first name"
                     {...theme.inputStyles}
                   />
                 </FormControl>
