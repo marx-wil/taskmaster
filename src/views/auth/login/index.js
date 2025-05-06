@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -28,36 +28,69 @@ const LoginPage = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const theme = useAuthTheme();
-
+  useEffect(() => {
+    const token = localStorage.getItem('taskmaster_token');
+    if (token) {
+      toast({
+        title: 'You are already logged in.',
+        status: 'info',
+        duration: 3000,
+        isClosable: true,
+      });
+      navigate('/taskmaster/');
+    }
+    // eslint-disable-next-line
+  }, [navigate]);
   const handleSubmit = async e => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      if (email && password) {
-        // Simulate API call delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        toast({
-          title: 'Login successful',
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
-        });
-        navigate('/taskmaster');
-      } else {
+      if (!email || !password) {
         toast({
           title: 'Error',
-          description: 'Please fill in all fields',
+          description: 'Please enter email and password',
           status: 'error',
           duration: 3000,
           isClosable: true,
         });
+        return;
       }
+      const res = await fetch(
+        'https://taskmaster-be-production.up.railway.app/api/auth/login',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        toast({
+          title: 'Error',
+          description: data.message,
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+        setIsLoading(false);
+        throw new Error(data.message);
+      }
+      localStorage.setItem('taskmaster_token', data.token);
+      toast({
+        title: 'Success',
+        description: 'Login successful',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+      navigate('/taskmaster/');
     } catch (error) {
       toast({
         title: 'Error',
-        description: error.message || 'An error occurred',
+        description: error.message,
         status: 'error',
         duration: 3000,
         isClosable: true,
