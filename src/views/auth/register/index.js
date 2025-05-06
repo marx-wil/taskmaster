@@ -31,7 +31,7 @@ const RegisterPage = () => {
         duration: 3000,
         isClosable: true,
       });
-      navigate('/taskmaster/');
+      navigate('/taskmaster');
     }
     // eslint-disable-next-line
   }, [navigate]);

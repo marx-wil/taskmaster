@@ -86,7 +86,7 @@ const LoginPage = () => {
         duration: 3000,
         isClosable: true,
       });
-      navigate('/taskmaster/');
+      navigate('/taskmaster');
     } catch (error) {
       toast({
         title: 'Error',

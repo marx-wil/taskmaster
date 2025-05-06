@@ -1,17 +1,55 @@
 import '../../styles/main.scss';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, useColorModeValue, useToast } from '@chakra-ui/react';
 
 import Sidenav from '../../components/sidenav';
 import Topnav from '../../components/topnav';
 import Footer from '../../components/footer';
 
+import { jwtDecode } from 'jwt-decode';
 const Layout = Component => {
   const DefaultFunction = ({ ...props }) => {
+    const [isAuth, setIsAuth] = useState(false);
     let mainBg = useColorModeValue('#F4F7FE', '#111C44');
+    const toast = useToast();
+    const navigate = useNavigate();
+    useEffect(() => {
+      const token = localStorage.getItem('taskmaster_token');
+      if (!token) {
+        toast({
+          title: 'Not logged in',
+          description: 'Please login to continue',
+          status: 'error',
+          duration: 5000,
+          isClosable: true,
+        });
+        navigate('/login');
+        return;
+      }
 
+      try {
+        const { exp } = jwtDecode(token);
+        if (Date.now() >= exp * 1000) {
+          localStorage.removeItem('taskmaster_token');
+          toast({
+            title: 'Session expired',
+            description: 'Please login again',
+            status: 'warning',
+            duration: 5000,
+            isClosable: true,
+          });
+          navigate('/login');
+        } else {
+          setIsAuth(true);
+        }
+      } catch {
+        localStorage.removeItem('taskmaster_token');
+        navigate('/login');
+      }
+    }, [navigate, toast]);
     const componentVariants = {
       hidden: { opacity: 0, y: 20 },
       visible: {
@@ -31,7 +69,9 @@ const Layout = Component => {
         },
       },
     };
-
+    if (!isAuth) {
+      return null;
+    }
     return (
       <Flex>
         <Box className="sidenav">
