@@ -20,12 +20,17 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import RegisterImg from '../../../assets/auth/';
 import { useAuthTheme } from '../../../theme/auth';
 import { FaArrowLeft } from 'react-icons/fa';
-import { method } from 'lodash';
 const RegisterPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('taskmaster_token');
     if (token) {
+      toast({
+        title: 'You are already logged in.',
+        status: 'info',
+        duration: 3000,
+        isClosable: true,
+      });
       navigate('/taskmaster/');
     }
     // eslint-disable-next-line
@@ -81,12 +86,13 @@ const RegisterPage = () => {
       if (!res.ok) {
         toast({
           title: 'Error',
-          description: 'Something went wrong',
+          description: data.message,
           status: 'error',
           duration: 3000,
           isClosable: true,
         });
-        throw new Error(data.message || 'Something went wrong');
+        setIsLoading(false);
+        throw new Error(data.message);
       }
       toast({
         title: 'Success',
