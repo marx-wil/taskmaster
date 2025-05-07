@@ -20,8 +20,11 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import RegisterImg from '../../../assets/auth/';
 import { useAuthTheme } from '../../../theme/auth';
 import { FaArrowLeft } from 'react-icons/fa';
+
 const RegisterPage = () => {
+
   const navigate = useNavigate();
+  
   useEffect(() => {
     const token = localStorage.getItem('taskmaster_token');
     if (token) {
@@ -49,7 +52,7 @@ const RegisterPage = () => {
       return 'Password must be at least 8 characters, include a number and a special character.';
     if (password !== confirmPassword) return 'Passwords do not match.';
 
-    return null; // <-- Add this
+    return null; 
   };
 
   const handleSubmit = async e => {
