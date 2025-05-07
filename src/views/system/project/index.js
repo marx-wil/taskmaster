@@ -816,8 +816,11 @@ const Project = () => {
                     </InputGroup>
                   </FormControl>
                   <FormControl>
-                    <FormLabel color={contentTextColor}>
-                      className={'poppins-regular'}Due date
+                    <FormLabel
+                      color={contentTextColor}
+                      className={'poppins-regular'}
+                    >
+                      Due date
                     </FormLabel>
                     <Input
                       type={'date'}
@@ -962,7 +965,8 @@ const Project = () => {
                           color="gray.500"
                           className={'poppins-regular'}
                         >
-                          Page {currentPage}
+                          Page {currentPage} of{' '}
+                          {Math.ceil(allComments.length / COMMENTS_PER_PAGE)}
                         </Text>
                         <Button
                           size="sm"
